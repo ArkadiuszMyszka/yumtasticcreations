@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# parcel-project-template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Zalezności
 
-## Available Scripts
+Na komputerze musi być zainstalowana LTS-wersja [Node.js](https://nodejs.org/en/).
 
-In the project directory, you can run:
+## Przed rozpoczęciem pracy
 
-### `npm start`
+Jeden raz na projekt zainstalować wszystkie zalezności.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```shell
+npm ci
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Praca
 
-### `npm test`
+Włączyć tryp pracy.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell
+npm run dev
+```
 
-### `npm run build`
+W przeglądarce przejść na [http://localhost:1234](http://localhost:1234).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Deploy
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Kod będzie automatycznie się zbierać i robić deploy aktualnej wersji projektu 
+na GitHub Pages, w gałąź `gh-pages`, za kazdym razem jeśli zostaną wprowadzone zmiany w `main`. Na przykład, po bezpośrenim push lub po przyjęciu pull-request. Aby to działało musimy w pliku `package.json` zmienić pole `homepage` i skrypt
+`build`, zmieniając `nazwe_uzytkownika` i `nazwe_repozytorium` na swoje.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```json
+"homepage": "https://nazwa_uzytkownika.github.io/nazwa_repozytorium",
+"scripts": {
+  "build": "parcel build src/*.html --public-url /nazwa_repozytorium/"
+},
+```
 
-### `npm run eject`
+Po jakimś czasie stronę mozna będzie zobaczyć na zywo pod adresem który 
+jest wpisany w poprawione właściwości `homepage`, na przykład
+[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Pliki i folderzy
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Wszystkie partials plików styłów powinny być w folderze `src/sass` i importować się w
+  `src/sass/main.scss`
+- Zdjęcia dodawajcie w folder `src/images`, przed tym zoptymizujcie te zdjęcia które dodajecie. Program po prostu 
+  kopiuje wykorzystane zdjęcia aby system nie musiał optymizować je, bo na słabych komputerach 
+  to moze zająć duzo czasu.

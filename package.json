@@ -17,8 +17,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "parcel src/*.js",
-    "build": "parcel build src/*.js --public-url yumtasticcreations"
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url yumtasticcreations"
   },
   "repository": {
     "type": "git",
@@ -43,12 +43,10 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 3 safari version"
     ]
-  },
-  "devDependencies": {
-    "process": "^0.11.10"
   }
 }
+
