@@ -15,20 +15,11 @@ justify-content: center;
 align-items: center;
 width: 100vw;
 height: 100vh;
-background-image: url(${backgroundImage});
+background-image: linear-gradient(180deg,rgba(0,0,0,.6) 58.58%,rgba(0,0,0,.300) 78.98%,transparent), url(${backgroundImage});
 background-size: 200%;
 background-position: bottom;
 background-repeat: no-repeat;
 position: relative;
-
-&::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); 
 `;
 
 export const Container = styled.div`
