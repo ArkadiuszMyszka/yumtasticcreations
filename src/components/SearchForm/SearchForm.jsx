@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { Form, SearchFormInput, SearchButton } from "./SearchForm.styled";
+import { Form, SearchFormInput, SearchButton } from "./SearchForm.styled.js";
 
 export default function SearchForm({ onSubmit, queryParam = "" }) {
   const [query, setQuery] = useState("");

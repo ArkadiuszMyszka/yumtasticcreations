@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import SearchForm from "../../SearchForm/SearchForm";
-import SearchTypeSelector from "../SearchTypeSelector/SearchTypeSelector";
-import { SearchBarWrapper } from "./SearchBar.styled";
+import SearchForm from "../../SearchForm/SearchForm.jsx";
+import SearchTypeSelector from "../SearchTypeSelector/SearchTypeSelector.jsx";
+import { SearchBarWrapper } from "./SearchBar.styled.js";
 
 export default function SearchBar() {
   const [searchParams, setSearchParams] = useSearchParams();
