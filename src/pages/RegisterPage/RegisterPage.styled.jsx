@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from 'react-router-dom';
 import register_rectangle_s from '../../images/graphics/RegisterPage/register_rectangle_s.png';
 import register_rectangle_m from '../../images/graphics/RegisterPage/register_rectangle_m.png';
 import register_rectangle_l from '../../images/graphics/RegisterPage/register_rectangle_l.png';
@@ -24,5 +25,31 @@ export const Container = styled.div`
     background-image: url(${registration_signin_l}), url(${register_rectangle_l});
     background-position: bottom 55% left 12%, bottom 0 center;
     background-size: 532px 468px, 100% 40%;
+}
+`;
+
+export const Link = styled(NavLink)`
+    color: #fafafa;
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    text-decoration: underline;
+    top: 80%;
+    width: 100vw;
+
+    &:hover,
+    :focus {
+        color: #8BAA36;
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    font-size: 16px;
+    top: 90%;
+}
+
+    @media (min-width: 1200px) {
+    font-size: 16px;
+    left: 22%;
+    top: 79%;
 }
 `;

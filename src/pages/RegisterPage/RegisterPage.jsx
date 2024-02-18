@@ -1,6 +1,8 @@
 import React from "react";
-import { Container } from "./RegisterPage.styled";
+import { Container, Link } from "./RegisterPage.styled";
 
 export const RegisterPage = () => {
-    return <Container/>
+    return (<Container> 
+        <Link to="/signin">Sign In</Link>
+    </Container>);
 };
