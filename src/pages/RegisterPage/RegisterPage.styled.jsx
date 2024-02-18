@@ -13,7 +13,7 @@ export const Container = styled.div`
     background-image: url(${registration_signin_s}), url(${register_rectangle_s});
     background-position: top 87px center, bottom 0 center;
     background-repeat: no-repeat;
-    background-size: 285px 250px, 100vw vh;
+    background-size: 285px 250px, 100vw 58vh;
 
     @media (min-width: 768px) and (max-width: 1199px) {
     background-image: url(${registration_signin_m}), url(${register_rectangle_m});
