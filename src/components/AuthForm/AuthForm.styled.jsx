@@ -35,6 +35,18 @@ export const Header = styled.h3`
     margin-bottom: 35px;
     margin-left: 17px;
     margin-top: 10px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    margin-left: 34px;
+}
+
+    @media (min-width: 1200px) {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 34px;
+}
 `
 
 export const InputBox = styled.div`
@@ -67,9 +79,29 @@ export const Input = styled.input`
     &:focus,
     :hover {
         border-color: #fafafa;
-        outline: 0;
-        opacity: 1;
     }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    font-size: 18px;
+    height: 59px;
+    padding-left: 45px;
+    width: 400px;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+}
+
+    @media (min-width: 1200px) {
+    font-size: 18px;
+    height: 59px;
+    padding-left: 47px;
+    width: 400px;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+}
 
 `;
 
@@ -94,13 +126,22 @@ export const Button = styled.button`
     height: 45px;
     line-height: 1.13;
     margin: 0 auto;
-    width: 279px;
+    width: 320px;
 
     &:focus,
     :hover {
         color: #22252A;
-        outline: 0;
-        opacity: 1;
     }
 
+    @media (min-width: 768px) and (max-width: 1199px) {
+    height: 59px;
+    margin-top: 20px;
+    width: 445px;
+}
+
+    @media (min-width: 1200px) {
+    height: 59px;
+    font-size: 18px;
+    width: 450px;
+}
 `;

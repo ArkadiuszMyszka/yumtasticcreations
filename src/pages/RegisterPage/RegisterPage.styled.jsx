@@ -34,7 +34,7 @@ export const Link = styled(NavLink)`
     position: absolute;
     text-align: center;
     text-decoration: underline;
-    top: 80%;
+    bottom: 3%;
     width: 100vw;
 
     &:hover,
@@ -44,12 +44,11 @@ export const Link = styled(NavLink)`
 
     @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 16px;
-    top: 90%;
 }
 
     @media (min-width: 1200px) {
+    bottom: 20%;
     font-size: 16px;
     left: 22%;
-    top: 79%;
 }
 `;
