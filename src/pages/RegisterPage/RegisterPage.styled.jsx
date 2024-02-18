@@ -11,19 +11,19 @@ import registration_signin_l from '../../images/graphics/RegisterPage/registrati
 export const Container = styled.div`
     height: 100vh;
     background-image: url(${registration_signin_s}), url(${register_rectangle_s});
-    background-position: top 21% center, bottom 0 center;
+    background-position: top 87px center, bottom 0 center;
     background-repeat: no-repeat;
-    background-size: 285px 250px, 100% 58%;
+    background-size: 285px 250px, 100vw vh;
 
     @media (min-width: 768px) and (max-width: 1199px) {
     background-image: url(${registration_signin_m}), url(${register_rectangle_m});
-    background-position: top 15% center, bottom 0 center;
+    background-position: top 100px center, bottom 0 center;
     background-size: 409px 359px, 100% 59%;
 }
 
     @media (min-width: 1200px) {
     background-image: url(${registration_signin_l}), url(${register_rectangle_l});
-    background-position: bottom 55% left 12%, bottom 0 center;
+    background-position: bottom 170px left 110px, bottom 0 center;
     background-size: 532px 468px, 100% 40%;
 }
 `;
