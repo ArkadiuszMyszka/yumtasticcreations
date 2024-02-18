@@ -2,30 +2,30 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import RecipesList from "../RecipesList/RecipesList";
-import EmptyPage from "../EmptySearchPage/EmptySearchPage";
+import RecipesList from "../RecipesList/RecipesList.jsx";
+import EmptyPage from "../EmptySearchPage/EmptySearchPage.jsx";
 
 import {
   selectSearchResult,
   selectIsLoading,
   selectError,
   selectTotalPage,
-} from "../../../redux/search/searchSelectors";
+} from "../../../redux/search/searchSelectors.js";
 
 import {
   getSearchByTitle,
   getSearchByIngredients,
-} from "../../../redux/search/searchSelectors";
+} from "../../../redux/search/searchOperations.js";
 
-import { getNewState } from "redux/search/searchSlice";
-import { NoSearchText } from "./SearchedRecipesList.styled";
-import { Loader } from "components/Loader/Loader";
-import { Paginator } from "../..//Paginator/Paginator";
+import { getNewState } from "../../../redux/search/searchSlice.js";
+import { NoSearchText } from "./SearchedRecipesList.styled.js";
+// import { Loader } from "../../Loader/Loader.jsx";
+// import { Paginator } from "../../Paginator/Paginator.jsx";
 
 export default function SearchedRecipesList() {
   const [searchParams] = useSearchParams();
   const [page, setPage] = useState(1);
-  const perPage = 6;
+  const perPage = 9;
 
   const recipes = useSelector(selectSearchResult);
   const isLoading = useSelector(selectIsLoading);
@@ -54,7 +54,6 @@ export default function SearchedRecipesList() {
 
   return (
     <>
-      {isLoading && !error && <Loader />}
       {!isLoading && recipes
         ? (recipes.length === 0 && (
             <EmptyPage text="Try looking for something else..." />
@@ -62,14 +61,29 @@ export default function SearchedRecipesList() {
           (recipes.length > 0 && <RecipesList recipes={recipes} />)
         : !isLoading && <NoSearchText>Enter your search query</NoSearchText>}
       {error && toast.warn("Something gone wrong, please try again!")}
-      {recipes && !isLoading && recipes.length > 0 && (
-        <Paginator
-          perPage={perPage}
-          totalData={totalPage}
-          setPage={setPage}
-          page={page}
-        />
-      )}
+      {recipes && !isLoading && recipes.length > 0}
     </>
   );
 }
+
+// after Loader
+// return (
+//   <>
+//     {isLoading && !error && <Loader />}
+//     {!isLoading && recipes
+//       ? (recipes.length === 0 && (
+//           <EmptyPage text="Try looking for something else..." />
+//         )) ||
+//         (recipes.length > 0 && <RecipesList recipes={recipes} />)
+//       : !isLoading && <NoSearchText>Enter your search query</NoSearchText>}
+//     {error && toast.warn("Something gone wrong, please try again!")}
+//     {recipes && !isLoading && recipes.length > 0 && (
+//       <Paginator
+//         perPage={perPage}
+//         totalData={totalPage}
+//         setPage={setPage}
+//         page={page}
+//       />
+//     )}
+//   </>
+// );

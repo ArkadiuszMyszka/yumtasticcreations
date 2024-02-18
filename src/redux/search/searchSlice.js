@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   getSearchByTitle,
   getSearchByIngredients,
-} from "./searchOperations.jsx";
+} from "./searchOperations.js";
 
 const initialState = {
   searchResult: null,

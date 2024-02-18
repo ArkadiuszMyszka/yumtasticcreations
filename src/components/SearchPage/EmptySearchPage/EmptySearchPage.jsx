@@ -1,6 +1,10 @@
 import searchVegBg from "../../../images/graphics/look_for_sth_else_veggies.png";
 
-import { EmptyImgWrapper, EmptyText, EmptyWrapper } from "./EmptySearchPage.js";
+import {
+  EmptyImgWrapper,
+  EmptyText,
+  EmptyWrapper,
+} from "./EmptySearchPage.styled.js";
 
 const EmptyPage = ({ text }) => {
   return (

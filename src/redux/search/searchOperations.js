@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 export const getSearchByTitle = createAsyncThunk(
   "search/byTitle",
-  async ({ query, page = 1, perPage = 12 }, thunkApi) => {
+  async ({ query, page = 1, perPage = 9 }, thunkApi) => {
     try {
       const { data } = await axios.get(
         `/search/?query=${query}&page=${page}&perPage=${perPage}`
@@ -21,7 +21,7 @@ export const getSearchByTitle = createAsyncThunk(
 
 export const getSearchByIngredients = createAsyncThunk(
   "search/byIngredient",
-  async ({ query, page = 1, perPage = 12 }, thunkApi) => {
+  async ({ query, page = 1, perPage = 9 }, thunkApi) => {
     try {
       const { data } = await axios.get(
         `/ingredients/?query=${query}&page=${page}&perPage=${perPage}`
@@ -36,7 +36,7 @@ export const getSearchByIngredients = createAsyncThunk(
 
 export const getRecipeById = async (id) => {
   try {
-    const { data } = await axios.get(`/recipes/${id}`);
+    const { data } = await axios.get(`/recipe/${id}`);
     return data;
   } catch (error) {
     console.log(error.message);
