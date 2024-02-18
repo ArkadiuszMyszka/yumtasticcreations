@@ -17,5 +17,5 @@ return (
         <AuthNav />
     </Container>
  </Background>          
-)
-}
+);
+};

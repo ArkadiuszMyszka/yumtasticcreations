@@ -31,7 +31,6 @@ position: relative;
     background: rgba(0, 0, 0, 0.4); 
 `;
 
-
 export const Container = styled.div`
 @media (min-width: 1200px) {
     width: 544px;
@@ -71,7 +70,6 @@ color: white;
 font-weight: 600;
 font-size: 24px;
 line-height: 24px;
-
 `;
 
 export const Paragraph = styled.p`
@@ -79,7 +77,6 @@ export const Paragraph = styled.p`
     font-size: 18px;
     line-height: 1.28;
 }
-
 margin: 0;
 margin-top: 14px;
 color: white;
