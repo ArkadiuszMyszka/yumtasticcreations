@@ -3,12 +3,13 @@ import { Container, RegistrationButton, SignInButton } from "./AuthNav.styled";
 export const AuthNav = () => {
 return (
 <Container>
-    <RegistrationButton to="RegisterPage">
+    <RegistrationButton to="register">
        Registration
     </RegistrationButton >
-    <SignInButton to="SigninPage">
+    <SignInButton to="signin">
        Sign In
     </SignInButton>
-</Container>
+   </Container>
+   
 );
 };
