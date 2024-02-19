@@ -5,9 +5,10 @@ import { Tab, useMediaQuery } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../redux/selectors/categories"; // Adjusted path
 import { StyledCategory, StyledCategoryList } from "./CategoriesList.styled"; // Adjusted path
-import Alert from "../../components/ui/Alert"; // Adjusted path
+import Alert from "../ui/Alert"; // Adjusted path
 import { useTheme } from "styled-components";
 import { getCategories } from "../../redux/actions/categories"; // Adjusted path
+
 
 const CategoriesList = () => {
   const { items, error } = useSelector(selectCategories);
