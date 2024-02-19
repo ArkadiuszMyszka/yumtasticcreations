@@ -1,7 +1,9 @@
-import CategoriesList from "Components/Categories/CategoriesList/CategoriesList";
-import SearchRecipesList from "Components/Categories/CategoryList/CategoryList";
-import { PageWrapper } from "Components/Categories/CategoriesList/CategoriesList.styled";
-import { Title } from "Components/ui/MainPageTitle/MainPageTitle.styled";
+// CategoriesPage.jsx
+import CategoriesList from "../../components/Categories/CategoriesList/CategoriesList"; // Adjusted path
+import SearchRecipesList from "../../components/Categories/CategoryList/CategoryList"; // Adjusted path
+import { PageWrapper } from "../../components/Categories/CategoriesList/CategoriesList.styled"; // Adjusted path
+import { Title } from "../../components/ui/MainPageTitle/MainPageTitle.styled"; // Adjusted path
+
 
 const CategoriesPage = () => {
   return (
