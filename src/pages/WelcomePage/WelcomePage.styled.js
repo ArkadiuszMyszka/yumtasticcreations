@@ -20,6 +20,7 @@ background-size: 200%;
 background-position: bottom;
 background-repeat: no-repeat;
 position: relative;
+overflow: hidden;
 `;
 
 export const Container = styled.div`
