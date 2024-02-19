@@ -144,4 +144,10 @@ export const Button = styled.button`
     font-size: 18px;
     width: 450px;
 }
+`
+
+export const ErrorMessageStyled = styled.div`
+    color: #ff6b6b;
+    font-size: 12px;
+    margin-top: 4px;
 `;
