@@ -23,7 +23,7 @@ export const Section = styled.section`
   margin: 0 auto;
   max-width: 1024px;
   padding-top: 110px;
-  padding-bottom: 28px;
+  padding-bottom: 80px;
 
   @media screen and (min-width: 768px) {
     padding-top: 130px;

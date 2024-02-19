@@ -21,9 +21,9 @@ export const EmptyText = styled.p`
   line-height: 1.5;
   font-size: 14px;
   text-align: center;
-  font-feature-settings: "liga" off;
-  color: #d9d9d9;
+  color: #3e4462;
   opacity: 0.5;
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
   }
@@ -33,10 +33,9 @@ export const EmptyImgWrapper = styled.div`
   width: 208px;
   height: 133px;
   margin: 0 auto;
-  margin-bottom: 24px;
+
   @media screen and (min-width: 768px) {
     width: 350px;
     height: 225px;
-    margin-bottom: 32px;
   }
 `;

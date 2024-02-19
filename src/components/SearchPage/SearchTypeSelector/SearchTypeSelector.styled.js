@@ -3,16 +3,19 @@ import styled from "styled-components";
 export const BoxSelector = styled.div`
   height: 34px;
   display: flex;
+  position: relative;
   align-items: center;
   gap: 15px;
+  padding: 20px;
 
   @media screen and (min-width: 768px) {
     height: 41px;
     gap: 18px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     height: 47px;
+    gap: 25px;
   }
 `;
 
@@ -21,13 +24,13 @@ export const Label = styled.label`
   font-weight: 600;
   font-size: 12px;
   line-height: 1.5;
-  color: #fafafa;
+  color: #001833;
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 18px;
   }
 `;
@@ -48,14 +51,46 @@ export const Select = styled.select`
 
   @media screen and (min-width: 768px) {
     width: 175px;
+    height: 40px;
     font-size: 14px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
+    font-size: 14px;
     width: 198px;
+    height: 40px;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     outline: none;
   }
 `;
+
+// export const SelectOption = styled.option`
+//   display: block;
+//   width: 146px;
+//   height: 41px;
+//   outline: none;
+//   font-family: Poppins, sans-serif;
+//   font-weight: 400;
+//   font-size: 12px;
+//   line-height: 1.5;
+//   color: #000000;
+//   background-color: #eaeaea;
+//   cursor: pointer;
+//   opacity: 0.5;
+
+//   @media screen and (min-width: 768px) {
+//     width: 175px;
+//     font-size: 14px;
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//     width: 198px;
+//   }
+
+//   &:hover {
+//     background-color: #eeeeee;
+//   }
+// `;

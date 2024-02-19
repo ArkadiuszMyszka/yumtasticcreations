@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import RecipesList from "../RecipesList/RecipesList.jsx";
 import EmptyPage from "../EmptySearchPage/EmptySearchPage.jsx";
 
 import {
   selectSearchResult,
   selectIsLoading,
-  selectError,
   selectTotalPage,
 } from "../../../redux/search/searchSelectors.js";
 
@@ -29,7 +27,6 @@ export default function SearchedRecipesList() {
 
   const recipes = useSelector(selectSearchResult);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
   const totalPage = useSelector(selectTotalPage);
 
   const dispatch = useDispatch();
@@ -60,30 +57,26 @@ export default function SearchedRecipesList() {
           )) ||
           (recipes.length > 0 && <RecipesList recipes={recipes} />)
         : !isLoading && <NoSearchText>Enter your search query</NoSearchText>}
-      {error && toast.warn("Something gone wrong, please try again!")}
-      {recipes && !isLoading && recipes.length > 0}
     </>
   );
 }
 
-// after Loader
-// return (
-//   <>
-//     {isLoading && !error && <Loader />}
-//     {!isLoading && recipes
-//       ? (recipes.length === 0 && (
-//           <EmptyPage text="Try looking for something else..." />
-//         )) ||
-//         (recipes.length > 0 && <RecipesList recipes={recipes} />)
-//       : !isLoading && <NoSearchText>Enter your search query</NoSearchText>}
-//     {error && toast.warn("Something gone wrong, please try again!")}
-//     {recipes && !isLoading && recipes.length > 0 && (
-//       <Paginator
-//         perPage={perPage}
-//         totalData={totalPage}
-//         setPage={setPage}
-//         page={page}
-//       />
-//     )}
-//   </>
-// );
+// {recipes && !isLoading && recipes.length > 0 && (
+//   <Paginator
+//     perPage={perPage}
+//     totalData={totalPage}
+//     setPage={setPage}
+//     page={page}
+//   />
+// )}
+
+{
+  /* <>
+      {isLoading && !error && <Loader />}
+      {!isLoading && recipes && recipes.length !== 0 ? (
+        <RecipesList recipes={recipes} />
+      ) : (
+        <EmptyPage text="Try looking for something else..." />
+      )}
+    </> */
+}

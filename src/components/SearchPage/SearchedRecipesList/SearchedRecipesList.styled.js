@@ -8,8 +8,9 @@ export const NoSearchText = styled.p`
   line-height: 1.5;
   font-size: 14px;
   text-align: center;
-  color: #fafafa;
+  color: #001833;
   opacity: 0.5;
+
   @media screen and (min-width: 768px) {
     font-size: 24px;
     padding-bottom: 200px;
