@@ -1,8 +1,8 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled } from "../AuthForm/AuthForm.styled.jsx";
+import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled, Form } from "../AuthForm/AuthForm.styled.jsx";
 import icons from "../../images/ui/input/icons.svg";
 
 const validationSchema = Yup.object({
