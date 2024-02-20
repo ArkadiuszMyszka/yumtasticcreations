@@ -1,0 +1,261 @@
+/* Dla urządzeń mobilnych */
+@media (max-width: 767px) {
+  .container {
+    max-width: 343px;
+    margin: 0 auto; 
+  }
+  
+  .ShoppingList_number span:first-child {
+    margin-right: 24px; 
+  }
+  
+  .ShoppingList_buttons {
+    padding-right: 10px;
+  }
+
+  .ShoppingList_wrapper_picture {
+    padding: 10px 20px; 
+  }
+
+  .ShoppingList_picture {
+    margin-right: 20px; 
+  }
+  .ShoppingList_button {
+    margin-right: 20px;
+  }
+  .ShoppingList_wrapper_quantity {
+    margin-right: 50px; 
+  }
+  .ShoppingList_wrapper_description {
+    margin-right: 40px;
+    width: 100%;
+  }
+  .ShoppingList_bar {
+    padding: 10px;
+  }
+  
+  .ShoppingList_picture {
+    margin-left: 5px;
+  }
+
+  /* Dla pustej listy */
+  .ShoppingList_empty::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/graphics/look_for_sth_else_veggies.png'); /* Dodaj ścieżkę do swojego zdjęcia */
+    background-size: 208px 133px;
+    background-position: center;
+    background-repeat: no-repeat;
+    top:-170px
+  }
+  .ShoppingList_empty_text {
+    text-align: center;
+    margin-top: 20px;
+    color: #333; 
+    font-size: 14px;
+    font-weight: 700;
+    opacity: .5;
+  }
+}
+
+/* Dla tabletów */
+@media (min-width: 768px) and (max-width: 1439px) {
+  .container {
+    max-width: 704px;
+    margin: 0 auto;
+  }
+  
+  .ShoppingList_number span:first-child {
+    margin-right: 78px; 
+  }
+  
+  .ShoppingList_buttons {
+    padding-right: 20px; 
+  }
+
+  .ShoppingList_wrapper_picture {
+    padding: 10px 40px; 
+  }
+
+  .ShoppingList_picture {
+    margin-right: 20px;
+  }
+  .ShoppingList_button {
+    margin-right: 40px;
+  }
+  .ShoppingList_wrapper_quantity {
+    margin-right: 110px;
+  }
+  .ShoppingList_wrapper_description {
+    margin-right: 330px;
+    width: 100%;
+  }
+  .ShoppingList_bar {
+    padding: 20px;
+  }
+  
+  .ShoppingList_picture {
+    margin-left: 20px;
+  }
+
+  /* Dla pustej listy */
+  .ShoppingList_empty::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/graphics/look_for_sth_else_veggies.png'); /* Dodaj ścieżkę do swojego zdjęcia */
+    background-size: 350px 225px; 
+    background-position: center;
+    background-repeat: no-repeat;
+    top:-60px
+  }
+  .ShoppingList_empty_text {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
+    font-size: 17px;
+    font-weight: 700;
+    opacity: .5;
+  }
+}
+
+/* Dla Desktop */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1240px;
+    margin: 0 auto; 
+  }
+  
+  .ShoppingList_number span:first-child {
+    margin-right: 142px; 
+  }
+  
+  .ShoppingList_buttons {
+    padding-right: 40px;
+  }
+
+  .ShoppingList_wrapper_picture {
+    padding: 10px 60px; 
+  }
+
+  .ShoppingList_picture {
+    margin-right: 20px; 
+  }
+  .ShoppingList_button {
+    margin-right:80px;
+  }
+  .ShoppingList_wrapper_quantity {
+    margin-right: 170px; 
+  }
+  .ShoppingList_wrapper_description {
+    margin-right: 700px;
+    width: 100%;
+  }
+  .ShoppingList_bar {
+    padding: 21px 40px;
+  }
+  .ShoppingList_picture {
+    margin-left: 40px;
+  }
+
+  /* Dla pustej listy */
+  .ShoppingList_empty::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/graphics/look_for_sth_else_veggies.png'); /* Dodaj ścieżkę do swojego zdjęcia */
+    background-size: 350px 225px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .ShoppingList_empty_text {
+    text-align: center;
+    margin-top: 60px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    opacity: .5;
+  }
+}
+
+/* Pozostałe style */
+
+.ShoppingList_title {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.ShoppingList_bar {
+  background-color: #8BAA36; 
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.ShoppingList_buttons {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.ShoppingList_products {
+  text-align: left;
+}
+
+.ShoppingList_number {
+  display: flex;
+  align-items: center;
+}
+
+.ShoppingList_icons {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.ShoppingList_wrapper_picture {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa; 
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.ShoppingList_image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.ShoppingList_right_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.ShoppingList_button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.ShoppingList_button svg {
+  transition: transform 0.3s ease;
+}
+
+.ShoppingList_button:hover svg {
+  transform: scale(1.1);
+}
