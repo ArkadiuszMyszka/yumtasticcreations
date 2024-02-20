@@ -106,14 +106,27 @@ export const Input = styled.input`
 `;
 
 export const Icon = styled.svg`
-    fill: #FAFAFA;
+    fill: transparent;
     stroke: #FAFAFA;
     height: 18px;
     width: 18px;
     position: absolute;
-    top: 15px;
-    left: 26px;
+    top: 18px;
+    left: 22px;
 
+    @media (min-width: 768px) and (max-width: 1199px) {
+    height: 24px;
+    width: 24px;
+    top: 23px;
+    left: 40px;
+}
+
+    @media (min-width: 1200px) {
+    height: 24px;
+    width: 24px;
+    top: 23px;
+    left: 40px;
+}
 `
 
 export const Button = styled.button`
