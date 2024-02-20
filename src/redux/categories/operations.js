@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { instance } from "redux/auth/operations";
+import { instance } from "../auth/operations.js";
 
 export const getCategories = createAsyncThunk(
   "categories/getCategories",
   async (_, thunkAPI) => {
     try {
-      const res = await instance.get("/api/recipes/category-list");
+      const res = await instance.get("/recipes/category-list");
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -15,10 +15,10 @@ export const getCategories = createAsyncThunk(
 
 export const getCategoryRecipes = createAsyncThunk(
   "categories/getCategoriesRecipes",
-  async ({ categoryName, page }, thunkAPI) => {
+  async ({ categoryName}, thunkAPI) => {
     try {
       const resp = await instance.get(
-        `/api/recipes/${categoryName}?page=${page}`
+        `/recipes/${categoryName}`
       );
       return resp.data;
     } catch (err) {
