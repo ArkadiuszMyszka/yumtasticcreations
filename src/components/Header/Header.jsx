@@ -13,7 +13,7 @@ import {
   Navigation,
   DesktopMenu,
   DarkMode,
-} from "./JustHeader.styled";
+} from "./Header.styled";
 export const Header = () => {
   return (
     <Container>
