@@ -15,7 +15,7 @@ export const getCategories = createAsyncThunk(
 
 export const getCategoryRecipes = createAsyncThunk(
   "categories/getCategoriesRecipes",
-  async ({ categoryName}, thunkAPI) => {
+  async ({ categoryName }, thunkAPI) => {
     try {
       const resp = await instance.get(
         `/recipes/${categoryName}`
