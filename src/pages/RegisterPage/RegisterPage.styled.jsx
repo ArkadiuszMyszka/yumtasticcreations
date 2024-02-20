@@ -45,10 +45,9 @@ export const BgGraphics = styled.div`
     background-size: contain;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 58%;
-    margin-right: -58%;
     height: 35vh;
     max-height: 359px;
+    left: 52.5%;
     width: 53vw;
     max-width: 409px;
     background-image: url(${registration_signin_m});
@@ -69,11 +68,12 @@ export const BgGraphics = styled.div`
 
 export const Link = styled(NavLink)`
     color: #fafafa;
+    cursor: pointer;
     font-size: 14px;
     position: absolute;
     text-align: center;
     text-decoration: underline;
-    bottom: 3%;
+    bottom: 11%;
     width: 100vw;
 
     &:hover,
@@ -82,11 +82,12 @@ export const Link = styled(NavLink)`
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
+    bottom: 9%;
     font-size: 16px;
 }
 
     @media (min-width: 1200px) {
-    bottom: 20%;
+    bottom: 11%;
     font-size: 16px;
     left: 22%;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled } from "./AuthForm.styled";
+import { Header, InputBox, Input, Button, Icon, Form, ErrorMessageStyled } from "./AuthForm.styled";
 import icons from "../../images/ui/input/icons.svg"
 import { privateApi } from '../../services/PrivateApi';
 
@@ -33,7 +33,7 @@ export const AuthForm = () => {
       }}
     >
       {formik => (
-        <form onSubmit={formik.handleSubmit} style={{ position: 'absolute', top: '375px', left: '50%', transform: 'translate(-50%, 0)', width: '335px' }}>
+        <Form onSubmit={formik.handleSubmit}>
           <Header>Registration</Header>
           <InputBox>
             <Icon><use href={`${icons}#icon-input_user`}></use></Icon>
@@ -51,7 +51,7 @@ export const AuthForm = () => {
             <ErrorMessage name="password" component={ErrorMessageStyled} />
           </InputBox>
           <Button type="submit">Sign up</Button>
-        </form>
+        </Form>
       )}
     </Formik>
   );

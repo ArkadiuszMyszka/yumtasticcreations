@@ -6,24 +6,27 @@ export const Form = styled.form`
     color: #fafafa;
     display: flex;
     flex-direction: column;
-    padding: 15px 15px 30px 15px;
+    padding: 25px 20px 25px 20px;
+    width: 89vw;
+    max-width: 335px;
     position: absolute;
-    top: 305px;
+    top: 93.5%;
     left: 50%;
-    transform: translate(-50%, 0);
-    width: 335px;
+    margin-right: -50%;
+    transform: translate(-50%, -120%);
 
     @media (min-width: 768px) and (max-width: 1199px) {
     padding: 50px 15px 50px 15px;
-    top: 444px;
-    width: 500px;
+    width: 65vw;
+    max-width: 500px;
+    top: 96%;
 }
 
     @media (min-width: 1200px) {
-    left: 75%;
     padding: 15px 15px 50px 15px;
-    top: 15%;
-    width: 500px;
+    width: 35vw;
+    max-width: 500px;
+    left: 72%;
 }
 `;
 
@@ -32,20 +35,20 @@ export const Header = styled.h3`
     font-weight: 600;
     letter-spacing: -2%;
     line-height: 1.17;
-    margin-bottom: 35px;
-    margin-left: 17px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: 0;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    margin-left: 34px;
+    margin-left: 25px;
 }
 
     @media (min-width: 1200px) {
     font-size: 28px;
     font-weight: 600;
     margin-top: 20px;
-    margin-bottom: 30px;
-    margin-left: 34px;
+    margin-bottom: 25px;
+    margin-left: 20px;
 }
 `
 
@@ -63,17 +66,20 @@ export const Input = styled.input`
     color: #fafafa;
     opacity: 0.4;
     font-size: 14px;
-    height: 45px;
+    height: 6vh;
+    max-height: 45px;
     letter-spacing: -2%;
     margin: 0 auto;
     margin-bottom: 3px;
     padding-left: 40px;
     padding-top: 4px;
-    width: 279px;
+    width: 74vw;
+    max-width: 279px;
 
     &::placeholder {
+        color: #fafafa;
+        font-family: Poppins;
         font-size: 14px;
-        opacity: 0.8;
     }
 
     &:focus,
@@ -83,9 +89,11 @@ export const Input = styled.input`
 
     @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 18px;
-    height: 59px;
+    height: 6vh;
+    max-height: 59px;
     padding-left: 45px;
-    width: 400px;
+    width: 52vw;
+    max-width: 400px;
 
     &::placeholder {
       font-size: 18px;
@@ -94,9 +102,11 @@ export const Input = styled.input`
 
     @media (min-width: 1200px) {
     font-size: 18px;
-    height: 59px;
+    height: 8vh;
+    max-height: 59px;
     padding-left: 47px;
-    width: 400px;
+    width: 28vw;
+    max-width: 400px;
 
     &::placeholder {
       font-size: 18px;
@@ -111,21 +121,21 @@ export const Icon = styled.svg`
     height: 18px;
     width: 18px;
     position: absolute;
-    top: 18px;
-    left: 22px;
+    top: 50%;
+    left: 9.5%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 
     @media (min-width: 768px) and (max-width: 1199px) {
     height: 24px;
     width: 24px;
-    top: 23px;
-    left: 40px;
+    left: 10.5%;
 }
 
     @media (min-width: 1200px) {
     height: 24px;
     width: 24px;
-    top: 23px;
-    left: 40px;
+    left: 11%;
 }
 `
 
@@ -136,10 +146,14 @@ export const Button = styled.button`
     color: #fafafa;
     cursor: pointer;
     font-size: 16px;
-    height: 45px;
+    height: 6vh;
+    max-height: 45px;
     line-height: 1.13;
+    padding: 0;
     margin: 0 auto;
-    width: 320px;
+    margin-top: 25px;
+    width: 74vw;
+    max-width: 322px;
 
     &:focus,
     :hover {
@@ -147,15 +161,19 @@ export const Button = styled.button`
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    height: 59px;
+    height: 6vh;
+    max-height: 59px;
     margin-top: 20px;
-    width: 445px;
+    width: 52vw;
+    max-width: 448px;
 }
 
     @media (min-width: 1200px) {
-    height: 59px;
     font-size: 18px;
-    width: 450px;
+    height: 8vh;
+    max-height: 59px;
+    width: 32vw;
+    max-width: 450px;
 }
 `
 
