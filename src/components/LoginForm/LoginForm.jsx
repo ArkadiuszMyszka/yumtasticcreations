@@ -1,6 +1,5 @@
 import { Form, Header, InputBox, Input, Button, Icon } from "../AuthForm/AuthForm.styled.jsx";
-import input_mail from '../../images/ui/input/input_mail.svg';
-import input_lock from '../../images/ui/input/input_lock.svg';
+import icons from "../../images/ui/input/icons.svg"
 
 export const LoginForm = () => {
     return (<Form>
@@ -13,7 +12,7 @@ export const LoginForm = () => {
                 placeholder="Email"
                 autoComplete="off"
             />
-            <Icon><use href={`${input_mail}#input_mail`}></use></Icon>
+            <Icon><use href={`${icons}#icon-input_mail`}></use></Icon>
         </InputBox>
         <InputBox>
             <Input
@@ -23,7 +22,7 @@ export const LoginForm = () => {
                 placeholder="Password"
                 autoComplete="off"
             />
-            <Icon><use href={`${input_lock}#input_lock`}></use></Icon>
+            <Icon><use href={`${icons}#icon-input_lock`}></use></Icon>
         </InputBox>
         <Button>Sign In</Button>
     </Form>);
