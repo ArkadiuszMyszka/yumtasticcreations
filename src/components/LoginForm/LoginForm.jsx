@@ -1,9 +1,12 @@
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+
 import axios from 'axios';
-import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled } from "../AuthForm/AuthForm.styled.jsx";
+import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled, Form } from "../AuthForm/AuthForm.styled.jsx";
+
 import icons from "../../images/ui/input/icons.svg";
+import privateApi from '../../services/PrivateApi';
 
 const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Email is required'),
@@ -11,21 +14,22 @@ const validationSchema = Yup.object({
 });
 
 export const LoginForm = () => {
+
+  
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting, resetForm, setErrors }) => {
-        axios.post('http://localhost:3001/server/routes/authroutes/loginRoutes', values) // Zaktualizuj URL zgodnie z konfiguracją Twojego API
+        privateApi.post('/login', values)
           .then(response => {
             console.log('Login successful', response);
-            localStorage.setItem('authToken', response.data.token); // Zapisywanie token JWT w localStorage
-            window.location.href = '/dashboard'; // Przekierowanie na stronę główną/dashboard po pomyślnym logowaniu
+            localStorage.setItem('authToken', response.data.token);
+            window.location.href = '/search';
           })
           .catch(error => {
             console.error('Login error', error.response.data.message);
-            setErrors({ submit: error.response.data.message }); // Ustawić błąd formularza na podstawie odpowiedzi z serwera
-            setSubmitting(false);
+            setErrors({ submit: error.response.data.message });
             resetForm();
           });
       }}
@@ -36,13 +40,13 @@ export const LoginForm = () => {
           <InputBox>
             <Icon><use href={`${icons}#icon-input_mail`}></use></Icon>
             <Field name="email" as={Input} type="email" placeholder="Email" />
-            <ErrorMessage name="email" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="email" component={ErrorMessageStyled} />
           <InputBox>
             <Icon><use href={`${icons}#icon-input_lock`}></use></Icon>
             <Field name="password" as={Input} type="password" placeholder="Password" />
-            <ErrorMessage name="password" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="password" component={ErrorMessageStyled} />
           <Button type="submit" disabled={isSubmitting}>Sign In</Button>
         </Form>
       )}
