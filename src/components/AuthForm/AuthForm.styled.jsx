@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as Error } from '../../images/ui/input/input_error.svg';
 
 export const Form = styled.form`
     background-color: #2A2C36;
@@ -83,8 +84,10 @@ export const Input = styled.input`
     }
 
     &:focus,
-    :hover {
+    &:hover {
         border-color: #fafafa;
+        opacity: 1;
+        outline: 0;
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
@@ -154,9 +157,10 @@ export const Button = styled.button`
     margin-top: 25px;
     width: 74vw;
     max-width: 322px;
+    transition-duration: 0.5s;
 
     &:focus,
-    :hover {
+    &:hover {
         color: #22252A;
     }
 
@@ -179,8 +183,32 @@ export const Button = styled.button`
 
 export const ErrorMessageStyled = styled.div`
     color: #E74A3B;
+    font-family: Poppins;
     font-size: 12px;
     position: relative;
-    bottom: 10px;
+    bottom: 8px;
+    left: 8px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    left: 26px;
+}
+
+    @media (min-width: 1200px) {
     left: 23px;
+}
+`;
+
+export const ErrorIconStyled = styled(Error)`
+  position: relative;
+  left: 292px;
+  top: -66px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    left: 435px;
+}
+
+    @media (min-width: 1200px) {
+    top: -72px;
+    left: 435px;
+}
 `;

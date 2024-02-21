@@ -75,9 +75,10 @@ export const Link = styled(NavLink)`
     text-decoration: underline;
     bottom: 11%;
     width: 100vw;
+    transition-duration: 0.5s;
 
     &:hover,
-    :focus {
+    &:focus {
         color: #8BAA36;
     }
 

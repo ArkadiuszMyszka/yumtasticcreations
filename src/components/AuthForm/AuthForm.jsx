@@ -39,7 +39,7 @@ export const AuthForm = () => {
             <Icon><use href={`${icons}#icon-input_user`}></use></Icon>
             <Field name="name" as={Input} placeholder="Name" />
           </InputBox>
-          <ErrorMessage name="name" component={ErrorMessageStyled} />
+          <ErrorMessage name="name" component={ErrorMessageStyled}></ErrorMessage>
           <InputBox>
             <Icon><use href={`${icons}#icon-input_mail`}></use></Icon>
             <Field name="email" as={Input} placeholder="Email" />
