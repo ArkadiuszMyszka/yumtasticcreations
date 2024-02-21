@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getMainPageRecipes } from "./operations";
+import { getMainPageRecipes } from "./operations.js";
 
 const recipesSlice = createSlice({
     name: "recipes",

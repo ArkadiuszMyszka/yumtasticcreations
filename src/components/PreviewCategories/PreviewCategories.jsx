@@ -9,7 +9,7 @@ export const PreviewCategories = () => {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
     const [recipes, setRecipes] = useState([]);
-    const popularCategories = categories.items;
+    const popularCategories = categories.items; 
     const isMobile = useMediaQuery('(max-width:600px)');
     const isTablet = useMediaQuery('(min-width:601px) and (max-width:1024px)');
     
