@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled } from "../AuthForm/AuthForm.styled.jsx";
 import icons from "../../images/ui/input/icons.svg";
+import privateApi from '../../services/PrivateApi';
 
 const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Email is required'),
@@ -11,21 +11,22 @@ const validationSchema = Yup.object({
 });
 
 export const LoginForm = () => {
+
+  
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting, resetForm, setErrors }) => {
-        axios.post('http://localhost:3001/server/routes/authroutes/loginRoutes', values) // Zaktualizuj URL zgodnie z konfiguracją Twojego API
+        privateApi.post('/login', values)
           .then(response => {
             console.log('Login successful', response);
-            localStorage.setItem('authToken', response.data.token); // Zapisywanie token JWT w localStorage
-            window.location.href = '/dashboard'; // Przekierowanie na stronę główną/dashboard po pomyślnym logowaniu
+            localStorage.setItem('authToken', response.data.token);
+            window.location.href = '/search';
           })
           .catch(error => {
             console.error('Login error', error.response.data.message);
-            setErrors({ submit: error.response.data.message }); // Ustawić błąd formularza na podstawie odpowiedzi z serwera
-            setSubmitting(false);
+            setErrors({ submit: error.response.data.message });
             resetForm();
           });
       }}

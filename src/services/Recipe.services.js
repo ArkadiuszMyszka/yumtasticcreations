@@ -1,4 +1,4 @@
-import { privateApi } from "./PrivateApi.js";
+import privateApi from '../services/PrivateApi.js';
 
 export const getRecipeByIdService = async (recipeId) => {
   const { data } = await privateApi.get(`/recipe/${recipeId}`);
