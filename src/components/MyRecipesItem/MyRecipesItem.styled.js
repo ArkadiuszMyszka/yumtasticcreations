@@ -28,6 +28,9 @@ export const RecipeDetails = styled.div`
 export const RecipeTitle = styled.h3`
   font-size: 14px;
   margin-bottom: 8px;
+  color: #3e4462;
+  font-family: Poppins;
+  font-weight: 500;
 `;
 
 export const RecipeDescription = styled.p`
