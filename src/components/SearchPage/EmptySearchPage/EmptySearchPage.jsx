@@ -6,7 +6,7 @@ import {
   EmptyWrapper,
 } from "./EmptySearchPage.styled.js";
 
-const EmptyPage = ({ text }) => {
+const EmptyPage = () => {
   return (
     <EmptyWrapper>
       <EmptyImgWrapper>
@@ -20,7 +20,7 @@ const EmptyPage = ({ text }) => {
           />
         </picture>
       </EmptyImgWrapper>
-      <EmptyText>{text}</EmptyText>
+      <EmptyText>Try looking for something else...</EmptyText>
     </EmptyWrapper>
   );
 };

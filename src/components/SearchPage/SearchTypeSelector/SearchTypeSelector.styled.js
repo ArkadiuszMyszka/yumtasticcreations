@@ -19,6 +19,11 @@ export const BoxSelector = styled.div`
   }
 `;
 
+export const TypeBox = styled.div`
+  display: flex;
+  position: relative;
+`;
+
 export const Label = styled.label`
   font-family: Poppins, sans-serif;
   font-weight: 600;
@@ -42,10 +47,10 @@ export const Select = styled.select`
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
-  color: #000000;
+  color: #7d7d7d;
   border-radius: 6px;
   border: 1px solid #d9d9d9;
-  background-color: #d9d9d9;
+  background-color: #e8e8e8;
   cursor: pointer;
   opacity: 0.5;
 

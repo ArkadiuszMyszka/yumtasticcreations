@@ -17,14 +17,15 @@ export const SearchFormInput = styled.input`
   background-color: #ffffff;
   transition: border 0.3s ease;
   width: 100%;
+  width: 295px;
   padding-left: 30px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid #d1cece;
   border-radius: 24px 44px;
   box-shadow: 0px 4px 97px 0px #22252a08;
   outline: none;
 
   @media (min-width: 768px) {
-    min-width: 362px;
+    width: 362px;
     height: 57px;
     font-size: 16px;
   }
@@ -36,8 +37,8 @@ export const SearchFormInput = styled.input`
 `;
 
 export const SearchButton = styled.button`
-  // position: absolute;
-  // right: 0;
+  position: absolute;
+  right: 0;
   cursor: pointer;
   width: 113px;
   height: 53px;
@@ -46,11 +47,11 @@ export const SearchButton = styled.button`
   font-size: 14px;
   line-height: 1.5;
   color: #fafafa;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #8baa36;
   border-radius: 24px 44px;
   border: none;
   // transform: translate(-98%);
+  transition: all 0.3s ease-out;
 
   @media screen and (min-width: 768px) {
     width: 161px;
@@ -60,7 +61,7 @@ export const SearchButton = styled.button`
 
   @media screen and (min-width: 1280px) {
     width: 161px;
-    height: 70px;
+    height: 73px;
     font-size: 16px;
   }
 

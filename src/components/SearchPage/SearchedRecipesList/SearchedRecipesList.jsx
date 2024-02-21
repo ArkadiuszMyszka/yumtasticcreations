@@ -1,13 +1,28 @@
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useCallback,
+  useRef,
+} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router";
+
 import RecipesList from "../RecipesList/RecipesList.jsx";
+import RecipeOne from "../../Recipe/Recipe.jsx";
 import EmptyPage from "../EmptySearchPage/EmptySearchPage.jsx";
+import { NoSearchText } from "./SearchedRecipesList.styled.js";
+import { Loader } from "../../Loader/Loader.jsx";
+// import { Paginator } from "../../Paginator/Paginator.jsx";
 
 import {
   selectSearchResult,
+  selectRecipeByTitle,
+  selectRecipesByIngredient,
+  selectCurrentPage,
   selectIsLoading,
-  selectTotalPage,
+  selectError,
 } from "../../../redux/search/searchSelectors.js";
 
 import {
@@ -15,59 +30,110 @@ import {
   getSearchByIngredients,
 } from "../../../redux/search/searchOperations.js";
 
-import { getNewState } from "../../../redux/search/searchSlice.js";
-import { NoSearchText } from "./SearchedRecipesList.styled.js";
-import Loader from "../../Loader/Loader.jsx";
-// import { Paginator } from "../../Paginator/Paginator.jsx";
+import {
+  resetRecipeByIngredient,
+  setCurrentPage,
+  resetCurrentPage,
+} from "../../../redux/search/searchSlice.js";
 
 export default function SearchedRecipesList() {
-  const [searchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
   const perPage = 9;
-
+  const searchedList = useSelector(selectRecipeByTitle);
+  const serchedIngredList = useSelector(selectRecipesByIngredient);
+  const currentPage = useSelector(selectCurrentPage);
   const recipes = useSelector(selectSearchResult);
   const isLoading = useSelector(selectIsLoading);
-  const totalPage = useSelector(selectTotalPage);
 
+  const location = useLocation();
   const dispatch = useDispatch();
-
-  const query = searchParams.get("query") ?? "";
-  const type = searchParams.get("type") ?? "";
+  const listRef = useRef(null);
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    if (query === "" || type === "") {
-      dispatch(getNewState());
-      return;
+    if (location.state && location.state.from === "/main") {
+      const params = Object.fromEntries(searchParams.entries());
+      const title = searchParams.get("params");
+      if (params && params !== "") {
+        dispatch(resetCurrentPage());
+        dispatch(resetRecipeByIngredient());
+        dispatch(getSearchByTitle(title));
+      }
     }
+  }, []);
 
-    if (type === "title") {
-      dispatch(getSearchByTitle({ query, page, perPage }));
-    }
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [visibleRecipes, setVisibleRecipes] = useState([]);
 
-    if (type === "ingredients") {
-      dispatch(getSearchByIngredients({ query, page, perPage }));
-    }
-  }, [dispatch, page, perPage, query, type]);
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const visibleRecipeList = useCallback(() => {
+    let visibleList =
+      searchedList?.length > 0
+        ? searchedList
+        : serchedIngredList?.map((i) => i);
+    setVisibleRecipes(visibleList);
+  }, [searchedList, serchedIngredList]);
+
+  useEffect(() => {
+    visibleRecipeList();
+  }, [visibleRecipeList]);
+
+  // const handlePageChange = useCallback(
+  //   (pageNumber) => {
+  //     dispatch(setCurrentPage(pageNumber));
+  //     listRef.current?.scrollIntoView({ behavior: "smooth" });
+  //   },
+  //   [dispatch]
+  // );
+
+  const currentPageData = visibleRecipes.slice(
+    (currentPage - 1) * perPage,
+    currentPage * perPage
+  );
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && recipes
-        ? (recipes.length === 0 && (
-            <EmptyPage text="Try looking for something else..." />
-          )) ||
-          (recipes.length > 0 && <RecipesList recipes={recipes} />)
-        : !isLoading && <NoSearchText>Enter your search query</NoSearchText>}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {(windowWidth >= 1280 ? visibleRecipes : currentPageData)?.length ||
+          0 ? (
+            <List ref={listRef}>
+              {(windowWidth >= 1280 ? visibleRecipes : currentPageData)
+                .slice(
+                  0,
+                  windowWidth >= 1280
+                    ? 12
+                    : (windowWidth >= 1280 ? visibleRecipes : currentPageData)
+                        .length
+                )
+                .map(({ _id: id, title }) => (
+                  <RecipeOne key={id} id={recipeId} title={title} />
+                ))}
+            </List>
+          ) : (
+            <EmptyPage />
+          )}
+        </>
+      )}
     </>
   );
 }
 
-// {recipes && !isLoading && recipes.length > 0 && (
+// {windowWidth < 1280 && visibleRecipes.length !== 0 && (
 //   <Paginator
-//     perPage={perPage}
-//     totalData={totalPage}
-//     setPage={setPage}
-//     page={page}
+//     data={visibleRecipes}
+//     itemsPerPage={itemsPerPage}
+//     onPageChange={handlePageChange}
 //   />
 // )}
 
