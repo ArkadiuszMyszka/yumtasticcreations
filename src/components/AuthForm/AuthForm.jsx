@@ -38,18 +38,18 @@ export const AuthForm = () => {
           <InputBox>
             <Icon><use href={`${icons}#icon-input_user`}></use></Icon>
             <Field name="name" as={Input} placeholder="Name" />
-            <ErrorMessage name="name" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="name" component={ErrorMessageStyled} />
           <InputBox>
             <Icon><use href={`${icons}#icon-input_mail`}></use></Icon>
             <Field name="email" as={Input} placeholder="Email" />
-            <ErrorMessage name="email" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="email" component={ErrorMessageStyled} />
           <InputBox>
             <Icon><use href={`${icons}#icon-input_lock`}></use></Icon>
             <Field name="password" as={Input} placeholder="Password" />
-            <ErrorMessage name="password" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="password" component={ErrorMessageStyled} />
           <Button type="submit">Sign up</Button>
         </Form>
       )}
