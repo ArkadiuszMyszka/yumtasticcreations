@@ -5,6 +5,7 @@ export const StyledTitle = styled.h1`
   font-family: Poppins;
   font-weight: 600;
   letter-spacing: -0.02em;
+  margin-left: 32px;
   text-align: left;
 
   @media (max-width: 768px) {

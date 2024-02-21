@@ -1,23 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  RecipeItemContainer,
+  RecipeTitle,
+  CookingTime,
+  BackgroundImage,
+  RecipeDetails,
+  RemoveButton,
+  SeeRecipeButton,
+  RecipeDescription,
+} from "./MyRecipesItem.styled.js";
 
 const MyRecipesItem = ({
   title,
+  description,
   cookingTime,
   backgroundImage,
   onRemove,
   recipeLink,
 }) => {
   return (
-    <div>
-      <h3>{title}</h3>
-      <p>Cooking Time: {cookingTime}</p>
-      <img src={backgroundImage} alt={title} />
-      <button onClick={onRemove}>Remove</button>
-      <Link to={recipeLink}>
-        <button>See Recipe</button>
-      </Link>
-    </div>
+    <RecipeItemContainer>
+      <BackgroundImage src={backgroundImage} alt={title} />
+      <RecipeDetails>
+        <RecipeTitle>{title}</RecipeTitle>
+        <RecipeDescription>{description}</RecipeDescription>
+        <CookingTime>Cooking Time: {cookingTime} minutes</CookingTime>
+        <RemoveButton onClick={onRemove}>Remove</RemoveButton>
+        <SeeRecipeButton>
+          <Link to={recipeLink}>See Recipe</Link>
+        </SeeRecipeButton>
+      </RecipeDetails>
+    </RecipeItemContainer>
   );
 };
 
