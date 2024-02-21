@@ -17,7 +17,7 @@ import {
 
 import { getNewState } from "../../../redux/search/searchSlice.js";
 import { NoSearchText } from "./SearchedRecipesList.styled.js";
-// import { Loader } from "../../Loader/Loader.jsx";
+import Loader from "../../Loader/Loader.jsx";
 // import { Paginator } from "../../Paginator/Paginator.jsx";
 
 export default function SearchedRecipesList() {
@@ -51,6 +51,7 @@ export default function SearchedRecipesList() {
 
   return (
     <>
+      {isLoading && <Loader />}
       {!isLoading && recipes
         ? (recipes.length === 0 && (
             <EmptyPage text="Try looking for something else..." />
