@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const RecipeItemContainer = styled.div`
+  height: 152px;
   height: 9.5em;
   border: 1px solid #ccc;
   margin: 10px;
   padding: 14px 9px;
+  font-family: Poppins;
+  font-weight: 500;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -19,27 +22,26 @@ export const BackgroundImage = styled.img`
 export const RecipeDetails = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+  max-height: 100%;
 `;
 
 export const RecipeTitle = styled.h3`
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 8px;
 `;
 
 export const RecipeDescription = styled.p`
-  position: relative;
-  font-size: 14px;
-  margin-bottom: 8px;
-  color: #666;
+  font-size: 10px;
+  color: #3e4462;
+  font-family: Poppins;
+  font-weight: 400;
 `;
 
 export const CookingTime = styled.p`
   align-self: flex-start;
   justify-self: end;
   font-size: 14px;
-  color: #666;
+  color: #3e4462;
 `;
 
 export const RemoveButton = styled.button`
@@ -56,11 +58,12 @@ export const SeeRecipeButton = styled.button`
   width: 87px;
   background-color: #8baa36;
   text-decoration: none;
+  font-family: Poppins;
+  text-align: center;
+  font-size: 10px;
   color: #fff;
   border: none;
-  padding: 8px;
   border-radius: 24px 44px;
   cursor: pointer;
   align-self: flex-end;
-  margin-top: 8px;
 `;

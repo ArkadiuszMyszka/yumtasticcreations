@@ -25,8 +25,8 @@ const MyRecipesItem = ({
       <RecipeDetails>
         <RecipeTitle>{title}</RecipeTitle>
         <RecipeDescription>{description}</RecipeDescription>
-        <CookingTime>Cooking Time: {cookingTime} minutes</CookingTime>
-        <RemoveButton onClick={onRemove}>Remove</RemoveButton>
+        <CookingTime>{cookingTime} min</CookingTime>
+        <RemoveButton onClick={onRemove}></RemoveButton>
         <SeeRecipeButton>
           <Link to={recipeLink}>See Recipe</Link>
         </SeeRecipeButton>
