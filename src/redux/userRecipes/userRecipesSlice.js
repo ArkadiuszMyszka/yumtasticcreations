@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { privateApi } from "../../services/PrivateApi.js";
+import privateApi from '../../services/PrivateApi.js';
 
 const userRecipesSlice = createSlice({
   name: "userRecipes",

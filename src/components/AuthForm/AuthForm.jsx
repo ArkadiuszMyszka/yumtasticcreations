@@ -3,7 +3,7 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled } from "./AuthForm.styled";
 import icons from "../../images/ui/input/icons.svg"
-import { privateApi } from '../../services/PrivateApi';
+import privateApi from '../../services/PrivateApi';
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Name is required'),
@@ -17,13 +17,17 @@ export const AuthForm = () => {
       initialValues={{ name: '', email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting, resetForm, setErrors }) => {
-        // Tutaj wykonujemy wywołanie API
-        privateApi.post('/auth/authRegister', values)
+        privateApi.post('/register', values)
           .then(response => {
             console.log('Registration successful', response);
+          
+            if (response.data.token) {
+              localStorage.setItem('authToken', response.data.token);
+            }
+            window.location.href = '/search';
+            
             setSubmitting(false);
             resetForm();
-            // Tutaj należy dodać przekierowanie lub wyświetlić komunikat o sukcesie
           })
           .catch(error => {
             console.error('Registration error', error);
