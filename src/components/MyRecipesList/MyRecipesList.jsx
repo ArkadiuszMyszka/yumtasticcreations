@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchUserRecipes,
   removeUserRecipeAsync,
-} from "../redux/userRecipes/userRecipesSlice";
-import MyRecipesItem from "./MyRecipesItem";
+} from "../../redux/userRecipes/userRecipesSlice.js";
+import MyRecipesItem from "../MyRecipesItem/MyRecipesItem.jsx";
 
 const MyRecipesList = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const MyRecipesList = () => {
 
   return (
     <div>
-      <h2>My Recipes</h2>
       {recipes.map((recipe) => (
         <MyRecipesItem
           key={recipe._id}
