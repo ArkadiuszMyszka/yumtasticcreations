@@ -1,10 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { searchReducer } from "./search/searchSlice.js";
-import { categoriesReducer } from "./categories/categoriesSlice.js"; 
+import userRecipesReducer from "./userRecipes/userRecipesSlice.js";
 
 const rootReducer = combineReducers({
   search: searchReducer,
-  categories: categoriesReducer,
+  userRecipes: userRecipesReducer,
 });
 
 const store = configureStore({
