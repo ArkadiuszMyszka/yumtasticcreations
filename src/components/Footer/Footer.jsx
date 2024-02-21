@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import './Footer.styled.css';
+import icons_footer from "../../images/ui/social_media/icons_footer.svg";
+import logo_mobile from "../../images/ui/logo/logo_mobile.svg";
+import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Icon, Svg, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, Button, ErrorMsg } from './Footer.styled.jsx';
 
-const Footer = () => {
+export const Footer = () => {
     const [email, setEmail] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(true);
 
@@ -18,48 +20,40 @@ const Footer = () => {
     };
 
     return (
-        <div>
-            <footer className="footer_container">
-                <div className="container">
-                    <div className="footer_logo">
+        <FooterBox>
+            <StyledFooter>
+                    <Logo>
                         <a href="/main">
-                            <svg
-                                width="44"
-                                height="44"
-                                alt="Website Logo"
-                                src="/images/ui/logo/logo_mobile.svg" 
-                                srcSet="./images/ui/logo/logo_desktop_tablet.svg 500w, ./images/ui/logo/logo_desktop_tablet.svg 1000w" 
-                                sizes="(max-width: 767px) 500px, (min-width: 768px) and (max-width: 1439px) 768px, (min-width: 1440px) 1000px" 
-                            />
-                            <span className="footer_title">So Yummy</span>
+                            <LogoSvg><use href={`${logo_mobile}`}></use></LogoSvg> 
+                            {/* note-to-self:    przerobić logo na sprite */}
                         </a>
-                    </div>
+                        <LogoName>So Yummy</LogoName>
+                    </Logo>
 
-                    <div className="footer_description">
+                    <About>
                         <ul>
-                            <li>Database of recipes that can be replenished </li>
-                            <li>Flexible search for desired and unwanted ingredients</li>
-                            <li>Ability to add your own recipes with photos</li>
-                            <li>Convenient and easy to use</li>
+                            <AboutItem>Database of recipes that can be replenished </AboutItem>
+                            <AboutItem>Flexible search for desired and unwanted ingredients</AboutItem>
+                            <AboutItem>Ability to add your own recipes with photos</AboutItem>
+                            <AboutItem>Convenient and easy to use</AboutItem>
                         </ul>
-                    </div>
+                    </About>
 
-                    <nav className="footer_links">
-                        <a className="footer_link_nav" href="/search">Ingredients</a>
-                        <a className="footer_link_nav" href="/add">Add recipes</a>
-                        <a className="footer_link_nav" href="/my">My recipes</a>
-                        <a className="footer_link_nav" href="/favorite">Favorite</a>
-                        <a className="footer_link_nav" href="/shopping-list">Shopping list</a>
-                    </nav>
+                    <Nav>
+                        <NavItem href="/search">Ingredients</NavItem>
+                        <NavItem href="/add">Add recipes</NavItem>
+                        <NavItem href="/my">My recipes</NavItem>
+                        <NavItem href="/favorite">Favorite</NavItem>
+                        <NavItem href="/shopping-list">Shopping list</NavItem>
+                    </Nav>
 
-                    <div className="footer_newsletter">
-                        <span className='footer_description_newsletter'><h3>Subscribe to our Newsletter</h3></span>
-                        <span className='footer_description_newsletter'><p>Subscribe to our newsletter. Be in touch with latest news and special offers, etc.</p></span>
-                        <form className='footer_form' onSubmit={handleSubmit}>
+                    <Newsletter>
+                        <NewsletterTitle>Subscribe to our Newsletter</NewsletterTitle>
+                        <NewsletterTxt>Subscribe to our newsletter. Be in touch with latest news and special offers, etc.</NewsletterTxt>
+                        <Form onSubmit={handleSubmit}>
                             <div className={`email_input_container ${!isValidEmail && email !== '' ? 'invalid' : ''}`}>
                                 <svg width="16" height="12" src="./images/ui/input/input_email.svg" alt="Email Icon" />
-                                <input 
-                                    className='footer_input' 
+                                <Input
                                     type="email" 
                                     id="email" 
                                     name="email" 
@@ -74,41 +68,38 @@ const Footer = () => {
                                     <svg width="16" height="12" src="./images/input/input_ok.svg" alt="Invalid Email Icon" />
                                 )}
                             </div>
-                            <button 
+                            <Button
                                 className='footer_button' 
                                 type="submit" 
                                 disabled={!isValidEmail || email === ''}
                             >
                                 Subscribe
-                            </button>
+                            </Button>
                             {!isValidEmail && email !== '' && (
-                                <p className="footer_error_message">Your email is not valid</p>
+                                <ErrorMsg>Your email is not valid</ErrorMsg>
                             )}
-                        </form>
-                    </div>
+                        </Form>
+                    </Newsletter>
                     
-                    <div className="footer_social">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                            <svg width="20" height="16" src="./images/ui/social_media/facebook.svg" alt="Facebook"/>
-                        </a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                            <svg width="20" height="16" src="./images/ui/social_media/youtube.svg" alt="Youtube"/>
-                        </a>
-                        <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
-                            <svg width="20" height="16" src="./images/ui/social_media/twitter.svg" alt="Twitter"/>
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                            <svg width="20" height="16" src="./images/ui/social_media/instagram.svg" alt="Instagram"/>
-                        </a>
-                    </div>
-                </div>
-            </footer>
-            <div className="footer_bottom_text">
-                <span className='footer_bottom_first_element'>© 2023 All Rights Reserved.</span>
-                <span> Terms of Service</span>
-            </div>
-        </div>
+                    <SocialMedia>
+                        <Icon href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                            <Svg><use href={`${icons_footer}#icon-facebook`}></use></Svg>
+                        </Icon>
+                        <Icon href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                            <Svg><use href={`${icons_footer}#icon-youtube`}></use></Svg>
+                        </Icon>
+                        <Icon href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                            <Svg><use href={`${icons_footer}#icon-twitter`}></use></Svg>
+                        </Icon>
+                        <Icon href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                            <Svg><use href={`${icons_footer}#icon-instagram`}></use></Svg>
+                        </Icon>
+                    </SocialMedia>
+            </StyledFooter>
+            <Info>
+                <InfoTextBold className='footer_bottom_first_element'>© 2023 All Rights Reserved.</InfoTextBold>
+                <span>Terms of Service</span>
+            </Info>
+        </FooterBox>
     );
 }
-
-export default Footer;

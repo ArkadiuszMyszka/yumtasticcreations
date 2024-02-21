@@ -1,8 +1,4 @@
 /* Common styles for all versions */
-footer {
-    position: relative;
-    background-color: #22252A;
-  }
   
   a {
     text-decoration: none;
@@ -168,12 +164,6 @@ footer {
       margin-bottom: 16px;
     }
     
-    .container {
-      max-width: 642px;
-      padding-top:50px ;
-      padding-bottom: 24px;
-      margin:0 auto 32px auto;
-    }
   li {
     color: #FAFAFA;
     margin-bottom: 20px;
@@ -279,12 +269,7 @@ footer {
   }
   /* Desktop version */
   @media only screen and (min-width: 1440px)  {
-    .container {
-      max-width: 1240px;
-      padding-top: 50px;
-      padding-bottom: 24px;
-      margin: 0 auto 50px auto;
-    }
+    
     .footer_logo {
       display: inline;
     }
