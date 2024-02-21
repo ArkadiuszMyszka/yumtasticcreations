@@ -36,13 +36,13 @@ export const LoginForm = () => {
           <InputBox>
             <Icon><use href={`${icons}#icon-input_mail`}></use></Icon>
             <Field name="email" as={Input} type="email" placeholder="Email" />
-            <ErrorMessage name="email" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="email" component={ErrorMessageStyled} />
           <InputBox>
             <Icon><use href={`${icons}#icon-input_lock`}></use></Icon>
             <Field name="password" as={Input} type="password" placeholder="Password" />
-            <ErrorMessage name="password" component={ErrorMessageStyled} />
           </InputBox>
+          <ErrorMessage name="password" component={ErrorMessageStyled} />
           <Button type="submit" disabled={isSubmitting}>Sign In</Button>
         </Form>
       )}
