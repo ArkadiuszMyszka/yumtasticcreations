@@ -3,28 +3,60 @@ import styled from "styled-components";
 export const RecipeItemContainer = styled.div`
   max-height: 152px;
   border-radius: 8px;
-  margin: 10px;
+  margin: 18px 16px;
   padding: 14px 9px;
   font-family: Poppins;
   font-weight: 500;
   background-color: #ffffff;
   display: grid;
-  grid-template-columns: 124px auto; /* Pierwsza kolumna dla obrazu, druga dla reszty zawartości */
+  grid-template-columns: 124px auto;
   gap: 0 14px;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    grid-template-columns: 232px auto;
+    gap: 0 24px;
+    max-height: 288px;
+    padding: 28px 24px;
+    margin: 32px 40px;
+  }
+
+  @media (min-width: 1025px) {
+    padding: 40px 40px;
+    grid-template-columns: 324px auto;
+    max-height: 404px;
+    gap: 0 54px;
+    margin: 50px 100px;
+  }
 `;
 export const BackgroundImage = styled.img`
   width: 124px;
   height: 124px;
   border-radius: 8px;
-  margin-right: 14px;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 228px;
+    height: 232px;
+  }
+
+  @media (min-width: 1025px) {
+    width: 318px;
+    height: 324px;
+  }
 `;
 
 export const RecipeDetails = styled.div`
   display: grid;
   gap: 14px 0;
   flex-direction: column;
-  max-height: 124px;
   flex: 1;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    max-height: 232px;
+  }
+
+  @media (min-width: 1025px) {
+    max-height: 100%;
+  }
 `;
 
 export const RecipeHeader = styled.div`
@@ -40,7 +72,18 @@ export const RecipeTitle = styled.h3`
   font-family: Poppins;
   font-weight: 500;
   line-height: 1em;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding-top: 0;
+    font-size: 24px;
+    line-height: 1.2em;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
+  }
 `;
+
 export const RemoveButton = styled.button`
   background-color: #8baa36;
   width: 24px;
@@ -49,12 +92,33 @@ export const RemoveButton = styled.button`
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 38px;
+    height: 38px;
+  }
+
+  @media (min-width: 1025px) {
+    width: 44px;
+    height: 44px;
+  }
 
   svg {
     width: 14px;
     height: 14px;
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      width: 22px;
+      height: 22px;
+    }
+
+    @media (min-width: 1025px) {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
@@ -66,6 +130,14 @@ export const RecipeDescription = styled.p`
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.2em;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 1025px) {
+    font-size: 18px;
+  }
 `;
 
 export const RecipeFooter = styled.div`
@@ -91,8 +163,21 @@ export const SeeRecipeButton = styled.button`
   text-align: center;
   font-size: 10px;
   border: none;
+  align-self: flex-end;
   border-radius: 24px 44px;
   cursor: pointer;
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 138px;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 1025px) {
+    width: 172px;
+    height: 59px;
+    font-size: 16px;
+  }
 
   a {
     text-decoration: none;
