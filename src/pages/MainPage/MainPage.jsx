@@ -9,7 +9,7 @@ export const MainPage = () => {
     <Main>
     <Header />
         <Container> 
-            <h1>This space waiting for main component of MainPage ;)</h1>
+            <h1>This space waits for main component of MainPage ;)</h1>
         </Container>
         <PreviewCategories />
     <Footer />
