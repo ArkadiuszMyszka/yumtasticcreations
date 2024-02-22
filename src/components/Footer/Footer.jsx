@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import icons_footer from "../../images/ui/social_media/icons_footer.svg";
-import logo_mobile from "../../images/ui/logo/logo_mobile.svg";
-import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Icon, Svg, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, Button, ErrorMsg } from './Footer.styled.jsx';
+import logo from "../../images/ui/logo/logo.svg";
+import icons from "../../images/ui/input/icons.svg"
+import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Icon, Svg, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, InputBox, Button, ErrorMsg, MailSvg } from './Footer.styled.jsx';
 
 export const Footer = () => {
     const [email, setEmail] = useState('');
@@ -24,8 +25,7 @@ export const Footer = () => {
             <StyledFooter>
                     <Logo>
                         <a href="/main">
-                            <LogoSvg><use href={`${logo_mobile}`}></use></LogoSvg> 
-                            {/* note-to-self:    przerobić logo na sprite */}
+                            <LogoSvg><use href={`${logo}#icon-logo`}></use></LogoSvg> 
                         </a>
                         <LogoName>So Yummy</LogoName>
                     </Logo>
@@ -51,8 +51,8 @@ export const Footer = () => {
                         <NewsletterTitle>Subscribe to our Newsletter</NewsletterTitle>
                         <NewsletterTxt>Subscribe to our newsletter. Be in touch with latest news and special offers, etc.</NewsletterTxt>
                         <Form onSubmit={handleSubmit}>
-                            <div className={`email_input_container ${!isValidEmail && email !== '' ? 'invalid' : ''}`}>
-                                <svg width="16" height="12" src="./images/ui/input/input_email.svg" alt="Email Icon" />
+                            <InputBox className={`email_input_container ${!isValidEmail && email !== '' ? 'invalid' : ''}`}>
+                                <MailSvg><use href={`${icons}#icon-input_mail`}></use></MailSvg>
                                 <Input
                                     type="email" 
                                     id="email" 
@@ -61,17 +61,10 @@ export const Footer = () => {
                                     value={email}
                                     onChange={handleEmailChange}
                                 />
-                                {isValidEmail && email !== '' && (
-                                    <svg width="16" height="12" src="/src/images/input/input_error.svg" alt="Valid Email Icon" />
-                                )}
-                                {!isValidEmail && email !== '' && (
-                                    <svg width="16" height="12" src="./images/input/input_ok.svg" alt="Invalid Email Icon" />
-                                )}
-                            </div>
+                            </InputBox>
                             <Button
-                                className='footer_button' 
                                 type="submit" 
-                                disabled={!isValidEmail || email === ''}
+                                disabled={!isValidEmail && email !== ''}
                             >
                                 Subscribe
                             </Button>
