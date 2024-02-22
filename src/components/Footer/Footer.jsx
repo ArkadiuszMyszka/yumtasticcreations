@@ -18,7 +18,7 @@ const Footer = () => {
     };
 
     return (
-        <div>
+        <div>        
             <footer className="footer_container">
                 <div className="container">
                     <div className="footer_logo">
