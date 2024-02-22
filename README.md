@@ -1,29 +1,29 @@
-# Spis treści
+# Table of Contents
 
-- Wprowadzenie
-- Technologie
-- Uruchomienie
-- Ilustracje
-- Zakres funkcjonalności
-- Przykłady użycia
-- Status projektu
+- Introduction
+- Technologies
+- Running the Application
+- Illustrations
+- Features Scope
+- Usage Examples
+- Project Status
 
 ## SoYummy
 
 ![Mem](./src/images/readme/SY_5.png)
 
-Witaj w SoYummy - miejscu, gdzie Twoje kulinarne marzenie stają się rzeczywistością! Czy kiedykolwiek zastanawiałeś się, co zrobić z tymi egzotycznymi składnikami znajdującymi się w Twojej spiżarni? A może masz ochotę odkryć nowe smakowe horyzonty? No cóż, SoYummy to odpowiedź na Twoje kulinarno-filozoficzne pytania!
+Welcome to SoYummy - the place where your culinary dreams become reality! Have you ever wondered what to do with those exotic ingredients sitting in your pantry? Or perhaps you're eager to explore new flavor horizons? Well, SoYummy is the answer to your culinary-philosophical questions!
 
-Dlaczego kucharz nigdy nie mówi kłamstwa?
-Bo zawsze trzyma się przepisu! 
+Why did the tomato turn red?
+Because it saw the salad dressing!
 
-## Wprowadzenie
+## Introduction
 
-SoYummy to aplikacja kulinarna, która gromadzi przepisy ze wszystkich zakątków świata, pozwalając Ci eksplorować kulinarne smaki i odkrywać nowe kulinaria. Projekt ten powstał z myślą o dostarczeniu użytkownikom nie tylko przepisów, ale także wygodnych narzędzi do zarządzania swoją kulinarną podróżą.
+SoYummy is a culinary application that gathers recipes from all around the world, allowing you to explore culinary flavors and discover new cuisines. This project was created with the aim of providing users not only with recipes but also with convenient tools to manage their culinary journey.
 
-### Technologie
+### Technologies
 
-Projekt został zbudowany miedzy innymi przy użyciu technologii:
+The project has been built using various technologies, including:
 
 - React
 - Node.js
@@ -32,45 +32,43 @@ Projekt został zbudowany miedzy innymi przy użyciu technologii:
 - Jsonwebtoken
 - Passport
 
-### Uruchomienie
+### Running the Application
 
-Aby uruchomić aplikację SoYummy lokalnie, wykonaj następujące kroki:
+To run the SoYummy application locally, follow these steps:
 
-1. Sklonuj repozytorium na swój komputer.
-2. Przejdź do katalogu projektu.
-3. Zainstaluj zależności przy użyciu komendy `npm install`.
-4. Uruchom aplikację w trybie deweloperskim, wpisując komendę `npm start`.
+1. Clone the repository to your computer.
+2. Navigate to the project directory.
+3. Install dependencies using the command npm install.
+4. Start the application in development mode by entering the command npm start.
 
-##### Ilustracje
+##### Illustrations
 
-SoYummy to nie tylko zbiór przepisów, ale także miejsce, gdzie Twoje kulinarne marzenia stają się realnością. Zobacz poniżej kilka zrzutów ekranu z naszej aplikacji:
+SoYummy is not just a collection of recipes but also a place where your culinary dreams become reality. Below are some screenshots from our application:
 
 ![Przykładowy screenshot](./src/images/readme/SY_1.PNG)
 ![Przykładowy screenshot](./src/images/readme/SY_3.PNG)
 ![Przykładowy screenshot](./src/images/readme/SY_4.PNG)
 
-##### Zakres funkcjonalności
+##### Features Scope
 
-- Przeglądanie przepisów z różnych kuchni.
-- Dodawanie ulubionych przepisów.
-- Tworzenie listy zakupów na podstawie przepisów.
-- Dodawanie własnych przepisów.
+- Browsing recipes from various cuisines.
+- Adding favorite recipes.
+- Creating a shopping list based on recipes.
+- Adding custom recipes.
 
-###### Przykłady użycia
+###### Usage Examples
 
-- Szukanie co wrzucić na ząb
-- Podzielenie się autorskim przepisem z całym światem
-- Czerpanie inspiracji na własny rozwój kulinarny 
-- Oszczędzenie papieru przy użyciu wbudowanym "Shopping List"
+- Finding something tasty to cook.
+- Sharing your own recipe with the world.
+- Drawing inspiration for your culinary development.
+- Saving paper using the built-in "Shopping List" feature.
 
-###### Dodawanie przepisu
+###### Adding a Recipe
 
-Nie bój się. Najwyżej komuś nie posmakuje a może zostaniesz nowym Gordon'em Ramsay'em :)
+Don't worry. At worst, someone might not like it, but perhaps you'll become the next Gordon Ramsay :)
 
 ![Przykładowy screenshot](./src/images/readme/SY_2.PNG)
 
-##### Status projektu
+##### Project Status
 
-Nasz projekt jest w trakcie budowy oraz niekończących się ulepszeń aby wasze wrażenia z naszej aplikacji były jak najlepsze. Czekamy z niecierpliwością na wasz feedback oraz pomysły co nowego możemy dodać!
-
-
+Our project is under construction and undergoing continuous improvements to ensure the best possible experience for you. We eagerly await your feedback and ideas for what new features we can add!
