@@ -4,6 +4,7 @@ import { selectCategories } from "../../redux/categories/selectors";
 import { getMainPageRecipes } from "../../redux/recipes/operations";
 import { getCategories } from "../../redux/categories/operations";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import { Container, CategoriesList, Category, CategoryTitle, RecipesList, RecipeButton, RecipeElement, RecipeImage, SeeAllButton, ButtonContainer, OtherCategoriesButton } from "./PreviewCategories.styled";
 
 export const PreviewCategories = () => {
     const dispatch = useDispatch();
@@ -54,24 +55,34 @@ export const PreviewCategories = () => {
     };
 
 return (
-    <div>
-        <ul>
-            {recipes.map((category) => (
-                <li>
-                    <h1>{category.title}</h1>
-                    <ul>
+    <Container>
+        <CategoriesList>
+            {recipes.slice(0, 4).map((category) => (
+                <Category>
+                    <CategoryTitle>
+                        {category.title}
+                    </CategoryTitle>
+                    <RecipesList>
                     {category.recipes.slice(0, getNumberOfRecipesToRender()).map((recipe) => {
                             return ( 
-                            <li>    
-                            <h3>{recipe.title}</h3>
-                            <img src={recipe.thumb} alt={recipe.title} />
-                            </li>
+                            <RecipeElement>    
+                            <RecipeButton>{recipe.title}</RecipeButton>
+                            <RecipeImage src={recipe.thumb} alt={recipe.title} />
+                            </RecipeElement>
                             )
                         })}
-                    </ul>
-                </li>
+                    </RecipesList>
+                    <ButtonContainer>
+                        <SeeAllButton to="categories/{category.title}">
+                    See all
+                   </SeeAllButton>
+                   </ButtonContainer>
+                </Category>
             ))}
-        </ul>
-    </div>
+        </CategoriesList>
+        <OtherCategoriesButton to="categories">
+            Other Categories
+        </OtherCategoriesButton>
+    </Container>
 )
 };
