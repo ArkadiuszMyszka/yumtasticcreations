@@ -12,7 +12,7 @@ const MyRecipesList = () => {
           title={recipe.title}
           description={recipe.description}
           cookingTime={recipe.time}
-          backgroundImage={recipe.thumb}
+          backgroundImage={recipe.thumb || "../../images/graphics/recipe.jpg"}
           // onRemove={() => handleRemoveRecipe(recipe.id)}
           recipeLink={`/recipes/${recipe.id}`}
         />

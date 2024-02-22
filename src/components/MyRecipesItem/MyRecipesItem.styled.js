@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const RecipeItemContainer = styled.div`
-  height: 152px;
-  height: 9.5em;
-  border: 1px solid #ccc;
+  max-height: 152px;
+  border-radius: 8px;
   margin: 10px;
   padding: 14px 9px;
   font-family: Poppins;
   font-weight: 500;
   background-color: #ffffff;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 124px auto; /* Pierwsza kolumna dla obrazu, druga dla reszty zawartości */
+  gap: 0 14px;
 `;
 export const BackgroundImage = styled.img`
   width: 124px;
@@ -20,43 +20,69 @@ export const BackgroundImage = styled.img`
 `;
 
 export const RecipeDetails = styled.div`
-  display: flex;
+  display: grid;
+  gap: 14px 0;
   flex-direction: column;
-  max-height: 100%;
+  max-height: 124px;
+  flex: 1;
+`;
+
+export const RecipeHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const RecipeTitle = styled.h3`
+  padding-top: 6px;
+  margin: 0 10px 0 0;
   font-size: 14px;
-  margin-bottom: 8px;
   color: #3e4462;
   font-family: Poppins;
   font-weight: 500;
+  line-height: 1em;
+`;
+export const RemoveButton = styled.button`
+  background-color: #8baa36;
+  width: 24px;
+  height: 24px;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 export const RecipeDescription = styled.p`
+  margin: 0;
   font-size: 10px;
   color: #3e4462;
   font-family: Poppins;
   font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2em;
+`;
+
+export const RecipeFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const CookingTime = styled.p`
-  align-self: flex-start;
-  justify-self: end;
+  margin: 0;
   font-size: 14px;
+  line-height: 1em;
   color: #3e4462;
-`;
-
-export const RemoveButton = styled.button`
-  background-color: #8baa36;
-  color: #fff;
-  border: none;
-  padding: 8px;
-  cursor: pointer;
   align-self: flex-end;
 `;
 
 export const SeeRecipeButton = styled.button`
+  margin: 0;
   height: 27px;
   width: 87px;
   background-color: #8baa36;
@@ -64,9 +90,12 @@ export const SeeRecipeButton = styled.button`
   font-family: Poppins;
   text-align: center;
   font-size: 10px;
-  color: #fff;
   border: none;
   border-radius: 24px 44px;
   cursor: pointer;
-  align-self: flex-end;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
 `;

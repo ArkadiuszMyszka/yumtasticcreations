@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ReactComponent as TrashIcon } from "../../images/ui/other_icons/trash.svg";
 import {
   RecipeItemContainer,
   RecipeTitle,
@@ -9,7 +10,17 @@ import {
   RemoveButton,
   SeeRecipeButton,
   RecipeDescription,
+  RecipeHeader,
+  RecipeFooter,
 } from "./MyRecipesItem.styled.js";
+
+const truncateText = (text, maxWords) => {
+  const words = text.split(" ");
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(" ") + "...";
+  }
+  return text;
+};
 
 const MyRecipesItem = ({
   title,
@@ -19,17 +30,24 @@ const MyRecipesItem = ({
   onRemove,
   recipeLink,
 }) => {
+  const truncatedDescription = truncateText(description, 15);
   return (
     <RecipeItemContainer>
       <BackgroundImage src={backgroundImage} alt={title} />
       <RecipeDetails>
-        <RecipeTitle>{title}</RecipeTitle>
-        <RecipeDescription>{description}</RecipeDescription>
-        <CookingTime>{cookingTime} min</CookingTime>
-        <RemoveButton onClick={onRemove}></RemoveButton>
-        <SeeRecipeButton>
-          <Link to={recipeLink}>See Recipe</Link>
-        </SeeRecipeButton>
+        <RecipeHeader>
+          <RecipeTitle>{title}</RecipeTitle>
+          <RemoveButton onClick={onRemove}>
+            <TrashIcon />
+          </RemoveButton>
+        </RecipeHeader>
+        <RecipeDescription>{truncatedDescription}</RecipeDescription>
+        <RecipeFooter>
+          <CookingTime>{cookingTime} min</CookingTime>
+          <SeeRecipeButton>
+            <Link to={recipeLink}>See Recipe</Link>
+          </SeeRecipeButton>
+        </RecipeFooter>
       </RecipeDetails>
     </RecipeItemContainer>
   );
