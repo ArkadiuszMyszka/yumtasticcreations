@@ -10,6 +10,14 @@ font-style: normal;
 `;
 
 export const CategoriesList = styled.ul`
+@media (min-width: 1200px) {
+  margin-top: 100px;
+  width: 1240px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  width: 704px;
+  margin-top: 72px;
+}
 display: flex:
 align-items: center;
 width: 343px;
@@ -20,43 +28,77 @@ list-style-type: none;
 `;
 
 export const Category = styled.li`
+@media (min-width: 1200px) {
+  height: 505px;
+  margin-bottom: 100px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  height: 485px;
+  margin-bottom: 50px;
+}
 display: flex:
 width: 100%;
 height: 445px;
 margin-bottom: 32px;
+
+&:last-child {
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    margin-bottom: 32px;
+    }
+  @media (min-width: 1200px) {
+    margin-bottom: 14px;
+    }
+}
 `;
 
 export const CategoryTitle = styled.h2`
-color: #001833;
+@media (min-width: 1200px) {
+  font-size: 44px;
+  line-height: 44px;
+}   
+@media (min-width: 768px) and (max-width: 1199px) {
+    font-size: 32px;
+    line-height: 32px;
+  }
+ color: #001833;
   font-family: Poppins;
   font-weight: 600;
   letter-spacing: -0.02em;
   text-align: left;
   margin: 0;
-
-  @media (max-width: 768px) {
-    font-size: 28px;
-    line-height: 28px;
-  }
-
-  @media (min-width: 769px) and (max-width: 1024px) {
-    font-size: 32px;
-    line-height: 32px;
-  }
-
-  @media (min-width: 1025px) {
-    font-size: 44px;
-    line-height: 44px;
-  }
+  font-size: 28px;
+  line-height: 28px;
 `;
 
 export const RecipesList = styled.ul`
+@media (min-width: 1200px) {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  margin: 50px 0;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 40px 0;
+}
+margin: 32px 0 24px;
 list-style-type: none;
 padding: 0;
 `;
 
 export const RecipeElement = styled.li`
-margin: 32px 0 24px;
+@media (min-width: 1200px) {
+  width: 300px;
+  margin:0;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  width: 336px;
+  margin:0;
+}
 height: 323px;
 position: relative;
 `;
@@ -68,6 +110,14 @@ border-radius: 8px;
 `;
 
 export const RecipeButton = styled.button`
+@media (min-width: 1200px) {
+  width: 268px;
+  top: 248px;
+  left: 16px;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  width: 300px;
+}
 display: flex;
 box-sizing: border-box;
 align-items: center;
@@ -79,6 +129,7 @@ left: 18px;
 font-family: Poppins;
 font-size: 16px;
 line-height: 20px;
+font-weight: 500;
 background-color: white;
 border: none;
 width: 307px;
@@ -113,6 +164,15 @@ transition: 0.3s;
 `;
 
 export const OtherCategoriesButton = styled.button`
+@media (min-width: 1200px) {
+  margin-bottom: 118px;
+}
+@media (min-width: 768px) {
+  width: 239px;
+  height: 61px;
+  font-size: 16px;
+  line-height: 24px;
+}
 display: flex;
 justify-content: center;
 align-items: center;

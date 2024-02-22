@@ -9,7 +9,9 @@ export const MainPage = () => {
     return (
     <main>
     <Header />
-        <Container />
+        <Container> 
+            <h1>This space waiting for main component of MainPage ;)</h1>
+        </Container>
         <PreviewCategories />
     <Footer />
     </main>

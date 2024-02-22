@@ -11,8 +11,8 @@ export const PreviewCategories = () => {
     const categories = useSelector(selectCategories);
     const [recipes, setRecipes] = useState([]);
     const popularCategories = categories.items; 
-    const isMobile = useMediaQuery('(max-width:600px)');
-    const isTablet = useMediaQuery('(min-width:601px) and (max-width:1024px)');
+    const isMobile = useMediaQuery('(max-width:767px)');
+    const isTablet = useMediaQuery('(min-width:768px) and (max-width:1199px)');
     
    useEffect(() => {
         dispatch(getCategories())
@@ -40,10 +40,6 @@ export const PreviewCategories = () => {
         fetchRecipes();
     }, [dispatch, popularCategories]);
 
-    useEffect(() => {
-        console.log("Updated recipes:", recipes);
-    }, [recipes]);
-
     const getNumberOfRecipesToRender = () => {
         if (isMobile) {
             return 1;
@@ -66,14 +62,14 @@ return (
                     {category.recipes.slice(0, getNumberOfRecipesToRender()).map((recipe) => {
                             return ( 
                             <RecipeElement>    
-                            <RecipeButton>{recipe.title}</RecipeButton>
+                            <RecipeButton to="recipe/{recipe.id}">{recipe.title}</RecipeButton>
                             <RecipeImage src={recipe.thumb} alt={recipe.title} />
                             </RecipeElement>
                             )
                         })}
                     </RecipesList>
                     <ButtonContainer>
-                        <SeeAllButton to="categories/{category.title}">
+                    <SeeAllButton to="categories/{category.title}">
                     See all
                    </SeeAllButton>
                    </ButtonContainer>
