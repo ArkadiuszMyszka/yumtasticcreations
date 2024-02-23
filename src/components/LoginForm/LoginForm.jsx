@@ -1,17 +1,8 @@
-import React from "react";
-import { Formik, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 
-import axios from "axios";
-import {
-  Header,
-  InputBox,
-  Input,
-  Button,
-  Icon,
-  ErrorMessageStyled,
-  Form,
-} from "../AuthForm/AuthForm.styled.jsx";
+import React from 'react';
+import { Formik, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled, Form } from "../AuthForm/AuthForm.styled.jsx";
 
 import icons from "../../images/ui/input/icons.svg";
 import privateApi from "../../services/PrivateApi";
@@ -43,7 +34,7 @@ export const LoginForm = () => {
           });
       }}
     >
-      {(formik) => (
+       {formik => (
         <Form onSubmit={formik.handleSubmit}>
           <Header>Sign In</Header>
           <InputBox>
