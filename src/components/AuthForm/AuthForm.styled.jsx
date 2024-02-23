@@ -186,7 +186,7 @@ export const ErrorMessageStyled = styled.div`
     font-family: Poppins;
     font-size: 12px;
     position: relative;
-    bottom: 8px;
+    bottom: 0px;
     left: 8px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
@@ -211,4 +211,27 @@ export const ErrorIconStyled = styled(Error)`
     top: -72px;
     left: 435px;
 }
+`;
+
+export const PasswordStrength = styled.div`
+  color: ${(props) => {
+    if (props.strength === 'Very Weak') return '#E74A3B';
+    if (props.strength === 'Weak') return '#E67E22';
+    if (props.strength === 'Medium') return '#F1C40F';
+    if (props.strength === 'Strong') return '#2ECC71';
+    return '#27AE60';
+  }};
+  font-family: Poppins;
+  font-size: 12px;
+  position: relative;
+  left: 8px;
+  top: 0px;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    left: 26px;
+  }
+
+  @media (min-width: 1200px) {
+    left: 23px;
+  }
 `;

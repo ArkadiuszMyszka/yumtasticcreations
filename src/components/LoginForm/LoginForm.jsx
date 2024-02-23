@@ -1,10 +1,7 @@
 import React from 'react';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
-import axios from 'axios';
 import { Header, InputBox, Input, Button, Icon, ErrorMessageStyled, Form } from "../AuthForm/AuthForm.styled.jsx";
-
 import icons from "../../images/ui/input/icons.svg";
 import privateApi from '../../services/PrivateApi';
 
@@ -15,7 +12,6 @@ const validationSchema = Yup.object({
 
 export const LoginForm = () => {
 
-  
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
@@ -34,8 +30,8 @@ export const LoginForm = () => {
           });
       }}
     >
-      {({ isSubmitting }) => (
-        <Form>
+       {formik => (
+        <Form onSubmit={formik.handleSubmit}>
           <Header>Sign In</Header>
           <InputBox>
             <Icon><use href={`${icons}#icon-input_mail`}></use></Icon>
@@ -47,7 +43,7 @@ export const LoginForm = () => {
             <Field name="password" as={Input} type="password" placeholder="Password" />
           </InputBox>
           <ErrorMessage name="password" component={ErrorMessageStyled} />
-          <Button type="submit" disabled={isSubmitting}>Sign In</Button>
+          <Button type="submit">Sign In</Button>
         </Form>
       )}
     </Formik>
