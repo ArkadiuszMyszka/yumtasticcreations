@@ -5,6 +5,7 @@ export const StyledTitle = styled.h1`
   font-family: Poppins;
   font-weight: 600;
   letter-spacing: -0.02em;
+  margin-left: 16px;
   text-align: left;
 
   @media (max-width: 768px) {
@@ -15,10 +16,12 @@ export const StyledTitle = styled.h1`
   @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 32px;
     line-height: 32px;
+    margin-left: 32px;
   }
 
   @media (min-width: 1025px) {
     font-size: 44px;
     line-height: 44px;
+    margin-left: 100px;
   }
 `;
