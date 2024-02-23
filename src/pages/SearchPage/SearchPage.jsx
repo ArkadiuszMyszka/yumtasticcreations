@@ -1,14 +1,14 @@
-import Title from "../../components/Title/Title.jsx";
+import MainPageTitle from "../../components/MainPageTitle/MainPageTitle.jsx";
 import SearchBar from "../../components/SearchPage/SearchBar/SearchBar.jsx";
 import SearchedRecipesList from "../../components/SearchPage/SearchedRecipesList/SearchedRecipesList.jsx";
 
-function SearchPage() {
+export function SearchPage() {
   return (
     <>
-      <Title>Search</Title>
+      <MainPageTitle title="Search" />
       <SearchBar />
       <SearchedRecipesList />
     </>
   );
 }
-export default SearchPage;
+// export default SearchPage;
