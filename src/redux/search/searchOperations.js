@@ -5,7 +5,7 @@ export const getRecipesByTitle = createAsyncThunk(
   "search/getRecipesByTitle",
   async (title, thunkAPI) => {
     try {
-      const response = await privateApi.get(`recipes/search?q=${title}`);
+      const response = await privateApi.get(`recipe/search?q=${title}`);
       console.log("getRecipesByTitle response");
       return response.data;
     } catch (error) {
@@ -31,7 +31,7 @@ export const getRecipesByIngredient = createAsyncThunk(
 
 export const getRecipeById = async (recipeId) => {
   try {
-    const { data } = await privateApi.get(`/recipes/${recipeId}`);
+    const { data } = await privateApi.get(`/recipe/${recipeId}`);
     return data;
   } catch (error) {
     console.log("getRecipeById error", error.message);
