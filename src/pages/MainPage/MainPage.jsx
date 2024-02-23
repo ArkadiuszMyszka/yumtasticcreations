@@ -1,7 +1,7 @@
 import React from "react";
 import { PreviewCategories } from "../../components/PreviewCategories/PreviewCategories";
 import { Header } from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+import {Footer} from "../../components/Footer/Footer";
 import { Container, Main } from "./MainPage.styled"; 
 
 export const MainPage = () => {
