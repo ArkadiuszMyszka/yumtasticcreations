@@ -1,77 +1,153 @@
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useState,
+  useCallback,
+  useRef,
+} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router";
+import { toast } from "react-toastify";
+
+import { List } from "./SearchedRecipesList.styled.js";
+
 import RecipesList from "../RecipesList/RecipesList.jsx";
 import EmptyPage from "../EmptySearchPage/EmptySearchPage.jsx";
+import Loader from "../../Loader/Loader.jsx";
+import Paginator from "../../Paginator/Paginator.jsx";
 
 import {
-  selectSearchResult,
+  selectRecipeByTitle,
+  selectRecipesByIngredient,
+  selectCurrentPage,
   selectIsLoading,
-  selectTotalPage,
+  selectError,
 } from "../../../redux/search/searchSelectors.js";
 
-import {
-  getSearchByTitle,
-  getSearchByIngredients,
-} from "../../../redux/search/searchOperations.js";
+import { getRecipesByTitle } from "../../../redux/search/searchOperations.js";
 
-import { getNewState } from "../../../redux/search/searchSlice.js";
-import { NoSearchText } from "./SearchedRecipesList.styled.js";
-// import { Loader } from "../../Loader/Loader.jsx";
-// import { Paginator } from "../../Paginator/Paginator.jsx";
+import {
+  resetRecipeByIngredient,
+  setCurrentPage,
+  resetCurrentPage,
+} from "../../../redux/search/searchSlice.js";
 
 export default function SearchedRecipesList() {
-  const [searchParams] = useSearchParams();
-  const [page, setPage] = useState(1);
-  const perPage = 9;
-
-  const recipes = useSelector(selectSearchResult);
+  const searchedList = useSelector(selectRecipeByTitle);
+  const serchedIngredList = useSelector(selectRecipesByIngredient);
+  const currentPage = useSelector(selectCurrentPage);
   const isLoading = useSelector(selectIsLoading);
-  const totalPage = useSelector(selectTotalPage);
+  const error = useSelector(selectError);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [visibleRecipes, setVisibleRecipes] = useState([]);
+  const [searchedForRecipe, setSearchedForRecipe] = useState(false);
+
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
   const dispatch = useDispatch();
 
-  const query = searchParams.get("query") ?? "";
-  const type = searchParams.get("type") ?? "";
+  const listRef = useRef(null);
+  const itemsPerPage = 6;
 
   useEffect(() => {
-    if (query === "" || type === "") {
-      dispatch(getNewState());
-      return;
-    }
+    if (error) toast.warning("Error:", error);
+  }, [error]);
 
-    if (type === "title") {
-      dispatch(getSearchByTitle({ query, page, perPage }));
+  useEffect(() => {
+    if (location.state && location.state.from === "/main") {
+      const params = Object.fromEntries(searchParams.entries());
+      const { q } = params;
+      const title = searchParams.get("q");
+      if (q && q !== "") {
+        dispatch(resetCurrentPage());
+        dispatch(resetRecipeByIngredient());
+        dispatch(getRecipesByTitle(title)).then(() => {
+          setSearchedForRecipe(true);
+        });
+        console.log("searchRecipeList empty q");
+      }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    if (type === "ingredients") {
-      dispatch(getSearchByIngredients({ query, page, perPage }));
-    }
-  }, [dispatch, page, perPage, query, type]);
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const visibleRecipeList = useCallback(() => {
+    let visibleList =
+      searchedList?.length > 0
+        ? searchedList
+        : serchedIngredList?.map((i) => i);
+    setVisibleRecipes(visibleList);
+  }, [searchedList, serchedIngredList]);
+
+  useEffect(() => {
+    visibleRecipeList();
+  }, [visibleRecipeList]);
+
+  const handlePageChange = useCallback(
+    (pageNumber) => {
+      dispatch(setCurrentPage(pageNumber));
+      listRef.current?.scrollIntoView({ behavior: "smooth" });
+      console.log("page change");
+    },
+    [dispatch]
+  );
+
+  const currentPageData = visibleRecipes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <>
-      {!isLoading && recipes
-        ? (recipes.length === 0 && (
-            <EmptyPage text="Try looking for something else..." />
-          )) ||
-          (recipes.length > 0 && <RecipesList recipes={recipes} />)
-        : !isLoading && <NoSearchText>Enter your search query</NoSearchText>}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {(windowWidth >= 1280 ? visibleRecipes : currentPageData)?.length ||
+          0 ? (
+            <List ref={listRef}>
+              {(windowWidth >= 1280 ? visibleRecipes : currentPageData)
+                .slice(
+                  0,
+                  windowWidth >= 1280
+                    ? 12
+                    : (windowWidth >= 1280 ? visibleRecipes : currentPageData)
+                        .length
+                )
+                .map(({ _id: recipeId, title }) => (
+                  <RecipesList key={recipeId} id={recipeId} title={title} />
+                ))}
+            </List>
+          ) : searchedForRecipe ? (
+            <EmptyPage>Try looking for something else...</EmptyPage>
+          ) : (
+            <EmptyPage>Search for recipe</EmptyPage>
+          )}
+          {windowWidth < 1280 && visibleRecipes.length !== 0 && (
+            <Paginator
+              totalItems={visibleRecipes}
+              itemsPerPage={itemsPerPage}
+              onPageChange={handlePageChange}
+            />
+          )}
+        </>
+      )}
     </>
   );
 }
 
-// {recipes && !isLoading && recipes.length > 0 && (
-//   <Paginator
-//     perPage={perPage}
-//     totalData={totalPage}
-//     setPage={setPage}
-//     page={page}
-//   />
-// )}
-
-{
-  /* <>
+/* <>
       {isLoading && !error && <Loader />}
       {!isLoading && recipes && recipes.length !== 0 ? (
         <RecipesList recipes={recipes} />
@@ -79,4 +155,3 @@ export default function SearchedRecipesList() {
         <EmptyPage text="Try looking for something else..." />
       )}
     </> */
-}

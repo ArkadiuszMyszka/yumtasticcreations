@@ -7,7 +7,7 @@ import { WelcomePage } from "./pages/WelcomePage/WelcomePage.jsx";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
 import { SigninPage } from "./pages/SigninPage/SigninPage.jsx";
 import { RecipePage } from "./pages/RecipePage/RecipePage.jsx";
-import SearchPage from "./pages/SearchPage/SearchPage.jsx";
+import { SearchPage } from "./pages/SearchPage/SearchPage.jsx";
 import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage.jsx";
 
 function App() {

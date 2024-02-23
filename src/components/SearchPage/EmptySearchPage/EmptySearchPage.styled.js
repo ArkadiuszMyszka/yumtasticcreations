@@ -15,27 +15,25 @@ export const EmptyWrapper = styled.div`
   }
 `;
 
+export const EmptyImgWrapper = styled.div`
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 350px;
+    height: 225px;
+  }
+`;
+
 export const EmptyText = styled.p`
   font-family: Poppins, sans-serif;
   font-weight: 500;
   line-height: 1.5;
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
   color: #3e4462;
   opacity: 0.5;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
-  }
-`;
-
-export const EmptyImgWrapper = styled.div`
-  width: 208px;
-  height: 133px;
-  margin: 0 auto;
-
-  @media screen and (min-width: 768px) {
-    width: 350px;
-    height: 225px;
   }
 `;
