@@ -4,44 +4,45 @@ export const RecipeIngredientLi = styled.li`
   display: flex;
   align-items: center;
 
-  padding: 10px 14px 10px 10px;
+  padding: 8px 10px;
 
   background: #ebf3d4;
   border-radius: 8px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    padding: 16px 32px 16px 24px;
+    padding: 16px 24px;
   }
 
   @media (min-width: 1200px) {
-    padding: 0 40px 0 32px;
+    padding: 1px 32px;
   }
 `;
 
 export const RecipeIngredientContainer = styled.div`
-  flex-grow: var(--header-ingredients-grow);
+  flex-grow: 1;
   display: flex;
   align-items: center;
 `;
 
 export const RecipeIngredientPhoto = styled.img`
-  --image-size: 57px;
   display: block;
 
-  width: var(--image-size);
-  height: var(--image-size);
+  width: 57px;
+  height: 57px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    --image-size: 112px;
+    width: 112px;
+    height: 112px;
   }
 
   @media (min-width: 1200px) {
-    --image-size: 128px;
+    width: 128px;
+    height: 128px;
   }
 `;
 export const RecipeIngredientTitle = styled.p`
   margin-left: 8px;
-
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.6;
@@ -66,8 +67,15 @@ export const RecipeIngredieQuantity = styled.div`
   display: flex;
   justify-content: center;
   border-radius: 4px;
+  gap: 32px;
 
-  width: var(--header-number-width);
+  @media (min-width: 768px) and (max-width: 1199px) {
+    gap: 78px;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 151px;
+  }
 `;
 
 export const RecipeIngredietQuantityText = styled.p`
@@ -98,7 +106,7 @@ export const RecipeIngredientFavorite = styled.div`
   display: flex;
   justify-content: center;
 
-  width: var(--header-favorite-width);
+  width: 54px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
   }
@@ -137,6 +145,12 @@ export const RecipeIngredientCheckbox = styled.label`
   @media (min-width: 768px) and (max-width: 1199px) {
     --checkbox-size: 35px;
     --checkbox-check-size: 17px;
+    box-shadow: inset 0px 0px 0px 2px rgba(126, 126, 126, 0.5);
+  }
+
+  @media (min-width: 1200px) {
+    --checkbox-size: 35px;
+    --checkbox-check-size: 17px;
   }
 `;
 
@@ -157,7 +171,7 @@ export const RecipeIngredientFavoriteInput = styled.input`
 export const RecipeIngredientCheckboxLoader = styled.span`
   display: block;
 
-  transform: scale(0.5);
+  transform: scale(0.6);
 
   @media (min-width: 768px) and (max-width: 1199px) {
     transform: scale(1);
