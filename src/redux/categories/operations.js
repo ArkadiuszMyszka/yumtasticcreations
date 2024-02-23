@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { instance } from "../mainPageRecipes/axiosInstance.js";
+import { instance } from "redux/auth/operations";
 
 export const getCategories = createAsyncThunk(
   "categories/getCategories",

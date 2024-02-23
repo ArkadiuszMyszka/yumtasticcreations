@@ -4,7 +4,7 @@ import {
   getCategoryRecipes,
   getSearchResultByIngredient,
   getSearchResultByTitle,
-} from "./operations.js";
+} from "./operations";
 
 const handlePending = (state) => {
   state.recipeCategories = [];
