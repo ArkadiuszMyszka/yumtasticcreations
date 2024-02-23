@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import icons_footer from "../../images/ui/social_media/icons_footer.svg";
 import logo from "../../images/ui/logo/logo.svg";
 import icons from "../../images/ui/input/icons.svg"
-import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Icon, Svg, Box, AboutBox, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, InputBox, Button, ErrorMsg, MailSvg } from './Footer.styled.jsx';
+import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Svg, Box, AboutBox, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, InputBox, Button, ErrorMsg, MailSvg } from './Footer.styled.jsx';
 
 export const Footer = () => {
     const [email, setEmail] = useState('');
@@ -77,18 +77,18 @@ export const Footer = () => {
                     </Newsletter>
                     
                     <SocialMedia>
-                        <Icon href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                             <Svg><use href={`${icons_footer}#icon-facebook`}></use></Svg>
-                        </Icon>
-                        <Icon href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
                             <Svg><use href={`${icons_footer}#icon-youtube`}></use></Svg>
-                        </Icon>
-                        <Icon href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
+                        </a>
+                        <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer">
                             <Svg><use href={`${icons_footer}#icon-twitter`}></use></Svg>
-                        </Icon>
-                        <Icon href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                             <Svg><use href={`${icons_footer}#icon-instagram`}></use></Svg>
-                        </Icon>
+                        </a>
                     </SocialMedia>
             </StyledFooter>
             <Info>

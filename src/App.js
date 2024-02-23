@@ -8,7 +8,6 @@ import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
 import { SigninPage } from "./pages/SigninPage/SigninPage.jsx";
 import { RecipePage } from "./pages/RecipePage/RecipePage.jsx";
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
-import { Footer } from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/signin" element={<SigninPage />} />
           <Route path="/recipe/:recipeId" element={<RecipePage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/footer" element={<Footer />} />
         </Routes>
       </Router>
     </Provider>

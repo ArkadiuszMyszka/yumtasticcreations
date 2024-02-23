@@ -5,9 +5,6 @@ import footer_l from '../../images/graphics/footer_l.png';
 
 export const FooterBox = styled.div`
     font-family: Poppins;
-    /* ** position absolute to delete with bottom ** */
-    position: absolute;
-    bottom: 0px;
     width: 100vw;
 `;
 
@@ -83,7 +80,6 @@ export const Box = styled.div`
         justify-content: space-between;
         padding-bottom: 15px;
         padding-top: 35px;
-
 }
 
     @media (min-width: 1200px) {
@@ -118,7 +114,6 @@ export const About = styled.div`
 export const AboutItem = styled.li`
     @media (min-width: 768px) and (max-width: 1199px) {
         margin-bottom: 10px;
-
 }
 
     @media (min-width: 1200px) {
@@ -138,7 +133,6 @@ export const Nav = styled.nav`
         align-items: flex-start;
         gap: 15px;
         padding-right: 100px;
-
 }
 
     @media (min-width: 1200px) {
@@ -212,11 +206,9 @@ export const Form = styled.form`
         flex-direction: row;
         gap: 10px;
         justify-content: center;
-
 }
 
     @media (min-width: 1200px) {
-
 }
 `;
 
@@ -268,7 +260,6 @@ export const Input = styled.input`
     height: 38px;
     line-height: 1.13;
     padding-left: 35px;
-    
     outline: transparent;
     overflow: hidden;
     width: 54vw;
@@ -412,10 +403,6 @@ export const SocialMedia = styled.div`
         gap: 20px;
         padding-bottom: 30px;
 }
-`;
-
-export const Icon = styled.a`
-    
 `;
 
 export const Svg = styled.svg`
