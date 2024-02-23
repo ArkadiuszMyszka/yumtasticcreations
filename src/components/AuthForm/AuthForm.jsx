@@ -57,7 +57,7 @@ export const AuthForm = () => {
               localStorage.setItem("authToken", response.data.token);
             }
             setTimeout(() => {
-              window.location.href = "/search";
+              window.location.href = "/main";
             }, 1500);
             setSubmitting(false);
             resetForm();
