@@ -28,13 +28,15 @@ export const Logo = styled.div`
         gap: 15px;
         justify-content: flex-start;
         margin-top: -12px;
-        padding-left: 22px;
-        
-
+        padding-left: 22px; 
 }
 
     @media (min-width: 1200px) {
-
+        align-items: flex-end;
+        gap: 15px;
+        justify-content: flex-start;
+        margin-top: -12px;
+        padding-left: 22px; 
 }
 `;
 
@@ -51,7 +53,8 @@ export const LogoSvg = styled.svg`
 }
 
     @media (min-width: 1200px) {
-
+        height: 44px;
+        width: 44px;
 }
 `;
 
@@ -64,11 +67,11 @@ export const LogoName = styled.p`
     @media (min-width: 768px) and (max-width: 1199px) {
         font-size: 28px;
         margin-bottom: 8px;
-
 }
 
     @media (min-width: 1200px) {
-
+        font-size: 28px;
+        margin-bottom: 8px;
 }
 
 `;
@@ -84,7 +87,7 @@ export const Box = styled.div`
 }
 
     @media (min-width: 1200px) {
-
+        padding-top: 35px;
 }
 `;
 
@@ -93,10 +96,10 @@ export const AboutBox = styled.div`
 `;
 
 export const About = styled.div`
+    color: #FAFAFA;
     display: none;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-        color: #FAFAFA;
         display: block;
         font-size: 14px;
         letter-spacing: -2%;
@@ -105,7 +108,10 @@ export const About = styled.div`
 }
 
     @media (min-width: 1200px) {
-
+        display: block;
+        font-size: 18px;
+        letter-spacing: -2%;
+        line-height: 1.33;
 }
 `;
 
@@ -116,7 +122,7 @@ export const AboutItem = styled.li`
 }
 
     @media (min-width: 1200px) {
-
+        margin-bottom: 10px;
 }
 `;
 
@@ -136,7 +142,13 @@ export const Nav = styled.nav`
 }
 
     @media (min-width: 1200px) {
-
+        align-items: flex-start;
+        gap: 20px;
+        position: absolute;
+        top: 125px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
 }
 `;
 
@@ -155,21 +167,45 @@ export const NavItem = styled.a`
 `;
 
 export const Newsletter = styled.div`
-    
+        @media (min-width: 1200px) {
+        display: flex;
+        flex-direction: column;
+        margin-right: 55px;
+        margin-top: 45px;
+        position: absolute;
+        top: 0%;
+        right: -0%;
+        width: 339px;
+}
 `;
 
 export const NewsletterTitle = styled.h3`
+    color: #FAFAFA;
     display: none;
+
+    @media (min-width: 1200px) {
+        display: block;
+        font-size: 18px;
+        margin: 0;
+}
 `;
 
 export const NewsletterTxt = styled.p`
+    color: #FAFAFA;
     display: none;
+
+    @media (min-width: 1200px) {
+        display: block;
+        font-size: 14px;
+        padding-bottom: 30px;
+        text-wrap: wrap;
+}
 `;
 
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 18px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
@@ -187,13 +223,15 @@ export const Form = styled.form`
 export const InputBox = styled.div`
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-        margin-top: 18px;
+        margin: 0;
+        margin-top: 15px;
 }
 
     @media (min-width: 1200px) {
-
+        margin: 0;
 }
 `;
 
@@ -206,14 +244,17 @@ export const MailSvg = styled.svg`
     width: 16px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-        height: 16px;
-        margin-bottom: -33px;
+        height: 20px;
+        margin-bottom: -35px;
         margin-left: 12px;
-        width: 20px; 
+        width: 25px; 
 }
 
     @media (min-width: 1200px) {
-
+        height: 25px;
+        margin-bottom: -45px;
+        margin-left: 10px;
+        width: 25px; 
 }
 `;
 
@@ -227,7 +268,7 @@ export const Input = styled.input`
     height: 38px;
     line-height: 1.13;
     padding-left: 35px;
-    margin: 0 auto;
+    
     outline: transparent;
     overflow: hidden;
     width: 54vw;
@@ -237,16 +278,26 @@ export const Input = styled.input`
         color: #FAFAFA;
         font-size: 10px;
         letter-spacing: -2%;
+
+        @media (min-width: 1200px) {
+        font-size: 18px;
+}
+
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
         height: 46px;
+        padding-left: 40px;
         width: 259px;
         max-width: 250px;
 }
 
     @media (min-width: 1200px) {
-
+        font-size: 18px;
+        height: 59px;
+        padding-left: 40px;
+        width: 297px;
+        max-width: 297px;
 }
 `;
 
@@ -285,7 +336,11 @@ export const Button = styled.button`
 }
 
     @media (min-width: 1200px) {
-
+        font-size: 16px;
+        height: 60px;
+        margin: 0;
+        width: 339px;
+        max-width: 339px;
 }
 
 `;
@@ -300,11 +355,13 @@ export const ErrorMsg = styled.p`
     transform: translate(-93%, -50%);
 
     @media (min-width: 768px) and (max-width: 1199px) {
-        top: 63%;
-        transform: translate(-180%, 50%);
+        top: 64%;
+        transform: translate(-220%, 50%);
 }
 
      @media (min-width: 1200px) {
+        top: 61%;
+        transform: translate(-155%, 50%);
 }
 `;
 
@@ -331,6 +388,12 @@ export const Info = styled.div`
 }
 
      @media (min-width: 1200px) {
+        background: url(${footer_l});
+        background-position: right -70px bottom -240px;
+        background-repeat: no-repeat;
+        background-size: 593px 611px;
+        font-size: 14px;
+        gap: 25px;
 }
 `;
 
@@ -344,6 +407,11 @@ export const SocialMedia = styled.div`
     justify-content: center;
     padding-bottom: 20px;
     padding-top: 45px;
+
+    @media (min-width: 1200px) {
+        gap: 20px;
+        padding-bottom: 30px;
+}
 `;
 
 export const Icon = styled.a`
@@ -361,10 +429,3 @@ export const Svg = styled.svg`
         fill: #fafafa;
     }
 `;
-
-//     @media (min-width: 768px) and (max-width: 1199px) {
-// }
-
-//     @media (min-width: 1200px) {
-// }
-// `;
