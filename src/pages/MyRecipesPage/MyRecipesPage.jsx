@@ -1,15 +1,16 @@
 import React from "react";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle.jsx";
 import MyRecipesList from "../../components/MyRecipesList/MyRecipesList.jsx";
-// import Paginator from 'ścieżka/Paginator';
+// import Paginator from "../../components/Paginator/Paginator.jsx";
+import OwnerRecipesPage from "./MyRecipesPage.styled.jsx";
 
 const MyRecipesPage = () => {
   return (
-    <div>
+    <OwnerRecipesPage>
       <MainPageTitle title="My recipes" />
       <MyRecipesList />
       {/* <Paginator /> */}
-    </div>
+    </OwnerRecipesPage>
   );
 };
 

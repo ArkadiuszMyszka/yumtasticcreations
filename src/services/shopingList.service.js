@@ -1,4 +1,5 @@
-import { privateApi } from "./PrivateApi.js";
+// import { privateApi } from "./PrivateApi.js";
+import privateApi from "./PrivateApi.js";
 
 export const getShoppingListService = async () => {
   const { data } = await privateApi.get(`/shopping-lists`);
