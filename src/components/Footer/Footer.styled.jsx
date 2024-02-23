@@ -22,6 +22,20 @@ export const Logo = styled.div`
     gap: 8px;
     align-items: center;
     justify-content: center;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        align-items: flex-end;
+        gap: 15px;
+        justify-content: flex-start;
+        margin-top: -12px;
+        padding-left: 22px;
+        
+
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const LogoSvg = styled.svg`
@@ -29,6 +43,16 @@ export const LogoSvg = styled.svg`
     height: 32px;
     stroke: #8BAA36;
     width: 32px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        height: 44px;
+        width: 44px;
+
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const LogoName = styled.p`
@@ -37,15 +61,63 @@ export const LogoName = styled.p`
     font-weight: 700;
     letter-spacing: 1.5%;
 
+    @media (min-width: 768px) and (max-width: 1199px) {
+        font-size: 28px;
+        margin-bottom: 8px;
 
+}
+
+    @media (min-width: 1200px) {
+
+}
+
+`;
+
+export const Box = styled.div`
+    @media (min-width: 768px) and (max-width: 1199px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        padding-top: 35px;
+
+}
+
+    @media (min-width: 1200px) {
+
+}
+`;
+
+export const AboutBox = styled.div`
+    padding-left: 30px;
 `;
 
 export const About = styled.div`
     display: none;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        color: #FAFAFA;
+        display: block;
+        font-size: 14px;
+        letter-spacing: -2%;
+        line-height: 1.29;
+
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const AboutItem = styled.li`
+    @media (min-width: 768px) and (max-width: 1199px) {
+        margin-bottom: 10px;
 
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const Nav = styled.nav`
@@ -55,6 +127,17 @@ export const Nav = styled.nav`
     gap: 8px;
     margin-bottom: 45px;
     margin-top: 15px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        align-items: flex-start;
+        gap: 15px;
+        padding-right: 100px;
+
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const NavItem = styled.a`
@@ -88,11 +171,30 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center;
     gap: 18px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const InputBox = styled.div`
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        margin-top: 18px;
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const MailSvg = styled.svg`
@@ -102,6 +204,17 @@ export const MailSvg = styled.svg`
     margin-left: 15px;
     stroke: #FAFAFA;
     width: 16px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        height: 16px;
+        margin-bottom: -33px;
+        margin-left: 12px;
+        width: 20px; 
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const Input = styled.input`
@@ -125,6 +238,16 @@ export const Input = styled.input`
         font-size: 10px;
         letter-spacing: -2%;
     }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        height: 46px;
+        width: 259px;
+        max-width: 250px;
+}
+
+    @media (min-width: 1200px) {
+
+}
 `;
 
 export const Button = styled.button`
@@ -155,7 +278,10 @@ export const Button = styled.button`
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
-
+        font-size: 18px;
+        height: 50px;
+        margin: 0;
+        width: 187px;
 }
 
     @media (min-width: 1200px) {
@@ -171,8 +297,18 @@ export const ErrorMsg = styled.p`
     top: 57%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-93%, -50%)
+    transform: translate(-93%, -50%);
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        top: 63%;
+        transform: translate(-180%, 50%);
+}
+
+     @media (min-width: 1200px) {
+}
 `;
+
+
 
 export const Info = styled.div`
     background: url(${footer_s});
@@ -186,6 +322,16 @@ export const Info = styled.div`
     color: #22252A;
     font-size: 10px;
     height: 67px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+        background: url(${footer_m});
+        background-position: right -70px bottom -150px;
+        background-repeat: no-repeat;
+        background-size: 393px 404px;
+}
+
+     @media (min-width: 1200px) {
+}
 `;
 
 export const InfoTextBold = styled.div`

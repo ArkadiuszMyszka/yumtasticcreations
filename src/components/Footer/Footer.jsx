@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import icons_footer from "../../images/ui/social_media/icons_footer.svg";
 import logo from "../../images/ui/logo/logo.svg";
 import icons from "../../images/ui/input/icons.svg"
-import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Icon, Svg, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, InputBox, Button, ErrorMsg, MailSvg } from './Footer.styled.jsx';
+import { FooterBox, StyledFooter, Info, InfoTextBold, SocialMedia, Icon, Svg, Box, AboutBox, About, AboutItem, Nav, NavItem, Logo, LogoSvg, LogoName, Newsletter, NewsletterTitle, NewsletterTxt, Form, Input, InputBox, Button, ErrorMsg, MailSvg } from './Footer.styled.jsx';
 
 export const Footer = () => {
     const [email, setEmail] = useState('');
@@ -23,13 +23,14 @@ export const Footer = () => {
     return (
         <FooterBox>
             <StyledFooter>
-                    <Logo>
-                        <a href="/main">
-                            <LogoSvg><use href={`${logo}#icon-logo`}></use></LogoSvg> 
-                        </a>
-                        <LogoName>So Yummy</LogoName>
-                    </Logo>
-
+                <Box>
+                    <AboutBox>
+                        <Logo>
+                            <a href="/main">
+                                <LogoSvg><use href={`${logo}#icon-logo`}></use></LogoSvg> 
+                            </a>
+                            <LogoName>So Yummy</LogoName>
+                        </Logo>
                     <About>
                         <ul>
                             <AboutItem>Database of recipes that can be replenished </AboutItem>
@@ -38,7 +39,7 @@ export const Footer = () => {
                             <AboutItem>Convenient and easy to use</AboutItem>
                         </ul>
                     </About>
-
+                    </AboutBox>
                     <Nav>
                         <NavItem href="/search">Ingredients</NavItem>
                         <NavItem href="/add">Add recipes</NavItem>
@@ -46,6 +47,7 @@ export const Footer = () => {
                         <NavItem href="/favorite">Favorite</NavItem>
                         <NavItem href="/shopping-list">Shopping list</NavItem>
                     </Nav>
+                </Box>
 
                     <Newsletter>
                         <NewsletterTitle>Subscribe to our Newsletter</NewsletterTitle>
