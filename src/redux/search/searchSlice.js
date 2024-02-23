@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  getSearchByTitle,
-  getSearchByIngredients,
+  getRecipesByTitle,
+  getRecipesByIngredient,
 } from "./searchOperations.js";
 
 const handlePending = (state) => {
@@ -14,12 +14,12 @@ const handleRejected = (state, action) => {
 };
 
 const initialState = {
-  isLoading: false,
-  error: null,
-  currentPage: 1,
   recipeByTitle: [],
   recipesByIngredient: [],
   searchFilter: "",
+  currentPage: 1,
+  isLoading: false,
+  error: null,
 };
 
 const searchSlice = createSlice({
@@ -27,6 +27,10 @@ const searchSlice = createSlice({
   initialState,
 
   reducers: {
+    setSearchFilter: (state, action) => {
+      state.searchFilter = action.payload;
+    },
+
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
     },
@@ -42,32 +46,30 @@ const searchSlice = createSlice({
     resetRecipeByIngredient: (state) => {
       state.recipesByIngredient = initialState.recipesByIngredient;
     },
-
-    setSearchFilter: (state, action) => {
-      state.searchFilter = action.payload;
-    },
   },
 
-  extraReducers: (builder) =>
+  extraReducers: (builder) => {
     builder
-      .addCase(getSearchByTitle.pending, handlePending)
-      .addCase(getSearchByTitle.fulfilled, (state, action) => {
+      .addCase(getRecipesByTitle.pending, handlePending)
+      .addCase(getRecipesByTitle.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
         state.recipeByTitle = action.payload.data.recipe;
+      })
+      .addCase(getRecipesByTitle.rejected, handleRejected)
+      .addCase(getRecipesByIngredient.pending, handlePending)
+      .addCase(getRecipesByIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-      })
-      .addCase(getSearchByTitle.rejected, handleRejected)
-      .addCase(getSearchByIngredients.pending, handlePending)
-      .addCase(getSearchByIngredients.fulfilled, (state, action) => {
         state.recipesByIngredient = action.payload.data.recipe;
-        state.isLoading = false;
-        state.error = null;
       })
-      .addCase(getSearchByIngredients.rejected, handleRejected),
+      .addCase(getRecipesByIngredient.rejected, handleRejected);
+  },
 });
 
-export const searchReducer = searchSlice.reducer;
+export default searchSlice.reducer;
 export const {
+  getNewState,
   resetRecipeByTitle,
   resetRecipeByIngredient,
   setCurrentPage,

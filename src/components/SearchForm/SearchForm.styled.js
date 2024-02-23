@@ -50,7 +50,6 @@ export const SearchButton = styled.button`
   background-color: #8baa36;
   border-radius: 24px 44px;
   border: none;
-  // transform: translate(-98%);
   transition: all 0.3s ease-out;
 
   @media screen and (min-width: 768px) {
@@ -65,7 +64,6 @@ export const SearchButton = styled.button`
     font-size: 16px;
   }
 
-  &:focus,
   &:hover {
     background-color: #22252a;
   }

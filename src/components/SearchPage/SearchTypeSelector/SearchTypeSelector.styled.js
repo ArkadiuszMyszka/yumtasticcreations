@@ -19,11 +19,6 @@ export const BoxSelector = styled.div`
   }
 `;
 
-export const TypeBox = styled.div`
-  display: flex;
-  position: relative;
-`;
-
 export const Label = styled.label`
   font-family: Poppins, sans-serif;
   font-weight: 600;
@@ -40,62 +35,34 @@ export const Label = styled.label`
   }
 `;
 
-export const Select = styled.select`
-  width: 146px;
-  height: 100%;
-  font-family: Poppins, sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #7d7d7d;
-  border-radius: 6px;
-  border: 1px solid #d9d9d9;
-  background-color: #e8e8e8;
-  cursor: pointer;
-  opacity: 0.5;
-
-  @media screen and (min-width: 768px) {
-    width: 175px;
-    height: 40px;
-    font-size: 14px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    font-size: 14px;
-    width: 198px;
-    height: 40px;
-  }
-
-  &:focus,
-  &:hover {
-    outline: none;
-  }
-`;
-
-// export const SelectOption = styled.option`
-//   display: block;
+// export const Select = styled.div`
 //   width: 146px;
-//   height: 41px;
-//   outline: none;
+//   height: 100%;
 //   font-family: Poppins, sans-serif;
 //   font-weight: 400;
 //   font-size: 12px;
 //   line-height: 1.5;
-//   color: #000000;
-//   background-color: #eaeaea;
+//   color: #7d7d7d;
+//   border-radius: 6px;
+//   border: 1px solid #d9d9d9;
+//   background-color: #e8e8e8;
 //   cursor: pointer;
 //   opacity: 0.5;
 
 //   @media screen and (min-width: 768px) {
 //     width: 175px;
+//     height: 40px;
 //     font-size: 14px;
 //   }
 
 //   @media screen and (min-width: 1280px) {
+//     font-size: 14px;
 //     width: 198px;
+//     height: 40px;
 //   }
 
+//   &:focus,
 //   &:hover {
-//     background-color: #eeeeee;
+//     outline: none;
 //   }
 // `;

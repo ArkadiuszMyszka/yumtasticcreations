@@ -1,30 +1,77 @@
-import {
-  Thumb,
-  Label,
-  StyledLink,
-  Image,
-  List,
-  ListWrapper,
-  TextBox,
-} from "./RecipesList.styled.js";
+import React, { useState, useLayoutEffect } from "react";
+import { Link } from "react-router-dom";
 
-export default function RecipesList({ recipes }) {
+import { Thumb, Label, Image, List, ListItem } from "./RecipesList.styled.js";
+
+const MAX_TITLE_LENGTH = 25;
+
+const RecipesList = ({ category, title }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const cardsToShow = calculateCardsToShow(windowWidth);
+
+  let displayedTitle = title;
+
+  if (title.length > MAX_TITLE_LENGTH) {
+    displayedTitle = `${title.slice(0, MAX_TITLE_LENGTH)}...`;
+  }
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function calculateCardsToShow(width) {
+    if (width < 768) {
+      return 1;
+    } else if (width >= 768 && width < 1280) {
+      return 2;
+    } else {
+      return 4;
+    }
+  }
+
   return (
-    <ListWrapper>
-      <List>
-        {recipes.map(({ _id, thumb, title }) => (
-          <li key={_id}>
-            <StyledLink to={`/recipe/${_id}`}>
+    <List>
+      {category?.slice(0, cardsToShow).map(({ _id: id, title, thumb }) => {
+        return (
+          <ListItem key={id}>
+            <Link to={`/recipes/${id}`}>
               <Thumb>
-                <Image src={thumb} alt={title} loading="lazy" />
-                <TextBox>
-                  <Label>{title}</Label>
-                </TextBox>
+                <Image src={thumb} title={title} />
+                <Label>{displayedTitle}</Label>
               </Thumb>
-            </StyledLink>
-          </li>
-        ))}
-      </List>
-    </ListWrapper>
+            </Link>
+          </ListItem>
+        );
+      })}
+    </List>
   );
-}
+};
+
+export default RecipesList;
+
+// return (
+//   <ListWrapper>
+//     <List>
+//       {recipes.map(({ _id, thumb, title }) => (
+//         <li key={_id}>
+//           <Link to={`/recipe/${id}`}>
+//             <Thumb>
+//               <Image src={thumb} alt={title} loading="lazy" />
+//               <TextBox>
+//                 <Label>{title}</Label>
+//               </TextBox>
+//             </Thumb>
+//           </Link>
+//         </li>
+//       ))}
+//     </List>
+//   </ListWrapper>
+// );

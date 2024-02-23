@@ -5,20 +5,23 @@ import { useSearchParams, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Form, SearchFormInput, SearchButton } from "./SearchForm.styled.js";
 
-import { selectSearchFilter } from "../../../redux/search/searchSelectors.js";
-import {
-  getSearchByTitle,
-  getSearchByIngredients,
-} from "./searchOperations.js";
+import { selectSearchFilter } from "../../redux/search/searchSelectors.js";
 
 import {
-  resetRecipeByIngredient,
+  getRecipesByTitle,
+  getRecipesByIngredient,
+} from "../../redux/search/searchOperations.js";
+
+import {
   resetRecipeByTitle,
+  resetRecipeByIngredient,
   resetCurrentPage,
-} from "../../../redux/search/searchSlice.js";
+} from "../../redux/search/searchSlice.js";
 
-export default function SearchForm({ onSubmit, queryParam = "" }) {
-  const [searchQuery, setSearchQuery] = useState("");
+import { selectOption } from "../SearchPage/SearchTypeSelector/SearchTypeSelector.jsx";
+
+const SearchForm = () => {
+  const [searchValue, setSearchValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,10 +29,14 @@ export default function SearchForm({ onSubmit, queryParam = "" }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setQuery(queryParam);
-  }, [queryParam]);
+    if (location.state && location.state.from === "/main") {
+      const query = searchParams.get("q");
+      setSearchValue(query);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const inputChange = useCallback(() => {
+  const updateQueryString = useCallback(() => {
     if (location.pathname === "/search" && searchValue === "") {
       setSearchParams({});
     }
@@ -77,7 +84,7 @@ export default function SearchForm({ onSubmit, queryParam = "" }) {
 
     if (searchValue === "") {
       setSearchParams({});
-      showMessageToast("Enter any word in");
+      toast.info("Enter your query");
       return;
     }
 
@@ -88,7 +95,7 @@ export default function SearchForm({ onSubmit, queryParam = "" }) {
           result.payload.code === 200 &&
           result.payload.data?.recipe?.length === 0
         ) {
-          showMessageToast(`On request "${title}" found nothing`);
+          toast.info(`On request "${title}" found nothing`);
         }
       });
     }
@@ -99,22 +106,29 @@ export default function SearchForm({ onSubmit, queryParam = "" }) {
           result.payload.code === 200 &&
           result.payload.data?.recipe?.length === 0
         ) {
-          showMessageToast(`On request "${ingredient}" found nothing`);
+          toast.info(`On request "${ingredient}" found nothing`);
         }
       });
     }
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <SearchFormInput
-        type="text"
-        autocomplete="off"
-        value={searchValue}
-        placeholder="Enter query"
-        onChange={handleInputChange}
-      />
-      <SearchButton type="submit">Search</SearchButton>
-    </Form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <Form>
+          <SearchFormInput
+            type="text"
+            name="search"
+            value={searchValue}
+            onChange={handleInputChange}
+            placeholder="Enter query"
+            autoComplete="off"
+          />
+          <SearchButton type="submit">Search</SearchButton>
+        </Form>
+      </form>
+    </div>
   );
-}
+};
+
+export default SearchForm;

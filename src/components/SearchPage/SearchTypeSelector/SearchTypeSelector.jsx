@@ -1,25 +1,36 @@
-import {
-  Label,
-  BoxSelector,
-  Select,
-  TypeBox,
-} from "./SearchTypeSelector.styled";
+import { useDispatch } from "react-redux";
 
-export default function SearchTypeSelector({ onHandleChange, defaultValue }) {
+import SelectOption from "./SelectOption.jsx";
+
+import { Label, BoxSelector } from "./SearchTypeSelector.styled";
+
+export const selectOption = (selectedOption) => {
+  console.log("type selector selectOption");
+  return {
+    type: "search/setSearchFilter",
+    payload: selectedOption,
+  };
+};
+
+const SearchTypeSelector = () => {
+  const dispatch = useDispatch();
+
+  const handleOptionChange = (value) => {
+    dispatch(selectOption(value));
+    console.log("type selector handleOptionChange");
+  };
+
   return (
-    <BoxSelector>
-      <Label htmlFor="search">Search by:</Label>
-      <TypeBox>
-        <Select
-          id="search"
-          name="type"
-          defaultValue={defaultValue}
-          onChange={onHandleChange}
-        >
-          <option value="title">Title</option>
-          <option value="ingredients">Ingredients</option>
-        </Select>
-      </TypeBox>
-    </BoxSelector>
+    <>
+      <BoxSelector>
+        <Label> Search by:</Label>
+        <SelectOption
+          options={["Title", "Ingredient"]}
+          onChange={handleOptionChange}
+        />
+      </BoxSelector>
+    </>
   );
-}
+};
+
+export default SearchTypeSelector;
