@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const api = axios.create({ baseURL: process.env.REACT_APP_BACKEND_URL });
 
-const privateApi = (token) => {
+export const privateApi = (token) => {
   try {
     api.defaults.headers.common["Authorization"] = `Barer${token}`;
     return api;

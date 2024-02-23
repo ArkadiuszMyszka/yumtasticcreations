@@ -15,6 +15,10 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { selectShoppingList } from "../../redux/shoppingList/shoppingList.selectors.js";
 import Loader from "../Loader/Loader.jsx";
+import {
+  addIngredientToShoppingListThunk,
+  removeIngredientFromShoppingListThunk,
+} from "../../redux/shoppingList/shopingList.operations.js";
 
 export default function RecipeIngredietItem({ recipeId, ingredient }) {
   const { ttl, measure, thb } = ingredient;
@@ -40,11 +44,17 @@ export default function RecipeIngredietItem({ recipeId, ingredient }) {
     setIsLoading(true);
     try {
       if (ingredientInShoppingList) {
-        //dodac funkcje usuwania składnika gdy jest na liscie zakupów
-        await dispatch();
+        await dispatch(
+          removeIngredientFromShoppingListThunk(ingredientInShoppingList._id)
+        );
       } else {
-        //dodac funkcje dodawania składnika gdy nie ma go na liscie zakupów
-        await dispatch();
+        await dispatch(
+          addIngredientToShoppingListThunk({
+            ingredientId: ingredient._id,
+            value: ingredient.measure,
+            recipeId: recipeId,
+          })
+        );
       }
     } catch (error) {
       console.log(error);
