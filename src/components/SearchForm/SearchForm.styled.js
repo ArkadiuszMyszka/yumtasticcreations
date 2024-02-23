@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Form = styled.div`
+export const Form = styled.form`
   position: relative;
   max-width: 100%;
 `;
@@ -18,10 +18,10 @@ export const SearchFormInput = styled.input`
   transition: border 0.3s ease;
   width: 100%;
   width: 295px;
-  padding-left: 30px;
-  border: 1px solid #d1cece;
+  padding: 0 30px;
+  border: 1px solid #d1cece87;
   border-radius: 24px 44px;
-  box-shadow: 0px 4px 97px 0px #22252a08;
+  box-shadow: 0px -1px 20px 3px #4546460a;
   outline: none;
 
   @media (min-width: 768px) {

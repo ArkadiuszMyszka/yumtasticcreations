@@ -113,21 +113,17 @@ const SearchForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <Form>
-          <SearchFormInput
-            type="text"
-            name="search"
-            value={searchValue}
-            onChange={handleInputChange}
-            placeholder="Enter query"
-            autoComplete="off"
-          />
-          <SearchButton type="submit">Search</SearchButton>
-        </Form>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}>
+      <SearchFormInput
+        type="text"
+        name="search"
+        value={searchValue}
+        onChange={handleInputChange}
+        placeholder="Enter query"
+        autoComplete="off"
+      />
+      <SearchButton type="submit">Search</SearchButton>
+    </Form>
   );
 };
 

@@ -56,22 +56,3 @@ const RecipesList = ({ category, title }) => {
 };
 
 export default RecipesList;
-
-// return (
-//   <ListWrapper>
-//     <List>
-//       {recipes.map(({ _id, thumb, title }) => (
-//         <li key={_id}>
-//           <Link to={`/recipe/${id}`}>
-//             <Thumb>
-//               <Image src={thumb} alt={title} loading="lazy" />
-//               <TextBox>
-//                 <Label>{title}</Label>
-//               </TextBox>
-//             </Thumb>
-//           </Link>
-//         </li>
-//       ))}
-//     </List>
-//   </ListWrapper>
-// );
