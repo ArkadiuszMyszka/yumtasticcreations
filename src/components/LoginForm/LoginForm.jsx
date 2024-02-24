@@ -9,9 +9,11 @@ import {
   Icon,
   ErrorMessageStyled,
   Form,
-  ErrorIconStyled,
-  OkIconStyled,
 } from "../AuthForm/AuthForm.styled.jsx";
+import {
+  OkIconStyled,
+  ErrorIconStyled,
+} from "./LoginForm.styled.jsx";
 import icons from "../../images/ui/input/icons.svg";
 import privateApi from "../../services/PrivateApi";
 
@@ -61,11 +63,11 @@ export const LoginForm = () => {
               }}
             />
             <ErrorMessage name="email" component={ErrorMessageStyled} />
-            {formik.touched.email && formik.errors.email ? (
+          </InputBox>
+          {formik.touched.email && formik.errors.email ? (
               <ErrorIconStyled />
             ) : null}
             {emailValid && !formik.errors.email ? <OkIconStyled /> : null}
-          </InputBox>
           <InputBox>
             <Icon>
               <use href={`${icons}#icon-input_lock`}></use>
