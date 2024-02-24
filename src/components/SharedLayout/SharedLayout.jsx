@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
-import Header from "components/Header/Header";
-import Footer from "components/Footer/Footer";
-import Loader from "components/Loader/Loader";
-import { Layout } from "components/SharedLayout.styled";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
+import Loader from "../Loader/Loader.jsx";
+import { Layout } from "./SharedLayout.styled.js";
 
 export const SharedLayout = () => {
   return (
@@ -17,3 +17,5 @@ export const SharedLayout = () => {
     </Layout>
   );
 };
+
+export default SharedLayout;

@@ -14,6 +14,7 @@ import {
   DesktopMenu,
   DarkMode,
 } from "./Header.styled";
+
 export const Header = () => {
   return (
     <Container>
@@ -30,3 +31,5 @@ export const Header = () => {
     </Container>
   );
 };
+
+export default Header;

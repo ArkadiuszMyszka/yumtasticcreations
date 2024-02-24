@@ -1,53 +1,149 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState } from "react";
+// import Pagination from "react-paginating";
+// import { GlobalPaginatorStyles } from "./Paginator.styled.js";
 
-const Paginator = ({ totalItems, itemsPerPage, onPageChange }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+// const Paginator = ({ totalRecipesCount }) => {
+//   const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    onPageChange(currentPage);
-  }, [currentPage, onPageChange]);
+//   const handlePageChange = (page, e) => {
+//     e.preventDefault();
+//     setCurrentPage(page);
+//   };
 
-  const handlePageChange = (newPage) => {
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
+//   const itemsPerPage = 4;
+
+//   return (
+//     <>
+//       <GlobalPaginatorStyles />
+//       <Pagination
+//         total={totalRecipesCount}
+//         limit={itemsPerPage}
+//         pageCount={Math.ceil(totalRecipesCount / itemsPerPage)}
+//         currentPage={currentPage}
+//       >
+//         {({
+//           pages,
+//           currentPage,
+//           hasNextPage,
+//           hasPreviousPage,
+//           previousPage,
+//           nextPage,
+//           totalPages,
+//           getPageItemProps,
+//         }) => (
+//           <div className="pagination">
+//             {hasPreviousPage && (
+//               <button
+//                 {...getPageItemProps({
+//                   pageValue: previousPage,
+//                   onPageChange: handlePageChange,
+//                 })}
+//               >
+//                 {"<"}
+//               </button>
+//             )}
+
+//             {pages.map((page, index) => (
+//               <button
+//                 key={index}
+//                 {...getPageItemProps({
+//                   pageValue: page,
+//                   onPageChange: handlePageChange,
+//                 })}
+//               >
+//                 {page}
+//               </button>
+//             ))}
+
+//             {hasNextPage && (
+//               <button
+//                 {...getPageItemProps({
+//                   pageValue: nextPage,
+//                   onPageChange: handlePageChange,
+//                 })}
+//               >
+//                 {">"}
+//               </button>
+//             )}
+//           </div>
+//         )}
+//       </Pagination>
+//     </>
+//   );
+// };
+
+// export default Paginator;
+// Paginator.jsx
+
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
+
+import {
+  PaginatorContainer,
+  PaginatorList,
+  PaginatorLink,
+  StyledReactPaginate,
+} from "./Paginator.styled.js";
+
+const Paginator = ({ totalRecipesCount }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const handlePageClick = (data) => {
+    const selectedPage = data.selected;
+    setCurrentPage(selectedPage);
   };
 
-  const renderPageNumbers = () => {
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(
-        <li
-          key={i}
-          className={i === currentPage ? "active" : ""}
-          onClick={() => handlePageChange(i)}
-        >
-          {i}
-        </li>
-      );
-    }
-    return pageNumbers;
-  };
+  // Przykładowa wartość, zastąp własną logiką pobierania totalCount
+  const itemsPerPage = 4;
 
   return (
-    <div className="paginator-container">
-      <ul className="pagination">
-        <li
-          className={`prev ${currentPage === 1 ? "disabled" : ""}`}
-          onClick={() => handlePageChange(currentPage - 1)}
+    <PaginatorContainer>
+      <StyledReactPaginate>
+        <ReactPaginate
+          previousLabel={"<"}
+          nextLabel={">"}
+          breakLabel={"..."}
+          pageCount={Math.ceil(totalRecipesCount / itemsPerPage)}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={"pagination"}
+          subContainerClassName={"pages pagination"}
+          activeClassName={"active"}
+          disableInitialCallback={true}
+          forcePage={currentPage}
+          pageLinkClassName="pagination-link"
+          previousClassName="pagination-previous"
+          nextClassName="pagination-next"
+        />
+      </StyledReactPaginate>
+      <PaginatorList>
+        <PaginatorLink
+          href="/"
+          className="pagination-previous"
+          onClick={() => handlePageClick({ selected: currentPage - 1 })}
         >
-          Prev
-        </li>
-        {renderPageNumbers()}
-        <li
-          className={`next ${currentPage === totalPages ? "disabled" : ""}`}
-          onClick={() => handlePageChange(currentPage + 1)}
+          {"<"}
+        </PaginatorLink>
+        {[1, 2, 3, 4].map((pageNumber) => (
+          <PaginatorLink
+            key={pageNumber}
+            href="/"
+            isActive={pageNumber - 1 === currentPage}
+            onClick={() => handlePageClick({ selected: pageNumber - 1 })}
+          >
+            {pageNumber}
+          </PaginatorLink>
+        ))}
+        <PaginatorLink
+          href="/"
+          className="pagination-next"
+          onClick={() => handlePageClick({ selected: currentPage + 1 })}
         >
-          Next
-        </li>
-      </ul>
-    </div>
+          {">"}
+        </PaginatorLink>
+      </PaginatorList>
+    </PaginatorContainer>
   );
 };
 
