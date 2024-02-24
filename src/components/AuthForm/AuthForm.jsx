@@ -10,6 +10,9 @@ import {
   Form,
   ErrorMessageStyled,
   PasswordStrength,
+  ErrorIconStyled,
+  WarnIconStyled,
+  OkIconStyled,
 } from "./AuthForm.styled";
 import icons from "../../images/ui/input/icons.svg";
 import privateApi from "../../services/PrivateApi";
@@ -32,17 +35,44 @@ const checkPasswordStrength = (password) => {
   if (/[^A-Za-z0-9]/.test(password)) strength += 1;
 
   switch (strength) {
-    case 0: return 'Very Weak';
-    case 1: return 'Weak';
-    case 2: return 'Medium';
-    case 3: return 'Strong';
-    case 4: return 'Very Strong';
-    default: return 'Very Weak';
+    case 0:
+      return "Very Weak";
+    case 1:
+      return "Weak";
+    case 2:
+      return "Medium";
+    case 3:
+      return "Strong";
+    case 4:
+      return "Very Strong";
+    default:
+      return "Very Weak";
+  }
+};
+
+const getPasswordIcon = (strength) => {
+  switch (strength) {
+    case "Very Weak":
+      return <ErrorIconStyled />;
+    case "Weak":
+      return <WarnIconStyled />;
+    case "Strong":
+    case "Very Strong":
+      return <OkIconStyled />;
+    default:
+      return null;
   }
 };
 
 export const AuthForm = () => {
   const [passwordStrength, setPasswordStrength] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [password, setPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(null);
+  const validateEmail = (email) => {
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    setIsEmailValid(isValid);
+  };
 
   return (
     <Formik
@@ -58,7 +88,7 @@ export const AuthForm = () => {
             }
             setTimeout(() => {
               window.location.href = "/main";
-            }, 1500);
+            }, 500);
             setSubmitting(false);
             resetForm();
           })
@@ -83,7 +113,21 @@ export const AuthForm = () => {
             <Icon>
               <use href={`${icons}#icon-input_mail`}></use>
             </Icon>
-            <Field name="email" as={Input} placeholder="Email" />
+            <Field
+              name="email"
+              as={Input}
+              placeholder="Email"
+              onChange={(e) => {
+                const value = e.target.value;
+                formik.setFieldValue("email", value);
+                validateEmail(value);
+              }}
+            />
+            {formik.errors.email && formik.touched.email ? (
+              <ErrorIconStyled />
+            ) : isEmailValid ? (
+              <OkIconStyled />
+            ) : null}
             <ErrorMessage name="email" component={ErrorMessageStyled} />
           </InputBox>
           <InputBox>
@@ -96,13 +140,16 @@ export const AuthForm = () => {
               type="password"
               placeholder="Password"
               onChange={(e) => {
-                formik.setFieldValue("password", e.target.value);
-                setPasswordStrength(checkPasswordStrength(e.target.value));
+                const value = e.target.value;
+                setPassword(value);
+                formik.setFieldValue("password", value);
+                setPasswordStrength(checkPasswordStrength(value));
               }}
             />
+            {getPasswordIcon(passwordStrength)}
             <ErrorMessage name="password" component={ErrorMessageStyled} />
             <PasswordStrength strength={passwordStrength}>
-              Password strength: {passwordStrength}
+              {passwordStrength && `Password strength: ${passwordStrength}`}
             </PasswordStrength>
           </InputBox>
           <Button type="submit">Sign up</Button>
