@@ -1,16 +1,15 @@
 import React from "react";
 import { PreviewCategories } from "../../components/PreviewCategories/PreviewCategories";
-import { Header } from "../../components/Header/Header";
 import {Footer} from "../../components/Footer/Footer";
-import { Container, Main } from "./MainPage.styled"; 
+import { Main } from "./MainPage.styled"; 
+import { Yummy } from "../../components/Yummy/Yummy";
+import { Header } from "../../components/Header/Header"
 
 export const MainPage = () => {
     return (
     <Main>
     <Header />
-        <Container> 
-            <h1>This space waits for main component of MainPage ;</h1>
-        </Container>
+    <Yummy />
         <PreviewCategories />
     <Footer />
     </Main>
