@@ -8,16 +8,20 @@ export const RecipeIngredientsListTable = styled.section`
   @media (min-width: 768px) and (max-width: 1199px) {
     --header-number-width: 78px;
     --header-favorite-width: 97x;
+    margin-top: 50px;
+  }
+  @media (min-width: 1200px) {
+    --header-number-width: 78px;
+    margin-top: 50px;
   }
 `;
 
 export const RecipeIngredientsHeader = styled.div`
   padding: 12px 14px 14px;
-
+  margin-bottom: 24px;
   display: flex;
 
   width: 100%;
-  margin-bottom: 24px;
 
   font-weight: 600;
   font-size: 10px;
@@ -53,6 +57,7 @@ export const RecipeIngredientsHeaderItem = styled.span`
   &:nth-of-type(2) {
     width: var(--header-number-width);
     text-align: center;
+    gap: 18px;
   }
   &:nth-of-type(3) {
     width: var(--header-favorite-width);
@@ -61,12 +66,16 @@ export const RecipeIngredientsHeaderItem = styled.span`
   }
 `;
 
-export const RecipeIngredientsList = styled.ul`
+export const RecipeIngredientsLists = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    gap: 24px;
+    gap: 38px;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 109px;
   }
 `;

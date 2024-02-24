@@ -5,12 +5,9 @@ import recipeTablet1 from "../../images/RecipeHero/recipe-page-hero-tablet@1x.jp
 import recipeTablet2 from "../../images/RecipeHero/recipe-page-hero-tablet@2x.jpg";
 import recipeDesktop1 from "../../images/RecipeHero/recipe-page-hero-desktop@1x.jpg";
 import recipeDesktop2 from "../../images/RecipeHero/recipe-page-hero-desktop@2x.jpg";
-import clock from "../../images/ui/other_icons/clock.svg";
 
 export const RecipeHeroWrap = styled.div`
-  height: 455px;
   width: 100%;
-  position: absolute;
   left: 0;
   top: 0;
 
@@ -18,7 +15,7 @@ export const RecipeHeroWrap = styled.div`
   flex-direction: column;
   align-items: center;
 
-  padding: 144px 36px 90px;
+  padding: 144px 38px 90px;
   text-align: center;
 
   background-image: url(${recipeMobile1});
@@ -31,45 +28,49 @@ export const RecipeHeroWrap = styled.div`
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url(${recipeMobile2});
-
-    @media (min-width: 768px) and (max-width: 1199px)  {
+  }
+  @media (min-width: 768px) and (max-width: 1199px) {
     background-image: url(${recipeTablet1});
-
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url(${recipeTablet2});
-     padding:136px 131px 32px;
-
+    height: 495px;
+    padding: 136px 131px 32px;
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${recipeTablet2});
+    }
   }
 
-        @media (min-width: 1200px) {
-
-     background-image: url(${recipeDesktop1});
-
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: url(${recipeDesktop2});
-
+  @media (min-width: 1200px) {
+    background-image: url(${recipeDesktop1});
+    height: 493px;
     padding: 164px 392px 32px;
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${recipeDesktop2});
+    }
   }
 `;
 
 export const RecipeTitle = styled.h1`
   margin-bottom: 18px;
-
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
   color: #8baa36;
+  font-feature-settings: "liga" off;
 
   @media (min-width: 768px) and (max-width: 1199px) {
     margin-bottom: 24px;
-
     font-size: 44px;
   }
 `;
@@ -99,7 +100,8 @@ export const RecipeAddFavoriteButton = styled.button`
 
   width: fit-content;
   padding: 10px 18px;
-
+  height: 35px;
+  max-width: 150px;
   font-size: 10px;
   line-height: 1.5;
   color: #22252a;
@@ -124,10 +126,18 @@ export const RecipeAddFavoriteButton = styled.button`
     padding: 18px 44px;
     color: #23262a;
     font-size: 16px;
+    height: 59px;
+    max-width: 278px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 59px;
+    max-width: 270px;
   }
 `;
 
 export const RecipeTime = styled.span`
+  --icon-size: 14px;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -144,25 +154,31 @@ export const RecipeTime = styled.span`
   color: #23262a;
 
   & > svg {
-    width: 14px;
-    height: 14px;
+    width: var(--icon-size);
+    height: var(--icon-size);
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
+    --icon-size: 20px;
     column-gap: 8px;
 
     font-size: 14px;
     line-height: 1.4;
 
     & > svg {
-      width: 20px;
-      height: 20px;
+      width: var(--icon-size);
+      height: var(--icon-size);
     }
   }
 `;
 
 export const Clock = styled.p`
-  ikon: ${clock};
+  width: 14px;
+  height: 14px;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 export const RecipeHeroLoader = styled.span`
   display: block;

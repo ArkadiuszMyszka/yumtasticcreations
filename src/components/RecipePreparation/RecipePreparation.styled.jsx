@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 export const RecipePreparationContainer = styled.div`
+  flex-direction: column;
   margin-top: 50px;
+  gap: 40px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
     margin-top: 96px;
+    gap: 53px;
   }
 
   @media (min-width: 1200px) {
     display: flex;
     justify-content: space-between;
     gap: 50px;
-
+    flex-direction: row;
     margin-top: 100px;
   }
 `;
@@ -43,13 +46,13 @@ export const RecipePreparationList = styled.ul`
   counter-reset: section;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 21px;
 `;
 
 export const RecipePreparationItem = styled.li`
   display: flex;
   align-items: flex-start;
-
+  gap: 14px;
   font-size: 12px;
   line-height: 1.6;
   letter-spacing: -0.02em;
@@ -82,6 +85,10 @@ export const RecipePreparationItem = styled.li`
   @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 14px;
     line-height: 1.2;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 21px;
   }
 `;
 
