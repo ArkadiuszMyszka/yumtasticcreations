@@ -101,14 +101,15 @@ export const AuthForm = () => {
     >
       {(formik) => (
         <Form onSubmit={formik.handleSubmit}>
-          <Header>Rejestracja</Header>
+          <Header>Registration</Header>
           <InputBox>
             <Icon>
               <use href={`${icons}#icon-input_user`}></use>
             </Icon>
-            <Field name="name" as={Input} placeholder="Name" />
+            <Field name="name" as={Input} placeholder="Name"/>
             <ErrorMessage name="name" component={ErrorMessageStyled} />
           </InputBox>
+          
           <InputBox>
             <Icon>
               <use href={`${icons}#icon-input_mail`}></use>
@@ -130,8 +131,9 @@ export const AuthForm = () => {
             ) : null}
             <ErrorMessage name="email" component={ErrorMessageStyled} />
           </InputBox>
+          
           <InputBox>
-            <Icon>
+            <Icon strength={passwordStrength}>
               <use href={`${icons}#icon-input_lock`}></use>
             </Icon>
             <Field
@@ -145,13 +147,14 @@ export const AuthForm = () => {
                 formik.setFieldValue("password", value);
                 setPasswordStrength(checkPasswordStrength(value));
               }}
+              strength={passwordStrength}
             />
             {getPasswordIcon(passwordStrength)}
             <ErrorMessage name="password" component={ErrorMessageStyled} />
+          </InputBox>
             <PasswordStrength strength={passwordStrength}>
               {passwordStrength && `Password strength: ${passwordStrength}`}
             </PasswordStrength>
-          </InputBox>
           <Button type="submit">Sign up</Button>
         </Form>
       )}

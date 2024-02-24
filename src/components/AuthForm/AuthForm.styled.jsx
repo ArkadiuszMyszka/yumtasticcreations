@@ -79,6 +79,7 @@ export const Input = styled.input`
     width: 74vw;
     max-width: 279px;
 
+    
     border-color: ${props => {
     if (props.strength === 'Very Weak') return '#E74A3B';
     if (props.strength === 'Weak') return '#E67E22';
@@ -123,7 +124,7 @@ export const Input = styled.input`
     font-size: 18px;
     height: 8vh;
     max-height: 59px;
-    padding-left: 47px;
+    padding-left: 55px;
     width: 28vw;
     max-width: 400px;
 
@@ -138,8 +139,8 @@ export const Icon = styled.svg`
     height: 18px;
     width: 18px;
     position: absolute;
-    top: 50%;
-    left: 9.5%;
+    top: 26px;
+    left: 30px;
     margin-right: -50%;
     transform: translate(-50%, -50%);
 
@@ -161,6 +162,7 @@ export const Icon = styled.svg`
     height: 24px;
     width: 24px;
     left: 11%;
+    top: 35px;
 }
 `
 
@@ -207,64 +209,60 @@ export const ErrorMessageStyled = styled.div`
     color: #E74A3B;
     font-family: Poppins;
     font-size: 12px;
-    position: relative;
-    bottom: 12px;
-    left: 8px;
+    margin-left: 10px;
+
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 26px;
+    margin-left: 25px;
 }
 
     @media (min-width: 1200px) {
-    left: 23px;
+    margin-left: 20px;
 }
 `;
 
 export const ErrorIconStyled = styled(Error)`
-  position: relative;
-  left: 292px;
-  top: -48px;
+    position: relative;
+    top: -38px;
+    right: -290px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 435px;
-    top: -50px;
+    right: -435px;
 }
 
     @media (min-width: 1200px) {
-    top: -53px;
-    left: 370px;
+    top: -45px;
+    right: -88%;
 }
 `;
 
 export const WarnIconStyled = styled(Warning)`
   position: relative;
-  left: 292px;
-  top: -48px;
+    top: -38px;
+    right: -290px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 435px;
-    top: -50px;
+    right: -435px;
 }
 
     @media (min-width: 1200px) {
-    top: -53px;
-    left: 370px;
+    top: -45px;
+    right: -88%;
 }
 `;
 
 export const OkIconStyled = styled(Ok)`
   position: relative;
-  left: 292px;
-  top: -48px;
+    top: -38px;
+    right: -290px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 435px;
-    top: -50px;
+    right: -435px;
 }
 
     @media (min-width: 1200px) {
-    top: -53px;
-    left: 370px;
+    top: -45px;
+    right: -88%;
 }
 `;
 
@@ -279,14 +277,14 @@ export const PasswordStrength = styled.div`
   font-family: Poppins;
   font-size: 12px;
   position: relative;
-  left: 8px;
+  margin-left: 10px;
   top: -13px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    left: 26px;
+    margin-left: 25px;
   }
 
   @media (min-width: 1200px) {
-    left: 23px;
+    margin-left: 20px;
   }
 `;
