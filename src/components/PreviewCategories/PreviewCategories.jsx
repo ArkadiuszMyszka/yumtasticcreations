@@ -34,6 +34,7 @@ export const PreviewCategories = () => {
                     }
                     )
                     setRecipes([...resultsRecipes])}
+
             } catch (err) {
                 console.error("Wystąpił błąd:", err);
             }
