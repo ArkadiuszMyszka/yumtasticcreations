@@ -1,0 +1,70 @@
+[{
+  "_id": "1",
+  "title": "Beef",
+  "thumb": "https://www.themealdb.com/images/category/beef.png"
+},
+{
+  "_id": "2",
+  "title": "Chicken",
+  "thumb": "https://www.themealdb.com/images/category/chicken.png"
+},
+{
+  "_id": "3",
+  "title": "Dessert",
+  "thumb": "https://www.themealdb.com/images/category/dessert.png"
+},
+{
+  "_id": "4",
+  "title": "Lamb",
+  "thumb": "https://www.themealdb.com/images/category/lamb.png"
+},
+{
+  "_id": "5",
+  "title": "Miscellaneous",
+  "thumb": "https://www.themealdb.com/images/category/miscellaneous.png"
+},
+{
+  "_id": "6",
+  "title": "Pasta",
+  "thumb": "https://www.themealdb.com/images/category/pasta.png"
+},
+{
+  "_id": "7",
+  "title": "Pork",
+  "thumb": "https://www.themealdb.com/images/category/pork.png"
+},
+{
+  "_id": "8",
+  "title": "Seafood",
+  "thumb": "https://www.themealdb.com/images/category/seafood.png"
+},
+{
+  "_id": "9",
+  "title": "Side",
+  "thumb": "https://www.themealdb.com/images/category/side.png"
+},
+{
+  "_id": "10",
+  "title": "Starter",
+  "thumb": "https://www.themealdb.com/images/category/starter.png"
+},
+{
+  "_id": "11",
+  "title": "Vegan",
+  "thumb": "https://www.themealdb.com/images/category/vegan.png"
+},
+{
+  "_id": "12",
+  "title": "Vegetarian",
+  "thumb": "https://www.themealdb.com/images/category/vegetarian.png"
+},
+{
+  "_id": "13",
+  "title": "Breakfast",
+  "thumb": "https://www.themealdb.com/images/category/breakfast.png"
+},
+{
+  "_id": "14",
+  "title": "Goat",
+  "thumb": "https://www.themealdb.com/images/category/goat.png"
+}]

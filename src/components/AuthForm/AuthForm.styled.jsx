@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as Error } from '../../images/ui/input/input_error.svg';
+import { ReactComponent as Ok } from '../../images/ui/input/input_ok.svg';
+import { ReactComponent as Warning } from '../../images/ui/input/input_warning.svg';
 
 export const Form = styled.form`
     background-color: #2A2C36;
@@ -77,6 +79,15 @@ export const Input = styled.input`
     width: 74vw;
     max-width: 279px;
 
+    
+    border-color: ${props => {
+    if (props.strength === 'Very Weak') return '#E74A3B';
+    if (props.strength === 'Weak') return '#E67E22';
+    if (props.strength === 'Medium') return '#F1C40F';
+    if (props.strength === 'Strong') return '#2ECC71';
+    return '#FAFAFA';
+  }};
+
     &::placeholder {
         color: #fafafa;
         font-family: Poppins;
@@ -85,7 +96,13 @@ export const Input = styled.input`
 
     &:focus,
     &:hover {
-        border-color: #fafafa;
+        border-color: ${props => {
+    if (props.strength === 'Very Weak') return '#E74A3B';
+    if (props.strength === 'Weak') return '#E67E22';
+    if (props.strength === 'Medium') return '#F1C40F';
+    if (props.strength === 'Strong') return '#2ECC71';
+    return '#FAFAFA';
+  }};
         opacity: 1;
         outline: 0;
     }
@@ -107,7 +124,7 @@ export const Input = styled.input`
     font-size: 18px;
     height: 8vh;
     max-height: 59px;
-    padding-left: 47px;
+    padding-left: 55px;
     width: 28vw;
     max-width: 400px;
 
@@ -115,19 +132,25 @@ export const Input = styled.input`
       font-size: 18px;
     }
 }
-
 `;
 
 export const Icon = styled.svg`
     fill: transparent;
-    stroke: #FAFAFA;
     height: 18px;
     width: 18px;
     position: absolute;
-    top: 50%;
-    left: 9.5%;
+    top: 26px;
+    left: 30px;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+
+    stroke: ${(props) => {
+    if (props.strength === 'Very Weak') return '#E74A3B';
+    if (props.strength === 'Weak') return '#E67E22';
+    if (props.strength === 'Medium') return '#F1C40F';
+    if (props.strength === 'Strong') return '#2ECC71';
+    return '#FAFAFA';
+  }};
 
     @media (min-width: 768px) and (max-width: 1199px) {
     height: 24px;
@@ -139,6 +162,7 @@ export const Icon = styled.svg`
     height: 24px;
     width: 24px;
     left: 11%;
+    top: 35px;
 }
 `
 
@@ -185,31 +209,60 @@ export const ErrorMessageStyled = styled.div`
     color: #E74A3B;
     font-family: Poppins;
     font-size: 12px;
-    position: relative;
-    bottom: 0px;
-    left: 8px;
+    margin-left: 10px;
+
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 26px;
+    margin-left: 25px;
 }
 
     @media (min-width: 1200px) {
-    left: 23px;
+    margin-left: 20px;
 }
 `;
 
 export const ErrorIconStyled = styled(Error)`
-  position: relative;
-  left: 292px;
-  top: -66px;
+    position: relative;
+    top: -38px;
+    right: -290px;
 
     @media (min-width: 768px) and (max-width: 1199px) {
-    left: 435px;
+    right: -435px;
 }
 
     @media (min-width: 1200px) {
-    top: -72px;
-    left: 435px;
+    top: -45px;
+    right: -88%;
+}
+`;
+
+export const WarnIconStyled = styled(Warning)`
+  position: relative;
+    top: -38px;
+    right: -290px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    right: -435px;
+}
+
+    @media (min-width: 1200px) {
+    top: -45px;
+    right: -88%;
+}
+`;
+
+export const OkIconStyled = styled(Ok)`
+  position: relative;
+    top: -38px;
+    right: -290px;
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+    right: -435px;
+}
+
+    @media (min-width: 1200px) {
+    top: -45px;
+    right: -88%;
 }
 `;
 
@@ -219,19 +272,19 @@ export const PasswordStrength = styled.div`
     if (props.strength === 'Weak') return '#E67E22';
     if (props.strength === 'Medium') return '#F1C40F';
     if (props.strength === 'Strong') return '#2ECC71';
-    return '#27AE60';
+    return 'transparent';
   }};
   font-family: Poppins;
   font-size: 12px;
   position: relative;
-  left: 8px;
-  top: 0px;
+  margin-left: 10px;
+  top: -13px;
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    left: 26px;
+    margin-left: 25px;
   }
 
   @media (min-width: 1200px) {
-    left: 23px;
+    margin-left: 20px;
   }
 `;

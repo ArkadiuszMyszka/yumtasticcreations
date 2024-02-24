@@ -1,12 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  getSearchByTitle,
-  getSearchByIngredients,
+  getRecipesByTitle,
+  getRecipesByIngredient,
 } from "./searchOperations.js";
 
+const handlePending = (state) => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 const initialState = {
-  searchResult: null,
-  totalPages: null,
+  recipeByTitle: [],
+  recipesByIngredient: [],
+  searchFilter: "",
+  currentPage: 1,
   isLoading: false,
   error: null,
 };
@@ -14,42 +25,53 @@ const initialState = {
 const searchSlice = createSlice({
   name: "search",
   initialState,
+
   reducers: {
-    getNewState: (state) => {
-      state.searchResult = null;
+    setSearchFilter: (state, action) => {
+      state.searchFilter = action.payload;
+    },
+
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+
+    resetCurrentPage: (state, action) => {
+      state.currentPage = initialState.currentPage;
+    },
+
+    resetRecipeByTitle: (state) => {
+      state.recipeByTitle = initialState.recipeByTitle;
+    },
+
+    resetRecipeByIngredient: (state) => {
+      state.recipesByIngredient = initialState.recipesByIngredient;
     },
   },
-  extraReducers: (builder) =>
+
+  extraReducers: (builder) => {
     builder
-      .addCase(getSearchByTitle.fulfilled, (state, action) => {
-        state.searchResult = action.payload.searchResult;
-        state.totalPages = action.payload.total;
+      .addCase(getRecipesByTitle.pending, handlePending)
+      .addCase(getRecipesByTitle.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.recipeByTitle = action.payload.data.recipe;
       })
-      .addCase(getSearchByIngredients.fulfilled, (state, action) => {
-        state.searchResult = action.payload.searchResult;
-        state.totalPages = action.payload.total;
+      .addCase(getRecipesByTitle.rejected, handleRejected)
+      .addCase(getRecipesByIngredient.pending, handlePending)
+      .addCase(getRecipesByIngredient.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.recipesByIngredient = action.payload.data.recipe;
       })
-      .addCase(getSearchByTitle.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getSearchByIngredients.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getSearchByTitle.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-        state.searchResult = null;
-      })
-      .addCase(getSearchByIngredients.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-        state.searchResult = null;
-      }),
+      .addCase(getRecipesByIngredient.rejected, handleRejected);
+  },
 });
 
-export const searchReducer = searchSlice.reducer;
-export const { getNewState } = searchSlice.actions;
+export default searchSlice.reducer;
+export const {
+  getNewState,
+  resetRecipeByTitle,
+  resetRecipeByIngredient,
+  setCurrentPage,
+  resetCurrentPage,
+} = searchSlice.actions;

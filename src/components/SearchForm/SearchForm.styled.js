@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const Form = styled.form`
   position: relative;
+  max-width: 100%;
 `;
 
 export const SearchFormInput = styled.input`
   font-family: Poppins, sans-serif;
-  margin: 0 auto;
+  margin: 0;
   height: 52px;
   font-size: 14px;
   font-weight: 400;
@@ -16,17 +17,17 @@ export const SearchFormInput = styled.input`
   background-color: #ffffff;
   transition: border 0.3s ease;
   width: 100%;
-  min-width: 295px;
-  padding-left: 30px;
-  border: 1px solid #f0f0f0;
+  width: 295px;
+  padding: 0 30px;
+  border: 1px solid #d1cece87;
   border-radius: 24px 44px;
-  box-shadow: 0px 4px 97px 0px #22252a08;
+  box-shadow: 0px -1px 20px 3px #4546460a;
   outline: none;
 
   @media (min-width: 768px) {
     width: 362px;
+    height: 57px;
     font-size: 16px;
-    height: 59px;
   }
   @media (min-width: 1280px) {
     width: 510px;
@@ -36,9 +37,9 @@ export const SearchFormInput = styled.input`
 `;
 
 export const SearchButton = styled.button`
-  position: relative;
+  position: absolute;
+  right: 0;
   cursor: pointer;
-  margin: 0 auto;
   width: 113px;
   height: 53px;
   font-family: Poppins, sans-serif;
@@ -46,11 +47,10 @@ export const SearchButton = styled.button`
   font-size: 14px;
   line-height: 1.5;
   color: #fafafa;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #8baa36;
   border-radius: 24px 44px;
   border: none;
-  transform: translate(-98%);
+  transition: all 0.3s ease-out;
 
   @media screen and (min-width: 768px) {
     width: 161px;
@@ -60,14 +60,11 @@ export const SearchButton = styled.button`
 
   @media screen and (min-width: 1280px) {
     width: 161px;
-    height: 70px;
+    height: 73px;
+    font-size: 16px;
   }
 
-  &:focus,
   &:hover {
     background-color: #22252a;
   }
-  // &:focus-within {
-  //   background-color: #8baa36;
-  // }
 `;

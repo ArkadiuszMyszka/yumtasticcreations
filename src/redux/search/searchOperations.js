@@ -1,45 +1,72 @@
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import privateApi from "../../services/PrivateApi.js";
 
-// axios.defaults.baseURL = "https://62584f320c918296a49543e7.mockapi.io";
-
-export const getSearchByTitle = createAsyncThunk(
-  "search/byTitle",
-  async ({ query, page = 1, perPage = 9 }, thunkApi) => {
+export const getRecipesByTitle = createAsyncThunk(
+  "search/getRecipesByTitle",
+  async (title, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `/search/?query=${query}&page=${page}&perPage=${perPage}`
-      );
-      return data;
+      const response = await privateApi.get(`recipe/search?q=${title}`);
+      console.log("getRecipesByTitle response");
+      return response.data;
     } catch (error) {
-      toast.error("Something happened during request. Please try again.");
-      return thunkApi.rejectWithValue(error.message);
+      console.log("getRecipesByTitle error");
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const getSearchByIngredients = createAsyncThunk(
-  "search/byIngredient",
-  async ({ query, page = 1, perPage = 9 }, thunkApi) => {
+export const getRecipesByIngredient = createAsyncThunk(
+  "search/getRecipesByIngredient",
+  async (ingredient, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `/ingredients/?query=${query}&page=${page}&perPage=${perPage}`
-      );
-      return data;
+      const response = await privateApi.get(`/ingredients?ing=${ingredient}`);
+      console.log("getRecipesByIngredient response");
+      return response.data;
     } catch (error) {
-      toast.error("Something happened during request. Please try again.");
-      return thunkApi.rejectWithValue(error.message);
+      console.log("getRecipesByIngredient error");
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const getRecipeById = async (id) => {
+export const getRecipeById = async (recipeId) => {
   try {
-    const { data } = await axios.get(`/recipe/${id}`);
+    const { data } = await privateApi.get(`/recipe/${recipeId}`);
     return data;
   } catch (error) {
-    console.log(error.message);
+    console.log("getRecipeById error", error.message);
     return null;
   }
 };
+
+// export default { getRecipesByTitle, getRecipesByIngredient, getRecipeById };
+
+// export const getSearchByTitle = createAsyncThunk(
+//   "search/byTitle",
+//   async ({ query, page }, thunkApi) => {
+//     try {
+//       const data = await privateApi.get(`api/search/?q=${query}&page=${page}`);
+//       return data;
+//     } catch (error) {
+//       toast.error("Something happened during request. Please try again.");
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const getSearchByIngredients = createAsyncThunk(
+//   "search/byIngredient",
+//   async ({ query, page }, thunkApi) => {
+//     try {
+//       const { data } = await privateApi.get(
+//         `api/ingredients/?ing=${query}&page=${page}`
+//       );
+//       console.log("operation ing");
+//       return data;
+//     } catch (error) {
+//       toast.error("Something happened during request. Please try again.");
+//       console.log("operation etSearchByIngredients error");
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );

@@ -1,7 +1,7 @@
 import {
   RecipeIngredientsHeader,
   RecipeIngredientsHeaderItem,
-  RecipeIngredientsList,
+  RecipeIngredientsLists,
   RecipeIngredientsListTable,
 } from "./RecipeIngredientsList.styled.jsx";
 import RecipeIngredietItem from "../RecipeIngredietItem/RecipeIngredietItem.jsx";
@@ -14,7 +14,7 @@ export default function RecipeIngredients({ recipeId, ingredients }) {
         <RecipeIngredientsHeaderItem>Number</RecipeIngredientsHeaderItem>
         <RecipeIngredientsHeaderItem>Add ot list</RecipeIngredientsHeaderItem>
       </RecipeIngredientsHeader>
-      <RecipeIngredientsList>
+      <RecipeIngredientsLists>
         {ingredients.map((ingredient) => (
           <RecipeIngredietItem
             key={ingredient._id}
@@ -22,7 +22,7 @@ export default function RecipeIngredients({ recipeId, ingredients }) {
             ingredient={ingredient}
           />
         ))}
-      </RecipeIngredientsList>
+      </RecipeIngredientsLists>
     </RecipeIngredientsListTable>
   );
 }
