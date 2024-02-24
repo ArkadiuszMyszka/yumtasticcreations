@@ -31,5 +31,3 @@ export const Header = () => {
     </Container>
   );
 };
-
-export default Header;

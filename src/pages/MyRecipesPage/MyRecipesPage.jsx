@@ -2,46 +2,49 @@ import React, { useState, useEffect } from "react";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle.jsx";
 import MyRecipesList from "../../components/MyRecipesList/MyRecipesList.jsx";
 import Paginator from "../../components/Paginator/Paginator.jsx";
-import OwnerRecipesPage from "./MyRecipesPage.styled.jsx";
+import { OwnerRecipesPage, MyRecipesEmpty } from "./MyRecipesPage.styled.jsx";
 
 const MyRecipesPage = () => {
+  const [recipes, setRecipes] = useState([]);
   const [totalRecipesCount, setTotalRecipesCount] = useState(0);
 
-  // Przykładowe dane, zastąp odpowiednią logiką pobierania
-  const fetchTotalCount = () => {
-    // Symulacja pobierania danych z API
-    setTotalRecipesCount(12); // Przykładowa wartość
+  const fetchRecipes = async () => {
+    try {
+      const response = await fetch("/ownRecipes");
+      const data = await response.json();
+      setRecipes(data);
+      setTotalRecipesCount(data.length);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   useEffect(() => {
-    fetchTotalCount();
+    fetchRecipes();
   }, []);
 
   return (
     <OwnerRecipesPage>
       <MainPageTitle title="My recipes" />
-      <MyRecipesList totalRecipesCount={totalRecipesCount} />
-      {totalRecipesCount > 4 && <Paginator />}
+      {recipes.length > 0 ? (
+        <>
+          <MyRecipesList recipes={recipes} />
+          {totalRecipesCount > 4 && (
+            <Paginator totalRecipesCount={totalRecipesCount} />
+          )}
+        </>
+      ) : (
+        <MyRecipesEmpty>
+          {/* <img
+            src="../../images/graphics/recipe.jpg"
+            alt="Placeholder"
+            style={{ maxWidth: "100%", height: "auto" }}
+          /> */}
+          <p>No recipes yet. Go to add some recipes!</p>
+        </MyRecipesEmpty>
+      )}
     </OwnerRecipesPage>
   );
 };
 
 export default MyRecipesPage;
-
-// import React from "react";
-// import MainPageTitle from "../../components/MainPageTitle/MainPageTitle.jsx";
-// import MyRecipesList from "../../components/MyRecipesList/MyRecipesList.jsx";
-// import Paginator from "../../components/Paginator/Paginator.jsx";
-// import OwnerRecipesPage from "./MyRecipesPage.styled.jsx";
-
-// const MyRecipesPage = () => {
-//   return (
-//     <OwnerRecipesPage>
-//       <MainPageTitle title="My recipes" />
-//       <MyRecipesList />
-//       <Paginator />
-//     </OwnerRecipesPage>
-//   );
-// };
-
-// export default MyRecipesPage;
