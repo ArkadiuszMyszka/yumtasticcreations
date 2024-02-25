@@ -8,7 +8,7 @@ import { selectCategories } from "redux/categories/selectors";
 import Alert from "Components/ui/Alert";
 import RecipesList from "src/components/SearchPage/RecipesList
 /RecipesList";
-import CategorySkeleton from "Components/images/ui/Skeletons/CategorySkeleton";
+import CategorySkeleton from "src/images/graphics/categorySvg/skeletonImg.svg";
 import CategoryPagination from "../Pagination/Pagination";
 
 const SearchRecipesList = () => {
