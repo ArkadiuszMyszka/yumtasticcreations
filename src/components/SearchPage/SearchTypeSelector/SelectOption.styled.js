@@ -34,12 +34,12 @@ export const StyledFormControl = styled.div`
     fill: #8baa36;
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px)  {
     font-size: 14px;
     width: 175px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 198px;
   }
 `;
@@ -67,12 +67,12 @@ export const StyledSelect = styled.ul`
   text-align: left;
   border-radius: 0px 0px 6px 6px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px)  {
     font-size: 14px;
     width: 100%;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     font-size: 16px;
     width: 100%;
   }
@@ -85,11 +85,11 @@ export const StyledMenuItem = styled.li`
   cursor: pointer;
   border-radius: 3px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px)  {
     width: 175px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 198px;
   }
 

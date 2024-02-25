@@ -52,7 +52,7 @@ const Box = styled.div`
     width: 768px;
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 1240px;
+  @media screen and (min-width: 1200px) {
+    width: 1200px;
   }
 `;

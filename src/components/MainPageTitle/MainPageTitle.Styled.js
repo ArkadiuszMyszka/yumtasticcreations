@@ -3,23 +3,20 @@ import styled from "styled-components";
 export const StyledTitle = styled.h1`
   color: #001833;
   font-family: Poppins;
+  font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.02em;
+  line-height: 28px;
   margin-left: 16px;
   text-align: left;
 
-  @media (max-width: 768px) {
-    font-size: 28px;
-    line-height: 28px;
-  }
-
-  @media (min-width: 769px) and (max-width: 1280px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 32px;
     line-height: 32px;
     margin-left: 32px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1200px) {
     font-size: 44px;
     line-height: 44px;
     margin-left: 100px;
@@ -35,7 +32,7 @@ export const Section = styled.section`
     padding-top: 136px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     padding-top: 164px;
   }
 `;
@@ -56,7 +53,7 @@ export const SquareFirst = styled.div`
     height: 14px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 14px;
     height: 14px;
     top: 116px;
@@ -79,7 +76,7 @@ export const SquareSecond = styled(SquareFirst)`
     left: 805px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 13px;
     height: 13px;
     top: 129px;
@@ -112,7 +109,7 @@ export const SquareBlack = styled.div`
     left: 705px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     width: 13px;
     height: 13px;
     top: 250px;
