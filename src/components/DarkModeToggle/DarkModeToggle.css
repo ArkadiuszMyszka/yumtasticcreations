@@ -1,0 +1,49 @@
+.toggle-container {
+  display: flex;
+}
+
+.toggle {
+  visibility: hidden;
+}
+
+.toggle + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--primary-text-color);
+  position: relative;
+}
+
+.toggle + label::before {
+  content: "";
+  height: 27px;
+  width: 61px;
+  border-radius: 50px;
+  box-shadow: inset 0 6px 8px 3px rgba(0, 0, 0, 0.1);
+  background-color: #efefef;
+  margin-right: 0.5em;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.toggle:checked + label::before {
+  background: #8baa36;
+}
+
+.toggle + label::after {
+  content: "";
+  height: 22px;
+  width: 22px;
+  border-radius: 100%;
+  box-shadow: 2px 1px 6px 0 rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, #fff 0%, #e8eaea 100%);
+  position: absolute;
+  left: 3.05px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.toggle:checked + label::after {
+  transform: translateX(150%);
+}

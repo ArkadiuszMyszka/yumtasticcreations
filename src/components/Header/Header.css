@@ -1,0 +1,20 @@
+.list-container {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.list-item a:hover {
+  color: #8baa36;
+}
+
+.icon-svg {
+  stroke: #8baa36;
+  fill: #8baa36;
+}
