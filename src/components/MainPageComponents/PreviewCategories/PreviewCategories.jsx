@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategories } from "../../redux/categories/selectors";
-import { getMainPageRecipes } from "../../redux/mainPageRecipes/operations";
-import { getCategories } from "../../redux/categories/operations";
+import { selectCategories } from "../../../redux/categories/selectors";
+import { getMainPageRecipes } from "../../../redux/mainPageRecipes/operations";
+import { getCategories } from "../../../redux/categories/operations";
 import { useMediaQuery } from "@uidotdev/usehooks";
-import { Container, CategoriesList, Category, CategoryTitle, RecipesList, RecipeButton, RecipeElement, RecipeImage, SeeAllButton, ButtonContainer, OtherCategoriesButton } from "./PreviewCategories.styled";
+import { Container, CategoriesList, Category, CategoryTitle, RecipesList, RecipeElement, RecipeImage, ButtonContainer, OtherCategoriesButton } from "./PreviewCategories.styled";
+import { RecipeButton } from "../RecipeButton/RecipeButton";
+// import { SeeAllButton } from "../SeeAllButton/SeeAllButton";
+import { SeeAllButton } from "../SeeAllButton/SeeAllButton";
 
 export const PreviewCategories = () => {
     const dispatch = useDispatch();
@@ -19,12 +22,12 @@ export const PreviewCategories = () => {
     }, [dispatch])
 
     useEffect(() => {
+
         const fetchRecipes = async () => {
+        
             try {
                 if (popularCategories.length > 0) {
-                    console.log("categories", popularCategories)
                     const promises = popularCategories.map((category) => {
-                        console.log("category", category)
                         return dispatch(getMainPageRecipes(category));
                     });
                     const results = await Promise.all(promises);
@@ -41,8 +44,10 @@ export const PreviewCategories = () => {
                 console.error("Wystąpił błąd:", err);
             }
         };
-        fetchRecipes();
-    }, [dispatch, popularCategories]);
+        
+        if (popularCategories.length > 0) {
+            fetchRecipes();
+        }    }, [dispatch, popularCategories]);
 
     const getNumberOfRecipesToRender = () => {
         if (isMobile) {
@@ -66,16 +71,14 @@ return (
                     {category.recipes.slice(0, getNumberOfRecipesToRender()).map((recipe) => {
                             return ( 
                             <RecipeElement>    
-                            <RecipeButton to="recipe/{recipe.id}">{recipe.title}</RecipeButton>
+                            <RecipeButton to={`categories/${category.title}`} children={recipe.title} />
                             <RecipeImage src={recipe.thumb} alt={recipe.title} />
                             </RecipeElement>
                             )
                         })}
                     </RecipesList>
                     <ButtonContainer>
-                    <SeeAllButton to="categories/{category.title}">
-                    See all
-                   </SeeAllButton>
+                    <SeeAllButton to={category.title} />
                    </ButtonContainer>
                 </Category>
             ))}

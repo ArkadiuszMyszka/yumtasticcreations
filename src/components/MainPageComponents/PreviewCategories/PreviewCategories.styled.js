@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -107,7 +108,11 @@ export const RecipeImage = styled.img`
   border-radius: 8px;
 `;
 
-export const RecipeButton = styled.button`
+const buttonStyles = `
+text-decoration: none;
+`;
+
+export const RecipeButton = styled(Link)`
 @media (min-width: 1200px) {
   width: 268px;
   top: 248px;
@@ -133,6 +138,8 @@ border: none;
 width: 307px;
 height: 52px;
 transition: 0.3s;
+${buttonStyles}
+
 &:hover {
     background-color:#8BAA36;
     color: white;
@@ -143,7 +150,7 @@ export const ButtonContainer = styled.div`
   justify-content: flex-end;
 `;
 
-export const SeeAllButton = styled.button`
+export const SeeAllButton = styled(Link)`
   display: flex;
   border: none;
   background-color: #8aa936;
@@ -154,12 +161,14 @@ export const SeeAllButton = styled.button`
   line-height: 18px;
   padding: 10px 24px;
   transition: 0.3s;
+  ${buttonStyles}
+
   &:hover {
     background-color: #22252a;
   }
 `;
 
-export const OtherCategoriesButton = styled.button`
+export const OtherCategoriesButton = styled(Link)`
   @media (min-width: 1200px) {
     margin-bottom: 118px;
   }
@@ -188,6 +197,8 @@ export const OtherCategoriesButton = styled.button`
   height: 46px;
   transition: 0.3s;
   margin-bottom: 100px;
+  ${buttonStyles}
+
   &:hover {
     color: white;
     background-color: #8baa36;

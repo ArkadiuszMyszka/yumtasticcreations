@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import backgroundCenter from "../../images/graphics/spinach_2.png";
-import backgroundLeft from "../../images/graphics/spinach_1.png";
-import saladImage from "../../images/graphics/salad.png";
-import greenTrail from "../../images/ui/other_icons/green_trail.svg";
-import greenArrow from "../../images/ui/other_icons/green_arrow.svg";
+import backgroundCenter from "../../../images/graphics/spinach_2.png";
+import backgroundLeft from "../../../images/graphics/spinach_1.png";
+import saladImage from "../../../images/graphics/salad.png";
+import greenTrail from "../../../images/ui/other_icons/green_trail.svg";
+import greenArrow from "../../../images/ui/other_icons/green_arrow.svg";
 import { useMediaQuery } from "react-responsive";
 
 export const Background = styled.main`
