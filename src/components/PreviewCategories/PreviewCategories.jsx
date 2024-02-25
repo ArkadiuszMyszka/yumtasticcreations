@@ -22,7 +22,9 @@ export const PreviewCategories = () => {
         const fetchRecipes = async () => {
             try {
                 if (popularCategories.length > 0) {
+                    console.log("categories", popularCategories)
                     const promises = popularCategories.map((category) => {
+                        console.log("category", category)
                         return dispatch(getMainPageRecipes(category));
                     });
                     const results = await Promise.all(promises);

@@ -5,8 +5,10 @@ export const getMainPageRecipes= createAsyncThunk(
   "recipes/getMainPageRecipes",
   async ( categoryTitle , thunkAPI ) => {
     try {
-        const titleToSend = { title: categoryTitle }
-        const response = await privateApi.post(`/recipes/main-page`, titleToSend );
+        const titleToSend = categoryTitle; 
+        console.log("1", typeof titleToSend)
+        const response = await privateApi.get(`/recipes/main-page/${titleToSend}`);
+        console.log("response", response.data)
         return response.data
     } catch (err) {
         return thunkAPI.rejectWithValue(err.message);
