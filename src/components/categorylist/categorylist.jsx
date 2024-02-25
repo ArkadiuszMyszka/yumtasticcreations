@@ -6,7 +6,7 @@ import { getCategoryRecipes } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
 
 import Alert from "Components/ui/Alert";
-import RecipesList from "Components/ui/RecipesList/RecipesList";
+import RecipesList from "Components/images/ui/RecipesList/RecipesList";
 import CategorySkeleton from "Components/ui/Skeletons/CategorySkeleton";
 import CategoryPagination from "../Pagination/Pagination";
 
