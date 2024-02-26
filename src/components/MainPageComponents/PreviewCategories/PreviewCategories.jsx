@@ -6,7 +6,6 @@ import { getCategories } from "../../../redux/categories/operations";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { Container, CategoriesList, Category, CategoryTitle, RecipesList, RecipeElement, RecipeImage, ButtonContainer } from "./PreviewCategories.styled";
 import { RecipeButton } from "../RecipeButton/RecipeButton";
-// import { SeeAllButton } from "../SeeAllButton/SeeAllButton";
 import { SeeAllButton } from "../SeeAllButton/SeeAllButton";
 import { OtherCategoriesButton } from "../OtherCategoriesButton/OtherCategoriesButton";
 
@@ -14,21 +13,20 @@ export const PreviewCategories = () => {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
     const [recipes, setRecipes] = useState([]);
-    // const [categories, setCategories] = useState([]);
     const popularCategories = categories.items; 
     const isMobile = useMediaQuery('(max-width:767px)');
     const isTablet = useMediaQuery('(min-width:768px) and (max-width:1199px)');
 
    useEffect(() => {
         dispatch(getCategories())
-    }, [dispatch, popularCategories])
+    }, [dispatch])
 
     useEffect(() => {
 
         const fetchRecipes = async () => {
-        
             try {
                 if (popularCategories.length > 0) {
+
                     const promises = popularCategories.map((category) => {
                         return dispatch(getMainPageRecipes(category));
                     });
@@ -47,9 +45,9 @@ export const PreviewCategories = () => {
             }
         };
         
-        if (popularCategories.length > 0) {
+        if (popularCategories.length > 0 && recipes.length < 4) {
             fetchRecipes();
-        }    }, [dispatch, popularCategories]);
+        }    }, [dispatch, popularCategories, recipes]);
 
     const getNumberOfRecipesToRender = () => {
         if (isMobile) {
