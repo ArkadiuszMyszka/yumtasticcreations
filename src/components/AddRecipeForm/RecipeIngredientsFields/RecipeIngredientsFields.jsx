@@ -128,7 +128,7 @@ const IngredientsFields = ({
                 id="sizeSelect"
                 required
                 type="text"
-                maxLength={4}
+                maxLength={6}
                 length={10}
                 name="size"
                 onChange={(e) =>

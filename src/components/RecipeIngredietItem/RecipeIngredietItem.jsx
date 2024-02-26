@@ -37,7 +37,7 @@ export default function RecipeIngredietItem({ recipeId, ingredient }) {
     );
 
     setIngredientInShoppingList(findIngredient);
-    setIsChecked(!findIngredient);
+    setIsChecked(!!findIngredient);
   }, [ingredient, recipeId, shoppingList]);
 
   const changeHandler = async () => {

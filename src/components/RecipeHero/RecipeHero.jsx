@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader.jsx";
 import PropTypes from "prop-types";
 import {
-  Clock,
   RecipeAddFavoriteButton,
   RecipeDescription,
   RecipeHeroLoader,
@@ -10,6 +9,7 @@ import {
   RecipeTime,
   RecipeTitle,
 } from "./RecipeHero.styled.jsx";
+import { FiClock } from "react-icons/fi";
 import { useRecipeContext } from "../../pages/RecipePage/RecipeContext.jsx";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/user/User.selectors.js";
@@ -54,8 +54,8 @@ function RecipeHero({ _id: recipeId, title, description, favorites, time }) {
         </RecipeAddFavoriteButton>
       )}
       <RecipeTime>
-        <Clock />
-        <p>{time}</p>
+        <FiClock />
+        <p>{time}min</p>
       </RecipeTime>
     </RecipeHeroWrap>
   );

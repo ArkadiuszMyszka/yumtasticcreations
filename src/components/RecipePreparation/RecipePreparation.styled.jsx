@@ -5,12 +5,12 @@ export const RecipePreparationContainer = styled.div`
   margin-top: 50px;
   gap: 40px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     margin-top: 96px;
     gap: 53px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: space-between;
     gap: 50px;
@@ -22,7 +22,7 @@ export const RecipePreparationContainer = styled.div`
 export const RecipePreparationBox = styled.div`
   margin-bottom: 40px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 50px;
   }
 `;
@@ -34,10 +34,11 @@ export const RecipePreparationHeader = styled.h2`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
+  font-feature-settings: "liga" off;
 
   color: #3e4462;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
 `;
@@ -82,12 +83,12 @@ export const RecipePreparationItem = styled.li`
     border-radius: 50%;
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 1.2;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 21px;
   }
 `;
@@ -102,12 +103,12 @@ export const RecipeImage = styled.img`
 
   object-fit: cover;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 433px;
     height: 332px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-shrink: 0;
   }
 `;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const AddRecipeIngredientsContainer = styled.div`
-  max-width: 375px;
+  max-width: 345px;
   padding-bottom: 44px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     max-width: 704px;
     padding-bottom: 100px;
   }
@@ -21,13 +21,15 @@ export const AddBoxTitle = styled.h2`
 export const Buttons = styled.div`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   width: 92px;
+  height: 28px;
   padding: 4px 10px;
   border: 1px solid rgba(51, 51, 51, 0.3);
   border-color: #7e7e7e;
   border-radius: 18px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 110px;
   }
 `;
@@ -35,19 +37,19 @@ export const IngredietsListSetting = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 12px;
+  padding-bottom: 22px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    padding-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 32px;
   }
 `;
 
 export const InputFieldsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 36px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     gap: 24px;
   }
 `;
@@ -58,37 +60,37 @@ export const FlexContainer = styled.div`
   align-items: center;
 `;
 export const SelectCust = styled.div`
-  width: 194px;
+  width: 200px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 398px;
   }
 `;
 
 export const Input = styled.input`
-  max-width: 84px;
+  max-width: 50px;
   border: none;
   text-align: end;
-  height: 53;
   border-radius: 6px 0 0 6px;
   background-color: #f5f5f5;
+  height: 50px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    max-width: 97px;
-    height: 59px;
+  @media screen and (min-width: 768px) {
+    height: 60px;
   }
 `;
 
 export const SelectUnit = styled.select`
-  max-width: 84px;
+  max-width: 60px;
 
   border: none;
   height: 50px;
-  padding: 5px;
+  padding: 4px;
   border-radius: 0 6px 6px 0;
-  background-color: #fff;
+  background-color: #f5f5f5;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    height: 59px;
+  @media screen and (min-width: 768px) {
+    /* max-width: px; */
+    height: 62px;
   }
 `;
