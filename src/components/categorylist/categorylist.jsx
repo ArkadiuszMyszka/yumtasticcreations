@@ -6,10 +6,9 @@ import { getCategoryRecipes } from "redux/categories/operations";
 import { selectCategories } from "redux/categories/selectors";
 
 import Alert from "Components/ui/Alert";
-import RecipesList from "src/components/SearchPage/RecipesList
-/RecipesList";
+import RecipesList from "src/components/SearchPage/RecipesList/RecipesList.jsx";
 import CategorySkeleton from "src/images/graphics/categorySvg/skeletonImg.svg";
-import CategoryPagination from "../Pagination/Pagination";
+import CategoryPagination from "../Pagination/Pagination.jsx";
 
 const SearchRecipesList = () => {
   const dispatch = useDispatch();

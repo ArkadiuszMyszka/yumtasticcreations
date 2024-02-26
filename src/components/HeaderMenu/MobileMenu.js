@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import burger from "../../images/ui/other_icons/menu_burger.svg";
 import Modal from "react-modal";
 import styled from "styled-components";
@@ -66,18 +66,31 @@ const ModalContent = styled.div`
   }
 `;
 
+// export const Navigation = styled.img`
+//   @media (min-width: 1200px) {
+//     display: none;
+//   }
+//   @media (min-width: 768px) and (max-width: 1199px) {
+//     width: 32px;
+//     height: 32px;
+//     margin-left: 36px;
+//   }
+//   margin-left: 10px;
+//   width: 28px;
+//   height: 28px;
+// `;
+
 export const Navigation = styled.img`
-  @media (min-width: 1200px) {
+  @media (max-width: 767px) {
+    display: block;
+    margin-left: 10px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+  @media (min-width: 768px) {
     display: none;
   }
-  @media (min-width: 768px) and (max-width: 1199px) {
-    width: 32px;
-    height: 32px;
-    margin-left: 36px;
-  }
-  margin-left: 10px;
-  width: 28px;
-  height: 28px;
 `;
 
 const SvgMenuIcon = styled.svg`
@@ -135,7 +148,7 @@ export const MobileMenu = () => {
   };
   const [isDark, setIsDark] = useState(false);
   return (
-    <body data-theme={isDark ? "dark" : "light"}>
+    <div data-theme={isDark ? "dark" : "light"}>
       <div>
         <Navigation onClick={openModal} src={burger}></Navigation>
         <ModalLayout isOpen={modalIsOpen} onRequestClose={closeModal}>
@@ -177,6 +190,8 @@ export const MobileMenu = () => {
           </ModalContent>
         </ModalLayout>
       </div>
-    </body>
+    </div>
   );
 };
+
+export default MobileMenu;

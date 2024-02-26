@@ -4,11 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Tab, useMediaQuery } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../redux/selectors/categories"; // Adjusted path
-import { StyledCategory, StyledCategoryList } from "./categorieslist.styled"; // Adjusted path
+import { StyledCategory, StyledCategoryList } from "./Categorieslist.styled"; // Adjusted path
 import Alert from "../ui/alert"; // Adjusted path
 import { useTheme } from "styled-components";
 import { getCategories } from "../../redux/actions/categories"; // Adjusted path
-
 
 const CategoriesList = () => {
   const { items, error } = useSelector(selectCategories);

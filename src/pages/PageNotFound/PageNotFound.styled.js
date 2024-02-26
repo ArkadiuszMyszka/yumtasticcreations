@@ -60,7 +60,7 @@ export const Title = styled.h2`
   }
 `;
 
-export const Text = styled.p`
+export const Textbox = styled.p`
   font-family: Poppins, sans-serif;
   font-weight: 400;
   font-size: 12px;

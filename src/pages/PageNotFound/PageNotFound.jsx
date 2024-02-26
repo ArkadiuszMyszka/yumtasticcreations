@@ -4,7 +4,7 @@ import {
   PageWrapper,
   PictureWrapper,
   Img,
-  Text,
+  Textbox,
   TextWrapper,
   Title,
 } from "./PageNotFound.styled.js";
@@ -20,7 +20,7 @@ export const PageNotFound = () => {
       </PictureWrapper>
       <TextWrapper>
         <Title>We are sorry,</Title>
-        <Text>but the page you were looking for can’t be found..</Text>
+        <Textbox>but the page you were looking for can’t be found..</Textbox>
       </TextWrapper>
     </PageWrapper>
   );

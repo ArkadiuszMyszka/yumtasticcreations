@@ -5,7 +5,7 @@ import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Loader from "../Loader/Loader.jsx";
 import { Layout } from "./SharedLayout.styled.js";
-// import NestedRoutes from "./NestedRoutes"; -przykładowe podłączenie pliku z routes
+// import PrivateRoutes from "./PrivateRoutes";
 
 export const SharedLayout = () => {
   return (
@@ -14,7 +14,7 @@ export const SharedLayout = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      {/* <NestedRoutes /> */}
+      {/* <PrivateRoutes /> */}
       <Footer />
     </Layout>
   );

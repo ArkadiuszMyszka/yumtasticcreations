@@ -5,8 +5,8 @@ import logo from "../../images/ui/logo/logo_mobile.svg";
 import logoWideScreen from "../../images/ui/logo/logo_desktop_tablet.svg";
 import search from "../../images/ui/other_icons/search.svg";
 import userData from "../ExampleUserData/ExampleUserData";
-import { MobileMenu, openModal } from "../HeaderMenu/HeaderMenu";
-import { Toggle } from "../../components/DarkModeToggle/DarkModeToggle.jsx";
+import MobileMenu from "../HeaderMenu/MobileMenu.js";
+import { Toggle } from "../DarkModeToggle/DarkModeToggle.jsx";
 import {
   Container,
   HeaderLogo,
@@ -14,17 +14,15 @@ import {
   Nav,
   ProfilePic,
   ProfileName,
-  Navigation,
   DesktopMenu,
   SvgIcon,
-} from "./Header.styled";
+} from "./Header.styled.js";
 
 export const Header = () => {
   const isWideScreen = useMediaQuery({ minWidth: 768 });
-  const isDesktop = useMediaQuery({ minWidth: 1200 });
   const [isDark, setIsDark] = useState(false);
   return (
-    <body data-theme={isDark ? "dark" : "light"}>
+    <div className={`header ${isDark ? "dark" : "light"}`}>
       <Container>
         <Menu>
           <div>
@@ -55,6 +53,8 @@ export const Header = () => {
           </Nav>
         </Menu>
       </Container>
-    </body>
+    </div>
   );
 };
+
+export default Header;
