@@ -136,7 +136,7 @@ export const Nav = styled.nav`
     align-items: flex-start;
     gap: 20px;
     position: absolute;
-    top: 125px;
+    bottom: -65%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
@@ -163,7 +163,7 @@ export const Newsletter = styled.div`
     margin-right: 55px;
     margin-top: 45px;
     position: absolute;
-    top: 0%;
+    bottom: -56%;
     right: -0%;
     width: 339px;
   }

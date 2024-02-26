@@ -8,12 +8,12 @@ export const BoxSelector = styled.div`
   gap: 15px;
   padding: 20px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px)  {
     height: 41px;
     gap: 18px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     height: 47px;
     gap: 25px;
   }
@@ -26,11 +26,11 @@ export const Label = styled.label`
   line-height: 1.5;
   color: #001833;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px)  {
     font-size: 14px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     font-size: 18px;
   }
 `;

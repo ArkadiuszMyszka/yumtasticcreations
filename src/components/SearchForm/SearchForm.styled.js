@@ -24,12 +24,12 @@ export const SearchFormInput = styled.input`
   box-shadow: 0px -1px 20px 3px #4546460a;
   outline: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     width: 362px;
     height: 57px;
     font-size: 16px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1200px) {
     width: 510px;
     height: 70px;
     font-size: 18px;
@@ -52,13 +52,13 @@ export const SearchButton = styled.button`
   border: none;
   transition: all 0.3s ease-out;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     width: 161px;
     height: 57px;
     font-size: 16px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media (min-width: 1200px) {
     width: 161px;
     height: 73px;
     font-size: 16px;
