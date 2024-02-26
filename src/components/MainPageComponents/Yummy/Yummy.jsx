@@ -18,7 +18,7 @@ import {
 } from "./Yummy.styled";
 import "./Yummy.css";
 import { useMediaQuery } from "react-responsive";
-import arrow from "../../images/ui/other_icons/arrow_right.svg";
+import arrow from "../../../images/ui/other_icons/arrow_right.svg"
 
 export const Yummy = () => {
   const isTablet = useMediaQuery({ minWidth: 768 });
