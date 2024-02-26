@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import "./Header.css";
 import { useState } from "react";
+import search from "../../images/ui/other_icons/search.svg";
 
 export const Container = styled.div`
   @media (min-width: 1200px) {
@@ -38,7 +39,7 @@ export const Menu = styled.object`
   width: 100vw;
   height: 46px;
   align-items: center;
-  background-color: var(--background-color);
+  background-color: transparent var(--background-color);
   transition: background-color 250ms ease-in-out;
 `;
 
@@ -119,8 +120,8 @@ export const DesktopMenu = () => {
 
   const items = [
     { text: "Categories", link: "/categories" },
-    { text: "Add Recipes", link: "/recipes" },
-    { text: "My recipes", link: "/myrecipes" },
+    { text: "Add Recipes", link: "/add" },
+    { text: "My recipes", link: "/my" },
     { text: "Favorites", link: "/favorites" },
     { text: "Shopping list", link: "/shoppinglist" },
   ];
@@ -138,6 +139,13 @@ export const DesktopMenu = () => {
               <a href={item.link}>{item.text}</a>
             </li>
           ))}
+          <li>
+            <a href="/search">
+              <SvgIcon>
+                <use href={`${search}#icon-search`}></use>
+              </SvgIcon>
+            </a>
+          </li>
         </ul>
       )}
     </div>
