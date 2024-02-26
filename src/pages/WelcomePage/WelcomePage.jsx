@@ -1,6 +1,6 @@
 import React from "react";
 import { Background, Container, LogoSVG, Title, Paragraph } from "./WelcomePage.styled";
-import { AuthNav } from "../../components/AuthNav/AuthNav";
+import { AuthNav } from "../../components/WelcomePageComponents/AuthNav/AuthNav";
 import logoSVG from '../../images/ui/logo/logo_desktop_tablet.svg'
 
 export const WelcomePage = () => {
