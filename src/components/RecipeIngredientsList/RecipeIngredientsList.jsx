@@ -12,7 +12,7 @@ export default function RecipeIngredients({ recipeId, ingredients }) {
       <RecipeIngredientsHeader>
         <RecipeIngredientsHeaderItem>Ingredients</RecipeIngredientsHeaderItem>
         <RecipeIngredientsHeaderItem>Number</RecipeIngredientsHeaderItem>
-        <RecipeIngredientsHeaderItem>Add ot list</RecipeIngredientsHeaderItem>
+        <RecipeIngredientsHeaderItem>Add to list</RecipeIngredientsHeaderItem>
       </RecipeIngredientsHeader>
       <RecipeIngredientsLists>
         {ingredients.map((ingredient) => (

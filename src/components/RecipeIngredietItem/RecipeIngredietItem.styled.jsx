@@ -9,11 +9,11 @@ export const RecipeIngredientLi = styled.li`
   background: #ebf3d4;
   border-radius: 8px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     padding: 16px 24px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     padding: 1px 32px;
   }
 `;
@@ -30,12 +30,12 @@ export const RecipeIngredientPhoto = styled.img`
   width: 57px;
   height: 57px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 112px;
     height: 112px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 128px;
     height: 128px;
   }
@@ -50,7 +50,7 @@ export const RecipeIngredientTitle = styled.p`
 
   color: #3e4462;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     margin-left: 24px;
 
     font-size: 24px;
@@ -58,7 +58,7 @@ export const RecipeIngredientTitle = styled.p`
     letter-spacing: -0.01em;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin-left: 40px;
   }
 `;
@@ -68,12 +68,12 @@ export const RecipeIngredieQuantity = styled.div`
   justify-content: center;
   border-radius: 4px;
   gap: 32px;
-
-  @media (min-width: 768px) and (max-width: 1199px) {
+  //
+  @media screen and (min-width: 768px) {
     gap: 78px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     gap: 151px;
   }
 `;
@@ -86,14 +86,14 @@ export const RecipeIngredietQuantityText = styled.p`
   font-weight: 600;
   font-size: 10px;
   line-height: 1.5;
-  text-align: right;
+  text-align: center;
 
   color: #fafafa;
 
   background: #8baa36;
   border-radius: 4px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     min-width: 62px;
     padding: 4px 8px;
 
@@ -108,10 +108,10 @@ export const RecipeIngredientFavorite = styled.div`
 
   width: 54px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 
@@ -125,6 +125,7 @@ export const RecipeIngredientCheckbox = styled.label`
   height: var(--checkbox-size);
   border: 1px solid rgba(126, 126, 126, 0.5);
   border-radius: 4px;
+  box-shadow: inset 0px 0px 0px 1px rgba(126, 126, 126, 0.5);
 
   &::before {
     content: "";
@@ -142,13 +143,13 @@ export const RecipeIngredientCheckbox = styled.label`
     transform: translate(-50%, -50%);
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     --checkbox-size: 35px;
     --checkbox-check-size: 17px;
     box-shadow: inset 0px 0px 0px 2px rgba(126, 126, 126, 0.5);
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     --checkbox-size: 35px;
     --checkbox-check-size: 17px;
   }
@@ -173,7 +174,7 @@ export const RecipeIngredientCheckboxLoader = styled.span`
 
   transform: scale(0.6);
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     transform: scale(1);
   }
 `;

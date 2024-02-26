@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const AddContainer = styled.div`
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
   }
@@ -13,11 +14,12 @@ export const TitlePopular = styled.h2`
   line-height: 1;
   display: inline-block;
   padding-bottom: 32px;
+  padding-top: 36px;
   font-weight: 600;
   font-size: 24px;
   color: #3e4462;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     padding-bottom: 40px;
   }
 `;
@@ -27,31 +29,29 @@ export const RecipeUl = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: center;
     gap: 32px;
-    padding-left: 0%;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
   }
 `;
 
 export const RecipeListItem = styled.li`
-  width: 171px;
+  min-width: 343px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    width: 167px;
-    padding-left: 0;
+  @media screen and (min-width: 768px) {
+    width: 334px;
   }
 
-  @media (min-width: 1200px) {
-    width: 159px;
+  @media screen and (min-width: 1440px) {
+    width: 318px;
   }
 `;
 
@@ -64,11 +64,11 @@ export const Image = styled.img`
   width: 104px;
   height: 85px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 102px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 97px;
   }
 `;
@@ -80,11 +80,11 @@ export const AddRecipeCard = styled.div`
   padding-bottom: 13px;
   width: 340px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     width: 330px;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 320px;
   }
 `;
@@ -105,6 +105,7 @@ export const CardText = styled.p`
   line-height: 1.33333;
   letter-spacing: -0.02em;
   color: #7e7e7e;
+  opacity: 0.6;
 `;
 
 export const AboutAddRecipe = styled.div`

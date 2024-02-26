@@ -1,127 +1,150 @@
 import styled from "styled-components";
 
 export const AddRecipeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: #fafafa;
-  padding-top: 25px;
+  padding-top: 50px;
   padding-bottom: 100px;
-  gap: 36px;
-  align-content: center;
-  align-items: center;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    padding-top: 29px;
-    padding-bottom: 100px;
-    gap: 50px;
+  @media screen and (min-width: 768px) {
+    padding-top: 73px;
+    padding-bottom: 200px;
   }
 
-  @media (min-width: 1200px) {
-    padding-top: 28px;
-  }
-`;
-
-export const Title = styled.h2`
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  color: #001833;
-  font-size: 28px;
-  display: flex;
-  right: -50%;
-
-  @media (min-width: 768px) and (max-width: 1199px) {
-    font-size: 32px;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 44px;
+  @media screen and (min-width: 1440px) {
+    padding-top: 102px;
   }
 `;
 
 export const AddRecipeBox = styled.div`
-  @media (min-width: 1200px) {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+`;
+
+export const Title = styled.h1`
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #001833;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0, 02em;
+  text-align: left;
+  margin-bottom: 72px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 44px;
+  }
+`;
+
+export const FormContainer = styled.div`
+  @media screen and (min-width: 1440px) {
     display: flex;
-    gap: 50px;
     justify-content: space-between;
   }
 `;
 
-export const AddRecipeDescript = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 343px;
+// img {
+//   display: block;
+//   width: 100%;
+//   height: auto;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    gap: 16px;
-    width: 393px;
-  }
+// }
 
-  @media (min-width: 1200px) {
-    gap: 20px;
-  }
-`;
-export const Form = styled.form`
-  padding-bottom: 100px;
-  @media (min-width: 1200px) {
-    padding-bottom: 0px;
-  }
-`;
-
-export const Svg = styled.svg`
-  max-width: "50px";
-  max-height: "50px";
-  stroke: black;
-`;
 export const FormImage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding-bottom: 22px;
+  gap: 32px;
+  font-size: 14px;
+  padding-bottom: 44px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    align-items: strech;
-    max-width: 350px;
-    padding-bottom: 52px;
+    align-items: stretch;
+    max-width: 704px;
+    padding-bottom: 104px;
     font-size: 16px;
     font-weight: 400;
   }
 
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
-    max-width: 400px;
-    gap: 20px;
-    padding-bottom: 50px;
+    max-width: 800px;
+    gap: 50px;
+    padding-bottom: 100px;
     font-size: 16px;
   }
 `;
 
 export const Input = styled.input`
+  display: flex;
   border-bottom: 1px solid #e0e0e0;
-  padding: 5px 0px;
-  border: none;
-  border-color: #bdbdbd;
+  padding: 10px 0px;
+  /* border: none; */
+  border-color: #e0e0e0;
   color: #000;
-  opacity: 0.5;
   font-size: 14px;
 
   &::placeholder {
     color: #000;
+    opacity: 0.5;
   }
 `;
 
+export const Camera = styled.svg`
+  fill: white;
+  height: 50px;
+  width: 50px;
+  top: -50px;
+  left: -50px;
+  align-items: center;
+  transform: translate(-50%, -50%);
+`;
+
+export const AddRecipeDescript = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 343px;
+
+  @media screen and (min-width: 768px) {
+    gap: 32px;
+    min-width: 400px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 40px;
+  }
+`;
 export const InputSelect = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
-  padding: 5px 0px;
+  padding: 10px 0px;
   border-color: #e0e0e0;
 `;
 export const InputSelectTitle = styled.p`
@@ -132,34 +155,40 @@ export const SelectCategory = styled.select`
   border: none;
   outline: none;
   font-weight: 400;
+  padding: 8px 26px 8px 14px;
+  min-width: 132px;
   font-size: 12px;
-  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
   border-radius: 6px;
+  color: #000;
+  background: #fff;
+  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
 `;
 
 export const SelectCooking = styled.select`
   border: none;
-  width: 100px;
-  text-align: center;
-
+  min-width: 132px;
   outline: none;
+  border-radius: 6px;
+  color: #000;
+  background: #fff;
+  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
 `;
 export const AddRecipeBoxTitle = styled.h2`
-  padding-bottom: 12px;
+  padding-bottom: 24px;
   font-weight: 600;
   font-size: 24px;
   line-height: 1;
   color: #3e4462;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
-    padding-bottom: 18px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 32px;
   }
 `;
 export const TextAreaContainer = styled.div`
-  max-width: 175px;
+  max-width: 360px;
   padding-bottom: 18px;
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     max-width: 500px;
 
     padding-bottom: 32px;
@@ -186,17 +215,17 @@ export const TextArea = styled.textarea`
     opacity: 0.5;
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     height: 220px;
     padding: 16px 28px;
   }
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     padding: 16px 22px;
   }
 `;
 
 export const AddRecipeFollowPopular = styled.div`
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 320px;
   }
 `;
@@ -217,12 +246,105 @@ export const ButtonAdd = styled.button`
 
   &:hover,
   &:focus {
-    color: #8baa36;
+    color: #fafafa;
 
     background-color: #8baa36;
   }
 
-  @media (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) {
     padding: 14px 64px;
+  }
+`;
+export const Section = styled.section`
+  position: relative;
+  padding-top: 114px;
+  min-width: 320px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 136px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 164px;
+  }
+`;
+
+export const SquareFirst = styled.div`
+  position: absolute;
+  top: 76px;
+  left: 104px;
+  width: 11px;
+  height: 11px;
+  transform: rotate(-25deg);
+  border-radius: 3px;
+  background-color: #8baa36;
+
+  @media screen and (min-width: 768px) {
+    left: 187px;
+    width: 14px;
+    height: 14px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 14px;
+    height: 14px;
+    top: 116px;
+    left: 228px;
+  }
+`;
+
+export const SquareSecond = styled(SquareFirst)`
+  top: 106px;
+  left: 490px;
+
+  @media screen and (min-width: 768px) {
+    top: 89px;
+    left: 694px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 13px;
+    height: 13px;
+    left: 805px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 13px;
+    height: 13px;
+    top: 129px;
+    left: 1149px;
+  }
+`;
+
+export const SquareBlack = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 401px;
+  width: 10px;
+  height: 10px;
+  top: 190px;
+  transform: rotate(-25deg);
+  border-radius: 3px;
+  background-color: #22252a;
+
+  @media screen and (min-width: 768px) {
+    top: 190px;
+    width: 13px;
+    height: 13px;
+    left: 555px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    top: 190px;
+    width: 13px;
+    height: 13px;
+    left: 705px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 13px;
+    height: 13px;
+    top: 250px;
+    left: 752px;
   }
 `;
