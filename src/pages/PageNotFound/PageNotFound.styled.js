@@ -37,11 +37,11 @@ export const TextWrapper = styled.div`
   text-align: center;
   min-width: 206px;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     width: 450px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     min-width: 500px;
   }
 `;
@@ -67,12 +67,12 @@ export const Text = styled.p`
   line-height: 18px;
   color: #8b8b8b;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 14px;
     line-height: 24px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     font-size: 16px;
   }
 `;

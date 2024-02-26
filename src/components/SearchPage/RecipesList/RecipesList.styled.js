@@ -11,7 +11,7 @@ export const List = styled.ul`
     gap: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1200px) {
     gap: 14px;
   }
 `;
@@ -32,7 +32,7 @@ export const ListItem = styled.li`
     padding-bottom: 50px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     padding-top: 90px;
   }
 
@@ -54,7 +54,7 @@ export const Thumb = styled.div`
     width: 336px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     width: 300px;
   }
 `;

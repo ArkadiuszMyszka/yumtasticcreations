@@ -19,7 +19,7 @@ export const CategoriesList = styled.ul`
   width: 704px;
   margin-top: 72px;
 }
-display: flex:
+display: flex;
 align-items: center;
 width: 343px;
 padding: 0;

@@ -12,7 +12,7 @@ export const RecipeItemContainer = styled.div`
   grid-template-columns: 124px auto;
   gap: 0 14px;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     grid-template-columns: 232px auto;
     gap: 0 24px;
     max-height: 288px;
@@ -20,7 +20,7 @@ export const RecipeItemContainer = styled.div`
     margin: 32px 40px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     padding: 40px 40px;
     grid-template-columns: 324px auto;
     max-height: 404px;
@@ -33,12 +33,12 @@ export const BackgroundImage = styled.img`
   height: 124px;
   border-radius: 8px;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     width: 228px;
     height: 232px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     width: 318px;
     height: 324px;
   }
@@ -50,11 +50,11 @@ export const RecipeDetails = styled.div`
   flex-direction: column;
   flex: 1;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     max-height: 232px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     max-height: 100%;
   }
 `;
@@ -73,13 +73,13 @@ export const RecipeTitle = styled.h3`
   font-weight: 500;
   line-height: 1em;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     padding-top: 0;
     font-size: 24px;
     line-height: 1.2em;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     font-size: 24px;
   }
 `;
@@ -96,12 +96,12 @@ export const RemoveButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     width: 38px;
     height: 38px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     width: 44px;
     height: 44px;
   }
@@ -110,12 +110,12 @@ export const RemoveButton = styled.button`
     width: 14px;
     height: 14px;
 
-    @media (min-width: 769px) and (max-width: 1024px) {
+    @media (min-width: 768px) and (max-width: 1199px) {
       width: 22px;
       height: 22px;
     }
 
-    @media (min-width: 1025px) {
+    @media (min-width: 1200px) {
       width: 24px;
       height: 24px;
     }
@@ -131,11 +131,11 @@ export const RecipeDescription = styled.p`
   letter-spacing: 0.02em;
   line-height: 1.2em;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     font-size: 14px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     font-size: 18px;
   }
 `;
@@ -167,13 +167,13 @@ export const SeeRecipeButton = styled.button`
   border-radius: 24px 44px;
   cursor: pointer;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     width: 138px;
     height: 45px;
     font-size: 14px;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1200px) {
     width: 172px;
     height: 59px;
     font-size: 16px;

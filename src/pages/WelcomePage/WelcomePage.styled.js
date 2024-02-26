@@ -75,6 +75,6 @@ color: white;
 font-weight: 400;
 font-size: 14px;
 line-height: 1.28;
-font-align: center;
+text-align: center;
 `;
 

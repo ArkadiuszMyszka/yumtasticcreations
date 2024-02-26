@@ -1,4 +1,4 @@
-/* Dla urządzeń mobilnych */
+/* for mobile */
 @media (max-width: 767px) {
   .container {
     max-width: 343px;
@@ -38,7 +38,7 @@
     margin-left: 5px;
   }
 
-  /* Dla pustej listy */
+  /* for empty list */
   .ShoppingList_empty::before {
     content: "";
     position: absolute;
@@ -62,8 +62,8 @@
   }
 }
 
-/* Dla tabletów */
-@media (min-width: 768px) and (max-width: 1439px) {
+/* for tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
   .container {
     max-width: 704px;
     margin: 0 auto;
@@ -102,7 +102,7 @@
     margin-left: 20px;
   }
 
-  /* Dla pustej listy */
+  /* for empty list */
   .ShoppingList_empty::before {
     content: "";
     position: absolute;
@@ -126,8 +126,8 @@
   }
 }
 
-/* Dla Desktop */
-@media (min-width: 1440px) {
+/* for desktop */
+@media (min-width: 1200px) {
   .container {
     max-width: 1240px;
     margin: 0 auto; 
@@ -165,7 +165,7 @@
     margin-left: 40px;
   }
 
-  /* Dla pustej listy */
+  /* for empty list */
   .ShoppingList_empty::before {
     content: "";
     position: absolute;
@@ -188,7 +188,7 @@
   }
 }
 
-/* Pozostałe style */
+/* other styles */
 
 .ShoppingList_title {
   text-align: left;
