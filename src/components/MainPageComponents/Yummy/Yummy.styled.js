@@ -24,9 +24,9 @@ export const Background = styled.main`
 `;
 
 export const CenterLeaf = styled.div`
-background-repeat: no-repeat;
-background-position: 35% 10%;
-background-size: 750px;
+  background-repeat: no-repeat;
+  background-position: 35% 10%;
+  background-size: 750px;
 `;
 
 export const CenterImage = styled.img`
@@ -228,7 +228,7 @@ export const HeroDiv = styled.div`
   flex-direction: column;
   align-items: center;
   @media (min-width: 1200px) {
-   margin-left: 100px;
+    margin-left: 100px;
   }
 `;
 
@@ -257,7 +257,7 @@ export const Highlight = styled.text`
 
 export const LabelContainer = styled.div`
 display: isTablet ? "none" : "block" 
-`
+`;
 
 export const LabelStyled = () => {
   const isTablet = useMediaQuery({
@@ -347,7 +347,6 @@ export const TrailedArrow = () => {
       : isTablet
       ? "rotate(6deg)"
       : "rotate(5deg)",
-    zIndex: 1,
   };
   const TrailSVG = {
     zIndex: 1,

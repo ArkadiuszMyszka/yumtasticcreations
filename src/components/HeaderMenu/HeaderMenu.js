@@ -12,21 +12,15 @@ import { Toggle } from "../DarkModeToggle/DarkModeToggle.jsx";
 const ModalLayout = styled(Modal)`
   width: 100vw;
   height: 100vh;
-  // position: fixed;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: #ebf3d4;
   padding: 20px;
   border: 1px solid #ccc;
-  z-index: 100;
+  z-index: 1000;
 `;
 const ModalContent = styled.div`
-  // Dodaj dowolne style CSS dla treści modala
   ul {
     display: flex;
     color: #333;
@@ -52,6 +46,11 @@ const ModalContent = styled.div`
       color: #8baa36;
       --color1: #8baa36;
     }
+  }
+  a {
+    text-decoration: none;
+    display: flex;
+    color: inherit;
   }
 
   button {
@@ -148,16 +147,28 @@ export const MobileMenu = () => {
               )}
             </div>
             <ul>
-              <li>Categories</li>
-              <li>Add recipes</li>
-              <li>My recipes</li>
-              <li>Favorites</li>
-              <li>Shopping list</li>
+              <a href="/categories">
+                <li>Categories</li>
+              </a>
+              <a href="/add">
+                <li>Add recipes</li>
+              </a>
+              <a href="/my">
+                <li>My recipes</li>
+              </a>
+              <a href="/favorites">
+                <li>Favorites</li>
+              </a>
+              <a href="/shoppinglist">
+                <li>Shopping list</li>
+              </a>
               <li>
-                <SvgMenuIcon>
-                  <use href={`${search}#icon-search`}></use>
-                </SvgMenuIcon>
-                Search
+                <a href="/search">
+                  <SvgMenuIcon>
+                    <use href={`${search}#icon-search`}></use>
+                  </SvgMenuIcon>
+                  Search
+                </a>
               </li>
             </ul>
             <Position>

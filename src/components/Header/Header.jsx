@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import logo from "../../images/ui/logo/logo_mobile.svg";
 import logoWideScreen from "../../images/ui/logo/logo_desktop_tablet.svg";
 import search from "../../images/ui/other_icons/search.svg";
-import userData from "../ExampleUserData/ExampleUserData";
+import { UserProfile } from "../ExampleUserData/ExampleUserData.js";
 import { MobileMenu, openModal } from "../HeaderMenu/HeaderMenu";
 import { Toggle } from "../../components/DarkModeToggle/DarkModeToggle.jsx";
 import {
@@ -35,14 +35,10 @@ export const Header = () => {
             )}
           </div>
           <DesktopMenu></DesktopMenu>
-
-          <SvgIcon>
-            <use href={`${search}#icon-search`}></use>
-          </SvgIcon>
-
           <Nav>
-            <ProfilePic src={userData.profileImage} alt="User Profile" />
-            <ProfileName>{userData.username}</ProfileName>
+            <UserProfile />
+            {/* <ProfilePic src={userData.profileImage} alt="User Profile" />
+            <ProfileName>{userData.username}</ProfileName> */}
             <MobileMenu />
             <div>
               {isWideScreen ? (
