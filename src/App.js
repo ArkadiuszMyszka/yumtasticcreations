@@ -45,9 +45,14 @@ import PublicRoutes from "./PublicRoutes.js";
 import PrivateRoutes from "./PrivateRoutes.js";
 import { SigninPage } from "./pages/SigninPage/SigninPage.jsx";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
+import { SearchPage } from "./pages/SearchPage/SearchPage.jsx";
+import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage.jsx";
+import AddRecipePage from "./pages/AddRecipePage/AddRecipePage.jsx";
+import { PageNotFound } from "./pages/PageNotFound/PageNotFound.jsx";
+import { RecipePage } from "./pages/RecipePage/RecipePage.jsx";
 
 const App = () => {
-  const isAuthenticated = false; // Sprawdź, czy użytkownik jest zalogowany
+  const isAuthenticated = false;
 
   return (
     <Provider store={store}>
@@ -68,6 +73,11 @@ const App = () => {
           <Route index element={<PublicRoutes />} />
           <Route path="/signin" element={<SigninPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/recipe/:recipeId" element={<RecipePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/my" element={<MyRecipesPage />} />
+          <Route path="/add" element={<AddRecipePage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
     </Provider>
