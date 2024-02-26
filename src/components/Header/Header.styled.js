@@ -59,7 +59,7 @@ export const ProfilePic = styled.img`
   border-radius: 50%;
   object-fit: cover;
 `;
-export const ProfileName = styled.text`
+export const ProfileName = styled.div`
   @media (min-width: 768px) {
     font-size: 14px;
   }
@@ -99,13 +99,13 @@ export const DesktopMenu = () => {
     gap: "30px",
   };
 
-  const Svg = {
-    fill: "#8baa36",
-    height: "32px",
-    width: "32px",
-    transition: "0.5s",
-    cursor: "pointer",
-  };
+  // const Svg = {
+  //   fill: "#8baa36",
+  //   height: "32px",
+  //   width: "32px",
+  //   transition: "0.5s",
+  //   cursor: "pointer",
+  // };
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -120,7 +120,7 @@ export const DesktopMenu = () => {
   const items = [
     { text: "Categories", link: "/categories" },
     { text: "Add Recipes", link: "/recipes" },
-    { text: "My recipes", link: "/myrecipes" },
+    { text: "My recipes", link: "/my" },
     { text: "Favorites", link: "/favorites" },
     { text: "Shopping list", link: "/shoppinglist" },
   ];
@@ -134,7 +134,8 @@ export const DesktopMenu = () => {
               key={index}
               className={`list-item ${hoveredIndex === index ? "hovered" : ""}`}
               onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}>
+              onMouseLeave={handleMouseLeave}
+            >
               <a href={item.link}>{item.text}</a>
             </li>
           ))}

@@ -1,20 +1,22 @@
+// SharedLayout.jsx
+import React from "react";
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Loader from "../Loader/Loader.jsx";
 import { Layout } from "./SharedLayout.styled.js";
-// import PrivateRoutes from "./PrivateRoutes";
 
-export const SharedLayout = () => {
+const SharedLayout = ({ children }) => {
+  const navigate = useNavigate();
+
   return (
     <Layout>
       <Header />
       <Suspense fallback={<Loader />}>
         <Outlet />
+        {children && React.cloneElement(children, { navigate })}
       </Suspense>
-      {/* <PrivateRoutes /> */}
       <Footer />
     </Layout>
   );

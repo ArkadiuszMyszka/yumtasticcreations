@@ -24,9 +24,9 @@ export const Background = styled.main`
 `;
 
 export const CenterLeaf = styled.div`
-background-repeat: no-repeat;
-background-position: 35% 10%;
-background-size: 750px;
+  background-repeat: no-repeat;
+  background-position: 35% 10%;
+  background-size: 750px;
 `;
 
 export const CenterImage = styled.img`
@@ -219,7 +219,7 @@ export const Title = styled.h1`
     margin-top: 162px;
   }
 `;
-export const TitleLeft = styled.text`
+export const TitleLeft = styled.div`
   color: #8baa36;
 `;
 
@@ -228,11 +228,11 @@ export const HeroDiv = styled.div`
   flex-direction: column;
   align-items: center;
   @media (min-width: 1200px) {
-   margin-left: 100px;
+    margin-left: 100px;
   }
 `;
 
-export const TitleDescription = styled.text`
+export const TitleDescription = styled.div`
   font-size: 14px;
   line-height: 1.28571;
   letter-spacing: -0.02em;
@@ -251,13 +251,13 @@ export const TitleDescription = styled.text`
   }
 `;
 
-export const Highlight = styled.text`
+export const Highlight = styled.div`
   color: #8baa36;
 `;
 
-export const LabelContainer = styled.div`
-display: isTablet ? "none" : "block" 
-`
+// export const LabelContainer = styled.div`
+// display: isTablet? "none" : "block"
+// `;
 
 export const LabelStyled = () => {
   const isTablet = useMediaQuery({

@@ -194,7 +194,7 @@ export const TextAreaContainer = styled.div`
     padding-bottom: 32px;
   }
 `;
-export const TextArea = styled.textarea`
+export const TextArea = styled.div`
   resize: none;
   padding: 10px 16px;
   width: 100%;

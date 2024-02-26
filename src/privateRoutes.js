@@ -11,6 +11,7 @@ const PrivateRoutes = () => {
   return (
     <Routes>
       {/* <Route path="/main" element={<MainPage />} /> */}
+      <Route path="/recipe" element={<RecipePage />} />
       <Route path="/recipe/:recipeId" element={<RecipePage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/my" element={<MyRecipesPage />} />

@@ -34,7 +34,6 @@
 
 // export default App;
 
-// App.jsx
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -48,7 +47,7 @@ const PublicRoutes = lazy(() => import("./PublicRoutes.js"));
 const PrivateRoutes = lazy(() => import("./PrivateRoutes.js"));
 
 const App = () => {
-  const isAuthenticated = true; // Sprawdź, czy użytkownik jest zalogowany
+  const isAuthenticated = false; // Sprawdź, czy użytkownik jest zalogowany
 
   return (
     <Provider store={store}>
@@ -66,15 +65,16 @@ const App = () => {
                 ) : (
                   <WelcomePage />
                 )}
+                <div>Current Path: {window.location.pathname}</div>
+                <div>Is Authenticated: {isAuthenticated ? "Yes" : "No"}</div>
               </Suspense>
             }
           />
           <Route
             path="/signin"
             element={
-              <Suspense fallback={<Loader />}>
-                {/* renderuj stronę logowania */}
-              </Suspense>
+              // renderuj stronę logowania
+              <div>Hello, Signin Page!</div>
             }
           />
         </Routes>
