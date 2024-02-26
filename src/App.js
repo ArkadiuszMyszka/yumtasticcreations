@@ -10,7 +10,6 @@ import { SigninPage } from "./pages/SigninPage/SigninPage.jsx";
 import { RecipePage } from "./pages/RecipePage/RecipePage.jsx";
 import { SearchPage } from "./pages/SearchPage/SearchPage.jsx";
 import MyRecipesPage from "./pages/MyRecipesPage/MyRecipesPage.jsx";
-// import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage.jsx";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound.jsx";
 
@@ -20,7 +19,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<WelcomePage />} />
-          {/* <Route path="/" element={<SharedLayout />} /> */}
           <Route path="/main" element={<MainPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/signin" element={<SigninPage />} />
@@ -36,3 +34,29 @@ function App() {
 }
 
 export default App;
+
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+// import PublicRoutes from "./PublicRoutes";
+// import PrivateRoutes from "./PrivateRoutes";
+// import SharedLayout from "./SharedLayout";
+
+// const App = () => {
+//   const isAuthenticated = true; // Sprawdzamy, czy użytkownik jest zalogowany
+
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route
+//           path="/"
+//           element={isAuthenticated ? <SharedLayout /> : <Navigate to="/signin" />}
+//         >
+//           <Route index element={<PublicRoutes />} />
+//           <Route path="/*" element={<PrivateRoutes />} />
+//         </Route>
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
