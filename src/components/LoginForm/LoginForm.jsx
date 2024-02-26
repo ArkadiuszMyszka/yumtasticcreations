@@ -37,7 +37,7 @@ export const LoginForm = () => {
           .then((response) => {
             console.log("Login successful", response);
             localStorage.setItem("authToken", response.data.token);
-            window.location.href = "/search";
+            window.location.href = "/main";
           })
           .catch((error) => {
             console.error("Login error", error.response.data.message);
