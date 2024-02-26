@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
-export const SeeAllBtn = styled(Link)`
+export const SeeAllBtn = styled.button`
   display: flex;
   border: none;
   background-color: #8aa936;

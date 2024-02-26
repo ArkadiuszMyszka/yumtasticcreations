@@ -168,7 +168,7 @@ export const SeeAllButton = styled(Link)`
   }
 `;
 
-export const OtherCategoriesButton = styled(Link)`
+export const OtherCategoriesButton = styled.button`
   @media (min-width: 1200px) {
     margin-bottom: 118px;
   }

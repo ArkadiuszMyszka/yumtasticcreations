@@ -4,22 +4,24 @@ import { selectCategories } from "../../../redux/categories/selectors";
 import { getMainPageRecipes } from "../../../redux/mainPageRecipes/operations";
 import { getCategories } from "../../../redux/categories/operations";
 import { useMediaQuery } from "@uidotdev/usehooks";
-import { Container, CategoriesList, Category, CategoryTitle, RecipesList, RecipeElement, RecipeImage, ButtonContainer, OtherCategoriesButton } from "./PreviewCategories.styled";
+import { Container, CategoriesList, Category, CategoryTitle, RecipesList, RecipeElement, RecipeImage, ButtonContainer } from "./PreviewCategories.styled";
 import { RecipeButton } from "../RecipeButton/RecipeButton";
 // import { SeeAllButton } from "../SeeAllButton/SeeAllButton";
 import { SeeAllButton } from "../SeeAllButton/SeeAllButton";
+import { OtherCategoriesButton } from "../OtherCategoriesButton/OtherCategoriesButton";
 
 export const PreviewCategories = () => {
     const dispatch = useDispatch();
     const categories = useSelector(selectCategories);
     const [recipes, setRecipes] = useState([]);
+    // const [categories, setCategories] = useState([]);
     const popularCategories = categories.items; 
     const isMobile = useMediaQuery('(max-width:767px)');
     const isTablet = useMediaQuery('(min-width:768px) and (max-width:1199px)');
 
    useEffect(() => {
         dispatch(getCategories())
-    }, [dispatch])
+    }, [dispatch, popularCategories])
 
     useEffect(() => {
 
@@ -59,6 +61,8 @@ export const PreviewCategories = () => {
         }
     };
 
+    
+
 return (
     <Container>
         <CategoriesList>
@@ -71,21 +75,19 @@ return (
                     {category.recipes.slice(0, getNumberOfRecipesToRender()).map((recipe) => {
                             return ( 
                             <RecipeElement>    
-                            <RecipeButton to={`categories/${category.title}`} children={recipe.title} />
+                            <RecipeButton to={`/recipe/${recipe._id}`} title={recipe.title}/>
                             <RecipeImage src={recipe.thumb} alt={recipe.title} />
                             </RecipeElement>
                             )
                         })}
                     </RecipesList>
                     <ButtonContainer>
-                    <SeeAllButton to={category.title} />
+                    <SeeAllButton to={`/categories/${category.title}`} />
                    </ButtonContainer>
                 </Category>
             ))}
         </CategoriesList>
-        <OtherCategoriesButton to="categories">
-            Other Categories
-        </OtherCategoriesButton>
+        <OtherCategoriesButton to={"/categories"} />
     </Container>
 )
 };

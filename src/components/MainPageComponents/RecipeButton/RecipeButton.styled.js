@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
 
-export const RecipeBtn = styled(Link)`
+export const RecipeBtn = styled.button`
 @media (min-width: 1200px) {
   width: 268px;
   top: 248px;

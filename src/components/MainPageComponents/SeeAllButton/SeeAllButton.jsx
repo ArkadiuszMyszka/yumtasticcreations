@@ -6,7 +6,7 @@ export const SeeAllButton = ({ to }) => {
     const navigate = useNavigate();
   
     const handleClick = () => {
-      navigate(`categories/`);
+      navigate(to);
     };
       
     return (
