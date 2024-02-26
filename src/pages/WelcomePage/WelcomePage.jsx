@@ -25,3 +25,5 @@ export const WelcomePage = () => {
     </Background>
   );
 };
+
+export default WelcomePage;

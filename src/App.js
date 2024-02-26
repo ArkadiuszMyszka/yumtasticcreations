@@ -34,17 +34,17 @@
 
 // export default App;
 
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
-import Loader from "./components/Loader/Loader.jsx";
-import "./App.css";
-
-const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage.jsx"));
-const PublicRoutes = lazy(() => import("./PublicRoutes.js"));
-const PrivateRoutes = lazy(() => import("./PrivateRoutes.js"));
+// import Loader from "./components/Loader/Loader.jsx";
+import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
+import PublicRoutes from "./PublicRoutes.js";
+import PrivateRoutes from "./PrivateRoutes.js";
+import { SigninPage } from "./pages/SigninPage/SigninPage.jsx";
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
 
 const App = () => {
   const isAuthenticated = false; // Sprawdź, czy użytkownik jest zalogowany
@@ -56,27 +56,18 @@ const App = () => {
           <Route
             path="/"
             element={
-              <Suspense fallback={<Loader />}>
-                {isAuthenticated ? (
-                  <SharedLayout>
-                    <Route index element={<PublicRoutes />} />
-                    <Route path="/*" element={<PrivateRoutes />} />
-                  </SharedLayout>
-                ) : (
-                  <WelcomePage />
-                )}
-                <div>Current Path: {window.location.pathname}</div>
-                <div>Is Authenticated: {isAuthenticated ? "Yes" : "No"}</div>
-              </Suspense>
+              isAuthenticated ? (
+                <SharedLayout>
+                  <Route path="/*" element={<PrivateRoutes />} />
+                </SharedLayout>
+              ) : (
+                <WelcomePage />
+              )
             }
           />
-          <Route
-            path="/signin"
-            element={
-              // renderuj stronę logowania
-              <div>Hello, Signin Page!</div>
-            }
-          />
+          <Route index element={<PublicRoutes />} />
+          <Route path="/signin" element={<SigninPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </Router>
     </Provider>
